@@ -13,7 +13,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="Spain Vacances" FontSize="42" Margin="50,32,0,32"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="France Vacances" FontSize="42" Margin="50,32,0,32"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="France Vacances offers high end cottages at affordable prices." Margin="50,88,0,12" Grid.Row="0"/>
 
         <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" Grid.Row="1" CompactPaneLength="50" OpenPaneLength="200" >
@@ -48,25 +48,13 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <Grid>
-                    <TextBlock Text="SplitView Basic" FontSize="54" Foreground="White"
-                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBox Grid.Column="0" PlaceholderText="Destination" Margin="50,0,880,0" Height="40" VerticalAlignment="Top" Width="300"/>
+                    <StackPanel Grid.Column="0" Margin="50,40,0,0" Orientation="Horizontal">
+                        <CalendarDatePicker PlaceholderText="From" HorizontalAlignment="Stretch" Margin="0" Height="32" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Width="150" />
+                        <CalendarDatePicker PlaceholderText="To" HorizontalAlignment="Stretch" Margin="0" Height="32" VerticalAlignment="Top" Width="150"/>
+                    </StackPanel>
                 </Grid>
             </SplitView.Content>
         </SplitView>
-
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-
-            <TextBox Grid.Column="0" PlaceholderText="Destination" Margin="50,0,77,0" Height="40" VerticalAlignment="Top" Width="300"/>
-            <StackPanel Grid.Column="0" Margin="50,40,0,0" Orientation="Horizontal">
-                <CalendarDatePicker PlaceholderText="From" HorizontalAlignment="Stretch" Margin="0" Height="32" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Width="150" />
-                <CalendarDatePicker PlaceholderText="To" HorizontalAlignment="Stretch" Margin="0" Height="32" VerticalAlignment="Top" Width="150"/>
-            </StackPanel>
-        </Grid>
     </Grid>
-
 </Page>
