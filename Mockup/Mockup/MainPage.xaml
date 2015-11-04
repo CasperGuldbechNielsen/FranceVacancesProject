@@ -13,7 +13,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="Fnce Vacances" FontSize="42" Margin="50,32,0,32"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="Spain Vacances" FontSize="42" Margin="50,32,0,32"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="France Vacances offers high end cottages at affordable prices." Margin="50,88,0,12" Grid.Row="0"/>
 
         <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" Grid.Row="1" CompactPaneLength="50" OpenPaneLength="200" >
