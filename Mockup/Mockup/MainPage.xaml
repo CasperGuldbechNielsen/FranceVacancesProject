@@ -7,54 +7,48 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="120"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
+    <StackPanel>
+        <StackPanel>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="France Vacances" FontSize="42" Margin="50,32,0,0"/>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="France Vacances offers high end cottages at affordable prices." Margin="50,0,0,12" Grid.Row="0"/>
 
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="France Vacances" FontSize="42" Margin="50,32,0,32"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="France Vacances offers high end cottages at affordable prices." Margin="50,88,0,12" Grid.Row="0"/>
+            <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" Grid.Row="1" CompactPaneLength="50" OpenPaneLength="200" >
+                <SplitView.Pane>
+                    <StackPanel Background="Gray">
+                        <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="HomeButton" FontFamily="Segoe MDL2 Assets" Content="&#xE10F;" Width="50" Height="50" Background="Transparent" Click="HomeButton_OnClick"/>
+                            <TextBlock Text="Home" FontSize="18" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="LocationsButton" FontFamily="Segoe MDL2 Assets" Content="&#xE1D1;" Width="50" Height="50" Background="Transparent" Click="LocationsButton_OnClick"/>
+                            <TextBlock Text="Locations" FontSize="18" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="MostPopularButton" FontFamily="Segoe MDL2 Assets" Content="&#xE24A;" Width="50" Height="50" Background="Transparent" Click="MostPopularButton_OnClick"/>
+                            <TextBlock Text="Most Popular" FontSize="18" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="MapButton" FontFamily="Segoe MDL2 Assets" Content="&#xE128;" Width="50" Height="50" Background="Transparent" Click="MapButton_OnClick"/>
+                            <TextBlock Text="Map" FontSize="18" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="ProfileButton" FontFamily="Segoe MDL2 Assets" Content="&#xE170;" Width="50" Height="50" Background="Transparent" Click="ProfileButton_OnClick"/>
+                            <TextBlock Text="Profile" FontSize="18" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="ContactButton" FontFamily="Segoe MDL2 Assets" Content="&#xE166;" Width="50" Height="50" Background="Transparent" Click="ContactButton_OnClick"/>
+                            <TextBlock Text="Contact" FontSize="18" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+                </SplitView.Pane>
+                <SplitView.Content>
+                    <Frame Name="MyFrame">
 
-        <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" Grid.Row="1" CompactPaneLength="50" OpenPaneLength="200" >
-            <SplitView.Pane>
-                <StackPanel Background="Gray">
-                    <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="MenuButton1" FontFamily="Segoe MDL2 Assets" Content="&#xE10F;" Width="50" Height="50" Background="Transparent"/>
-                        <TextBlock Text="Start Page" FontSize="18" VerticalAlignment="Center" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="MenuButton2" FontFamily="Segoe MDL2 Assets" Content="&#xE1D1;" Width="50" Height="50" Background="Transparent"/>
-                        <TextBlock Text="Locations" FontSize="18" VerticalAlignment="Center" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE24A;" Width="50" Height="50" Background="Transparent"/>
-                        <TextBlock Text="Most Popular" FontSize="18" VerticalAlignment="Center" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="MenuButton4" FontFamily="Segoe MDL2 Assets" Content="&#xE128;" Width="50" Height="50" Background="Transparent"/>
-                        <TextBlock Text="Map" FontSize="18" VerticalAlignment="Center" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="MenuButton5" FontFamily="Segoe MDL2 Assets" Content="&#xE170;" Width="50" Height="50" Background="Transparent"/>
-                        <TextBlock Text="Profile" FontSize="18" VerticalAlignment="Center" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="MenuButton6" FontFamily="Segoe MDL2 Assets" Content="&#xE166;" Width="50" Height="50" Background="Transparent"/>
-                        <TextBlock Text="Contact" FontSize="18" VerticalAlignment="Center" />
-                    </StackPanel>
-                </StackPanel>
-            </SplitView.Pane>
-            <SplitView.Content>
-                <Grid>
-                    <TextBox Grid.Column="0" PlaceholderText="Destination" Margin="50,0,880,0" Height="40" VerticalAlignment="Top" Width="300"/>
-                    <StackPanel Grid.Column="0" Margin="50,40,0,0" Orientation="Horizontal">
-                        <CalendarDatePicker PlaceholderText="From" HorizontalAlignment="Stretch" Margin="0" Height="32" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Width="150" />
-                        <CalendarDatePicker PlaceholderText="To" HorizontalAlignment="Stretch" Margin="0" Height="32" VerticalAlignment="Top" Width="150"/>
-                    </StackPanel>
-                </Grid>
-            </SplitView.Content>
-        </SplitView>
-    </Grid>
+                    </Frame>
+                </SplitView.Content>
+            </SplitView>
+        </StackPanel>
+        
+    </StackPanel>
 </Page>

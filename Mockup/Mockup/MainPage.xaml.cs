@@ -25,11 +25,42 @@ namespace Mockup
         public MainPage()
         {
             this.InitializeComponent();
+            MyFrame.Navigate(typeof (HomePage));
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {
             MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+        }
+
+        private void HomeButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Navigate(typeof(HomePage));
+        }
+
+        private void LocationsButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Navigate(typeof (Locations));
+        }
+
+        private void MostPopularButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Navigate(typeof(MostPopular));
+        }
+
+        private void MapButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Navigate(typeof(Map));
+        }
+
+        private void ProfileButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Navigate(typeof(Profile));
+        }
+
+        private void ContactButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Navigate(typeof(Contact));
         }
     }
 }
