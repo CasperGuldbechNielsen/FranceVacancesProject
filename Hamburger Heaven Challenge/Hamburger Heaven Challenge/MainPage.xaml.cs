@@ -92,6 +92,7 @@ namespace Hamburger_Heaven_Challenge
             if (MyFrame.CanGoBack)
             {
                 MyFrame.GoBack();
+                
             }
         }
     }

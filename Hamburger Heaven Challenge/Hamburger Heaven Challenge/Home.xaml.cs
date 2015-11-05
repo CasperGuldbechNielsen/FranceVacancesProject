@@ -25,6 +25,7 @@ namespace Hamburger_Heaven_Challenge
         public Home()
         {
             this.InitializeComponent();
+            
         }
     }
 }
