@@ -26,25 +26,58 @@ namespace Hamburger_Heaven_Challenge
         {
             this.InitializeComponent();
             MyFrame.Navigate(typeof(Financial));
+            BackButton.Visibility = Visibility.Visible;
         }
 
         private void IconsLIstBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (FinancialListItem.IsSelected)
+            if (HomeListItem.IsSelected)
             {
                 MySplitView.IsPaneOpen = false;
                 if (MySplitView.Content != null)
                     ((Frame)MySplitView.Content).Navigate(typeof(Financial));
-                Title.Text = "Financial";
-                BackButton.Visibility = Visibility.Collapsed;
+                Title.Text = "Home";
+                BackButton.Visibility = Visibility.Visible;
 
             }
-            else if (FoodListBoxItem.IsSelected)
+            else if (LocationsListBoxItem.IsSelected)
             {
                 MySplitView.IsPaneOpen = false;
                 if (MySplitView.Content != null)
                     ((Frame)MySplitView.Content).Navigate(typeof(Food));
-                Title.Text = "Food";
+                Title.Text = "Locations";
+                BackButton.Visibility = Visibility.Visible;
+            }
+            else if (MostPopularListBoxItem.IsSelected)
+            {
+                MySplitView.IsPaneOpen = false;
+                if (MySplitView.Content != null)
+                    ((Frame)MySplitView.Content).Navigate(typeof(MostPopular));
+                Title.Text = "Most Popular";
+                BackButton.Visibility = Visibility.Visible;
+            }
+            else if (MapListBoxItem.IsSelected)
+            {
+                MySplitView.IsPaneOpen = false;
+                if (MySplitView.Content != null)
+                    ((Frame)MySplitView.Content).Navigate(typeof(Map));
+                Title.Text = "Map";
+                BackButton.Visibility = Visibility.Visible;
+            }
+            else if (ProfileListBoxItem.IsSelected)
+            {
+                MySplitView.IsPaneOpen = false;
+                if (MySplitView.Content != null)
+                    ((Frame)MySplitView.Content).Navigate(typeof(Profile));
+                Title.Text = "Profile";
+                BackButton.Visibility = Visibility.Visible;
+            }
+            else if (ContactListBoxItem.IsSelected)
+            {
+                MySplitView.IsPaneOpen = false;
+                if (MySplitView.Content != null)
+                    ((Frame)MySplitView.Content).Navigate(typeof(Contact));
+                Title.Text = "Contact";
                 BackButton.Visibility = Visibility.Visible;
             }
         }
