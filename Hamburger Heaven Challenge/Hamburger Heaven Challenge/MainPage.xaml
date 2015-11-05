@@ -16,7 +16,7 @@
         <!--Header-->
         <RelativePanel>
             <Button Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="28" Height="48" Width="48" Click="HamburgerButton_OnClick"/>
-            <TextBlock Name="Title" Text="Financial" FontSize="36" RelativePanel.RightOf="BackButton" HorizontalAlignment="Right" Width="138" Margin="20,0,0,0"/>
+            <TextBlock Name="Title" Text="Home" FontSize="36" RelativePanel.RightOf="BackButton" HorizontalAlignment="Right" Width="138" Margin="20,0,0,0"/>
             <Button Name="SearchButton" FontFamily="Segoe MDL2 Assets" Content="&#xE1a3;" FontSize="28" Height="48" Width="48" RelativePanel.AlignRightWithPanel="True"/>
             <TextBox Name="SearchField" Width="200" Height="48" FontSize="24"  RelativePanel.LeftOf="SearchButton" BorderBrush="#FFCCCCCC" Background="LightGray" PlaceholderText="Search"/>
             <Button Name="BackButton" FontFamily="Segoe MDL2 Assets" Margin="20,0,0,0" Content="&#xE0C4;" FontSize="28" Height="48" Width="48" RelativePanel.RightOf="HamburgerButton" Background="#33FFFFFF" Visibility="Collapsed" Click="BackButton_OnClick"/>
