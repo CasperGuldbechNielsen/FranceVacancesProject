@@ -7,20 +7,9 @@
     xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
     x:Class="Hamburger_Heaven_Challenge.Map"
     mc:Ignorable="d">
-
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Maps:MapControl x:Name="MyMap" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="700" Width="1260">
-            <Maps:MapItemsControl x:Name="MapItems">
-                <Maps:MapItemsControl.ItemTemplate>
-                    <DataTemplate>
-
-                        <Image Height="50" Width="50"
-                               Source="{Binding image,Mode=OneWay}"
-                       Maps:MapControl.Location="{Binding Geopoint}"/>
-
-                    </DataTemplate>
-                </Maps:MapItemsControl.ItemTemplate>
-            </Maps:MapItemsControl>
         </Maps:MapControl>
     </Grid>
 </Page>

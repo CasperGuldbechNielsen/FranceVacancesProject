@@ -1,18 +1,34 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using Windows.Devices.Geolocation;
 
 namespace Hamburger_Heaven_Challenge
 {
     
+
     internal class PushPin
     {
 
-        public Geopoint Geopoint { get; set; }
+        private ObservableCollection<Geopoint> items;
 
-
-        public PushPin(double latitude, double longitude)
+        public PushPin()
         {
-            Geopoint = new Geopoint(new BasicGeoposition() { Latitude = latitude, Longitude = longitude });
+            items = new ObservableCollection<Geopoint>();
         }
+
+        public void AddPushPin(double latitude, double longitude)
+        {
+            items.Add(new Geopoint(new BasicGeoposition() { Latitude = latitude, Longitude = longitude }));
+        }
+
+        public Geopoint MyGeopoint(int i)
+        {
+            return items[i];
+        }
+
+        public ObservableCollection<Geopoint> Items()
+        {
+            return items;
+        } 
     }
 }
