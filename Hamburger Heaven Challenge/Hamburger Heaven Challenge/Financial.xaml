@@ -7,7 +7,25 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     
-    <TextBlock>Test</TextBlock>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="400"/>
+            <RowDefinition/>        
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <RelativePanel>
+            <AutoSuggestBox Name="AutoSuggestBox" PlaceholderText="Destination" Width="300" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,100,0,0"/>
+            <CalendarDatePicker RelativePanel.Below="AutoSuggestBox" RelativePanel.AlignLeftWith="AutoSuggestBox" Margin="0,20,0,0"/>
+            <CalendarDatePicker RelativePanel.Below="AutoSuggestBox" RelativePanel.AlignRightWith="AutoSuggestBox" Margin="0,20,0,0"/>
+        </RelativePanel>
+        
+
+    </Grid>
     
     
 </Page>
