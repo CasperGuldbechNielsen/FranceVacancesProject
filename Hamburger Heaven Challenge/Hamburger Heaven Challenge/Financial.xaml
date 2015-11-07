@@ -19,7 +19,12 @@
         </Grid.ColumnDefinitions>
 
         <RelativePanel>
-            <AutoSuggestBox Name="AutoSuggestBox" PlaceholderText="Destination" Width="300" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,100,0,0"/>
+            <AutoSuggestBox Name="AutoSuggestBox" 
+                            PlaceholderText="Destination" 
+                            Width="300" 
+                            RelativePanel.AlignHorizontalCenterWithPanel="True" 
+                            Margin="0,100,0,0"
+                            TextChanged="AutoSuggestBox_OnTextChanged"/>
             <CalendarDatePicker RelativePanel.Below="AutoSuggestBox" RelativePanel.AlignLeftWith="AutoSuggestBox" Margin="0,20,0,0"/>
             <CalendarDatePicker RelativePanel.Below="AutoSuggestBox" RelativePanel.AlignRightWith="AutoSuggestBox" Margin="0,20,0,0"/>
         </RelativePanel>
