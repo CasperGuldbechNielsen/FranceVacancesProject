@@ -27,7 +27,8 @@ namespace Hamburger_Heaven_Challenge
         {
             this.InitializeComponent();
             MyFrame.Navigate(typeof(Financial));
-            BackButton.Visibility = Visibility.Visible;
+            BackButton.Visibility = Visibility.Collapsed;
+            Title.Margin = new Thickness(68,0,0,0);
         }
 
         private void IconsLIstBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -39,6 +40,11 @@ namespace Hamburger_Heaven_Challenge
                     ((Frame)MySplitView.Content).Navigate(typeof(Financial));
                 Title.Text = "Home";
                 BackButton.Visibility = Visibility.Visible;
+                if (!MyFrame.CanGoBack)
+                {
+                    BackButton.Visibility = Visibility.Collapsed;
+                    Title.Margin = new Thickness(68, 0, 0, 0);
+                }
 
             }
             else if (LocationsListBoxItem.IsSelected)
@@ -48,6 +54,7 @@ namespace Hamburger_Heaven_Challenge
                     ((Frame)MySplitView.Content).Navigate(typeof(Food));
                 Title.Text = "Locations";
                 BackButton.Visibility = Visibility.Visible;
+                Title.Margin = new Thickness(0, 0, 0, 0);
             }
             else if (MostPopularListBoxItem.IsSelected)
             {
@@ -56,6 +63,7 @@ namespace Hamburger_Heaven_Challenge
                     ((Frame)MySplitView.Content).Navigate(typeof(MostPopular));
                 Title.Text = "Most Popular";
                 BackButton.Visibility = Visibility.Visible;
+                Title.Margin = new Thickness(0, 0, 0, 0);
             }
             else if (MapListBoxItem.IsSelected)
             {
@@ -64,6 +72,7 @@ namespace Hamburger_Heaven_Challenge
                     ((Frame)MySplitView.Content).Navigate(typeof(Map));
                 Title.Text = "Map";
                 BackButton.Visibility = Visibility.Visible;
+                Title.Margin = new Thickness(0, 0, 0, 0);
             }
             else if (ProfileListBoxItem.IsSelected)
             {
@@ -72,6 +81,7 @@ namespace Hamburger_Heaven_Challenge
                     ((Frame)MySplitView.Content).Navigate(typeof(Profile));
                 Title.Text = "Profile";
                 BackButton.Visibility = Visibility.Visible;
+                Title.Margin = new Thickness(0, 0, 0, 0);
             }
             else if (ContactListBoxItem.IsSelected)
             {
@@ -80,6 +90,7 @@ namespace Hamburger_Heaven_Challenge
                     ((Frame)MySplitView.Content).Navigate(typeof(Contact));
                 Title.Text = "Contact";
                 BackButton.Visibility = Visibility.Visible;
+                Title.Margin = new Thickness(0, 0, 0, 0);
             }
         }
 
@@ -98,37 +109,48 @@ namespace Hamburger_Heaven_Challenge
                 {
                     Title.Text = "Home";
                     HomeListItem.IsSelected = true;
-                    MyFrame.GoBack();
+                    if (MyFrame.CanGoBack)
+                        MyFrame.GoBack();
+                    if (!MyFrame.CanGoBack)
+                    {
+                        BackButton.Visibility = Visibility.Collapsed;
+                        Title.Margin = new Thickness(68, 0, 0, 0);
+                    }
                 }
                 else if (MyFrame.CurrentSourcePageType == typeof (Food))
                 {
                     Title.Text = "Locations";
                     LocationsListBoxItem.IsSelected = true;
-                    MyFrame.GoBack();
+                    if (MyFrame.CanGoBack)
+                        MyFrame.GoBack();
                 }
                 else if (MyFrame.CurrentSourcePageType == typeof (MostPopular))
                 {
                     Title.Text = "Most Popular";
                     MostPopularListBoxItem.IsSelected = true;
-                    MyFrame.GoBack();
+                    if (MyFrame.CanGoBack)
+                        MyFrame.GoBack();
                 }
                 else if (MyFrame.CurrentSourcePageType == typeof(Map))
                 {
                     Title.Text = "Map";
                     MapListBoxItem.IsSelected = true;
-                    MyFrame.GoBack();
+                    if (MyFrame.CanGoBack)
+                        MyFrame.GoBack();
                 }
                 else if (MyFrame.CurrentSourcePageType == typeof(Profile))
                 {
                     Title.Text = "Profile";
                     ProfileListBoxItem.IsSelected = true;
-                    MyFrame.GoBack();
+                    if (MyFrame.CanGoBack)
+                        MyFrame.GoBack();
                 }
                 else if (MyFrame.CurrentSourcePageType == typeof(Contact))
                 {
                     Title.Text = "Contact";
                     ContactListBoxItem.IsSelected = true;
-                    MyFrame.GoBack();
+                    if (MyFrame.CanGoBack)
+                        MyFrame.GoBack();
                 } 
 
             }
