@@ -99,11 +99,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Test.xaml.cs">
-      <DependentUpon>Test.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Contact.xaml.cs">
       <DependentUpon>Contact.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateUser.xaml.cs">
+      <DependentUpon>CreateUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="Financial.xaml.cs">
       <DependentUpon>Financial.xaml</DependentUpon>
@@ -152,11 +152,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Test.xaml">
+    <Page Include="Contact.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Contact.xaml">
+    <Page Include="CreateUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

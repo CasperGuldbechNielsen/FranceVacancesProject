@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -96,29 +97,49 @@ namespace Hamburger_Heaven_Challenge
                 if (MyFrame.CurrentSourcePageType == typeof (Financial))
                 {
                     Title.Text = "Home";
+                    HomeListItem.IsSelected = true;
+                    MyFrame.GoBack();
                 }
                 else if (MyFrame.CurrentSourcePageType == typeof (Food))
                 {
                     Title.Text = "Locations";
+                    LocationsListBoxItem.IsSelected = true;
+                    MyFrame.GoBack();
                 }
                 else if (MyFrame.CurrentSourcePageType == typeof (MostPopular))
                 {
                     Title.Text = "Most Popular";
+                    MostPopularListBoxItem.IsSelected = true;
+                    MyFrame.GoBack();
                 }
                 else if (MyFrame.CurrentSourcePageType == typeof(Map))
                 {
                     Title.Text = "Map";
+                    MapListBoxItem.IsSelected = true;
+                    MyFrame.GoBack();
                 }
                 else if (MyFrame.CurrentSourcePageType == typeof(Profile))
                 {
                     Title.Text = "Profile";
+                    ProfileListBoxItem.IsSelected = true;
+                    MyFrame.GoBack();
                 }
                 else if (MyFrame.CurrentSourcePageType == typeof(Contact))
                 {
                     Title.Text = "Contact";
+                    ContactListBoxItem.IsSelected = true;
+                    MyFrame.GoBack();
                 } 
 
             }
+        }
+
+        public void CreateUser()
+        {
+            if (MySplitView.Content != null)
+                ((Frame)MySplitView.Content).Navigate(typeof(CreateUser));
+            Title.Text = "Create User";
+            BackButton.Visibility = Visibility.Visible;
         }
     }
 }
