@@ -22,9 +22,18 @@ namespace Hamburger_Heaven_Challenge
     /// </summary>
     public sealed partial class Financial : Page
     {
+        private string[] frenchCities = new string[] {"Paris", "Lyon", "Nice", "Antibes", "Pardour", "Lille" };
+
         public Financial()
         {
             this.InitializeComponent();
+        }
+
+        private void AutoSuggestBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            var autoSuggestBox = (AutoSuggestBox) sender;
+            var filtered = frenchCities.Where(p => p.StartsWith(autoSuggestBox.Text)).ToArray();
+            autoSuggestBox.ItemsSource = filtered;
         }
     }
 }
