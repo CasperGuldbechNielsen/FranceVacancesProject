@@ -6,8 +6,189 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    
+    <Page.Resources>
+        <Style TargetType="ComboBox" x:Key="ComboBoxStyle">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10,10,10,10"/>
+         </Style>
+        <Style TargetType="TextBlock" x:Key="TextBlockStyle">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="10,10,10,10" />
+            <Setter Property="FontSize" Value="18" />
+            </Style>
+        <Style TargetType="StackPanel" x:Key="StackPanelStyle">
+            <Setter Property="Orientation" Value="Horizontal" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Margin" Value="10,10,10,10" />
+        </Style>
+        <Style TargetType="Image" x:Key="ImageStyle">
+            <Setter Property="Height" Value="160" />
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Margin" Value="0,0,10,0" />
+        </Style>
+        <Style TargetType="Button" x:Key="FlyoutButtonStyle">
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Foreground" Value="Black" />
+        </Style>
+    </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    <Grid>
+    <Grid.RowDefinitions>
+          <RowDefinition Height="70"/>
+          <RowDefinition Height="70"/>
+          <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <!--<Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto"/>
+    </Grid.ColumnDefinitions>-->
+        
+      
+      <StackPanel Grid.Column="0" Style="{StaticResource StackPanelStyle}">
+          
+          <Button Content="Region" 
+                  Style="{StaticResource FlyoutButtonStyle}">
+              <Button.Flyout>
+                  <MenuFlyout>
+                        <MenuFlyoutItem Text="Capital" Click="Region_Click"/>
+                        <MenuFlyoutItem Text="Burgundy" Click="Region_Click"/>
+                        <MenuFlyoutItem Text="Champagne-Ardenne" Click="Region_Click"/>
+                        <MenuFlyoutItem Text="Nord-Pas-de-Calais" Click="Region_Click"/>
+                        <MenuFlyoutItem Text="Auvergne" Click="Region_Click"/>
+                        <MenuFlyoutItem Text="Rhône-Alpes" Click="Region_Click"/>
+                        <MenuFlyoutItem Text="Lorraine" Click="Region_Click"/>
+                        <MenuFlyoutItem Text="Midi-Pyrénées" Click="Region_Click"/>
+                    </MenuFlyout>
+              </Button.Flyout>
+          </Button>
 
+            <Button Content="Sort by: " 
+                  Style="{StaticResource FlyoutButtonStyle}">
+                <Button.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="Bestsellers" Click="SortBy_Click"/>
+                        <MenuFlyoutItem Text="Price descending" Click="SortBy_Click"/>
+                        <MenuFlyoutItem Text="Price ascending" Click="SortBy_Click"/>
+                        <MenuFlyoutItem Text="Highest rating first" Click="SortBy_Click"/>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
+
+            <Button Content="Number of rooms:" 
+                  Style="{StaticResource FlyoutButtonStyle}">
+                <Button.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="1 room" Click="RoomNumber_Click"/>
+                        <MenuFlyoutItem Text="2 rooms" Click="RoomNumber_Click"/>
+                        <MenuFlyoutItem Text="3 rooms" Click="RoomNumber_Click"/>
+                        <MenuFlyoutItem Text="4 or more rooms..." Click="RoomNumber_Click"/>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
+
+        </StackPanel>
+
+        <StackPanel Style="{StaticResource StackPanelStyle}" Grid.Row="1" Grid.Column="0">
+            <TextBlock Text="Selected categories: " Style="{StaticResource TextBlockStyle}" />
+            <TextBlock Name="ResultTextBlock" Style="{StaticResource TextBlockStyle}"  />
+        </StackPanel>
+
+        
+        <RelativePanel Grid.Row="2">
+        <StackPanel RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Grid.Row="2" Name="House1" Margin="20,20,0,0" Orientation="Vertical">
+            <Rectangle Fill="Black" Width="150" Height="250"/>
+            <Rectangle Fill="Aqua" Width="150" Height="30"/>
+            <Rectangle Fill="GreenYellow" Width="150" Height="30"/>
+        </StackPanel>
+
+        <StackPanel RelativePanel.RightOf="House1" Grid.Row="2" Name="House2" Margin="20,20,0,0" Orientation="Vertical">
+        <Rectangle Fill="Red" Width="150" Height="250"/>
+        <Rectangle Fill="Aqua" Width="150" Height="30"/>
+        <Rectangle Fill="GreenYellow" Width="150" Height="30"/>
+        </StackPanel>
+
+
+            <StackPanel RelativePanel.RightOf="House2" Grid.Row="2" Name="House3" Margin="20,20,0,0" Orientation="Vertical">
+            <Rectangle Fill="Salmon" Width="150" Height="250"/>
+            <Rectangle Fill="Aqua" Width="150" Height="30"/>
+            <Rectangle Fill="GreenYellow" Width="150" Height="30"/>
+        </StackPanel>
+
+
+            <StackPanel RelativePanel.RightOf="House3" Grid.Row="3" Name="House4" Margin="20,20,0,0" Orientation="Vertical">
+            <Rectangle Fill="MediumAquamarine" Width="150" Height="250"/>
+            <Rectangle Fill="Aqua" Width="150" Height="30"/>
+            <Rectangle Fill="GreenYellow" Width="150" Height="30"/>
+        </StackPanel>
+
+        </RelativePanel>
+
+
+
+        <!--User refine Search by comboBox as follows-->
+        
+        <!--<StackPanel Grid.Column="0" Style="{StaticResource StackPanelStyle}">
+          
+          <ComboBox Name="RegionComboBox" SelectionChanged="ComboBox_RegionSelectionChanged" Style="{StaticResource ComboBoxStyle}" PlaceholderText="Select Region">
+                <ComboBoxItem Content="Capital" />
+                <ComboBoxItem Content="Burgundy"/>
+                <ComboBoxItem Content="Champagne-Ardenne"/>
+                <ComboBoxItem Content="Nord-Pas-de-Calais"/>
+                <ComboBoxItem Content="Auvergne"/>
+                <ComboBoxItem Content="Rhône-Alpes"/>
+                <ComboBoxItem Content="Lorraine"/>
+                <ComboBoxItem Content="Midi-Pyrénées"/>
+            </ComboBox>
+            <TextBlock Name="RegionResultTextBlock" Style="{StaticResource TextBlockStyle}" />
+      
+      </StackPanel>
+
+      
+      <StackPanel Grid.Column="1" Style="{StaticResource StackPanelStyle}">
+           
+            <ComboBox Name="SortByComboBox" SelectionChanged="ComboBox_SortBySelectionChanged" Style="{StaticResource ComboBoxStyle}" PlaceholderText="Sort by:">
+                <ComboBoxItem Content="Bestsellers" />
+                <ComboBoxItem Content="Price descending"/>
+                <ComboBoxItem Content="Price ascending"/>
+                <ComboBoxItem Content="Highest rating first"/>
+            </ComboBox>
+            <TextBlock Name="SortResultTextBlock" Style="{StaticResource TextBlockStyle}" />
+        
+      </StackPanel>
+        
+      <StackPanel Grid.Column="2" Style="{StaticResource StackPanelStyle}">
+          
+            <ComboBox Name="RoomNumberComboBox" SelectionChanged="ComboBox_RoomsSelectionChanged" Style="{StaticResource ComboBoxStyle}" PlaceholderText="Number of rooms">
+                <ComboBoxItem Content="1" />
+                <ComboBoxItem Content="2" />
+                <ComboBoxItem Content="3" />
+                <ComboBoxItem Content="4 or more" />
+            </ComboBox>
+            <TextBlock Name="RoomsResultTextBlock" Style="{StaticResource TextBlockStyle}"/>
+          
+      </StackPanel>-->
+        
+       
+
+
+
+
+        <!--<RelativePanel Name="MostPopularPanel" Width="Auto" Height="Auto" Margin="10,10,10,0">
+           
+            <Rectangle Margin="10,10,10,10" Name="house1"  Fill="Aqua" MinHeight="200" MinWidth="250" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" />
+            <Rectangle Margin="10,10,10,10" Name="house2" Fill="Black"  MinHeight="200" MinWidth="250" RelativePanel.RightOf="house1"/>
+            <Rectangle Margin="10,10,10,10" Name="house3" Fill="Orange" MinHeight="200" MinWidth="250" RelativePanel.RightOf="house2" />
+            <Rectangle Margin="10,10,10,10" Name="house4" Fill="Red" MinHeight="200" MinWidth="250"  RelativePanel.Below="house1"/>
+            <Rectangle Margin="10,10,10,10" Name="house5" Fill="DarkGoldenrod" MinHeight="200" MinWidth="250" RelativePanel.RightOf="house4"/>
+            <Rectangle Margin="10,10,10,10" Name="house6" Fill="Salmon" MinHeight="200" MinWidth="250" RelativePanel.RightOf="house5"/>
+
+        </RelativePanel>-->
+
+
+        
     </Grid>
+    
 </Page>
