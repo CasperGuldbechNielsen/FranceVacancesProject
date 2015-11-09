@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+﻿using System.Collections.ObjectModel;
+using Windows.Devices.Geolocation;
 using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Controls.Maps;
+
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,9 +14,41 @@ namespace Hamburger_Heaven_Challenge
     /// </summary>
     public sealed partial class Map : Page
     {
+        PushPin pushPin = new PushPin();
+
         public Map()
         {
             this.InitializeComponent();
+
+            AddPushPins();
+            AddIcon();
+
+            MyMap.Center = new Geopoint(new BasicGeoposition() {Latitude = 46.8442643, Longitude = 2.5992004 });
+            MyMap.ZoomLevel = 6;
+
+        }
+
+        public void AddPushPins()
+        {
+            pushPin.AddPushPin(46.8442643, 2.5992004);
+            pushPin.AddPushPin(48.873121, 2.374912);
+            pushPin.AddPushPin(44.834876, -0.588417);
+
+
+        }
+
+        public void AddIcon()
+        {
+
+            for (int i = 0; i < pushPin.Items().Count; i++)
+            {
+                MapIcon myIcon = new MapIcon();
+                myIcon.NormalizedAnchorPoint = new Point(0.5, 1.0);
+                myIcon.Title = "Apartment here";
+                myIcon.Location = pushPin.MyGeopoint(i);
+                MyMap.MapElements.Add(myIcon);
+                
+            }
         }
     }
 }

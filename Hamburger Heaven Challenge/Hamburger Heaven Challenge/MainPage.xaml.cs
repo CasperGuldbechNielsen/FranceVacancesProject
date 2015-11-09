@@ -92,7 +92,32 @@ namespace Hamburger_Heaven_Challenge
             if (MyFrame.CanGoBack)
             {
                 MyFrame.GoBack();
-                
+
+                if (MyFrame.CurrentSourcePageType == typeof (Financial))
+                {
+                    Title.Text = "Home";
+                }
+                else if (MyFrame.CurrentSourcePageType == typeof (Food))
+                {
+                    Title.Text = "Locations";
+                }
+                else if (MyFrame.CurrentSourcePageType == typeof (MostPopular))
+                {
+                    Title.Text = "Most Popular";
+                }
+                else if (MyFrame.CurrentSourcePageType == typeof(Map))
+                {
+                    Title.Text = "Map";
+                }
+                else if (MyFrame.CurrentSourcePageType == typeof(Profile))
+                {
+                    Title.Text = "Profile";
+                }
+                else if (MyFrame.CurrentSourcePageType == typeof(Contact))
+                {
+                    Title.Text = "Contact";
+                } 
+
             }
         }
     }
