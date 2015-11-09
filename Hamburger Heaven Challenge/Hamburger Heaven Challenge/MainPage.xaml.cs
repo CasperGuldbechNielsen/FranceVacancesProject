@@ -40,6 +40,7 @@ namespace Hamburger_Heaven_Challenge
                     ((Frame)MySplitView.Content).Navigate(typeof(Financial));
                 Title.Text = "Home";
                 BackButton.Visibility = Visibility.Visible;
+                Title.Margin = new Thickness(0, 0, 0, 0);
                 if (!MyFrame.CanGoBack)
                 {
                     BackButton.Visibility = Visibility.Collapsed;
