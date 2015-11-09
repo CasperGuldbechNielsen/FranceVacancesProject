@@ -116,7 +116,7 @@ namespace Hamburger_Heaven_Challenge
                 else if (MyFrame.CurrentSourcePageType == typeof(Contact))
                 {
                     Title.Text = "Contact";
-                }
+                } 
 
             }
         }
