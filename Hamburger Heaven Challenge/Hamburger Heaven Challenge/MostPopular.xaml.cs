@@ -59,7 +59,7 @@ namespace Hamburger_Heaven_Challenge
 
 
 
-        // User refine the search by flyout buttons as follows:    
+        // User refine the search by flyout buttons as follows::   
 
         private string _region;
         private string _roomNumber;
