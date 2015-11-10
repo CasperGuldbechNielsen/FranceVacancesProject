@@ -7,6 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     
+    <!--this are the styles of the page, like a design we can "call" them so no need to Repeat Yourself-->
+    
     <Page.Resources>
         <Style TargetType="ComboBox" x:Key="ComboBoxStyle">
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -24,17 +26,24 @@
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="Margin" Value="10,10,10,10" />
         </Style>
-        <Style TargetType="Image" x:Key="ImageStyle">
-            <Setter Property="Height" Value="160" />
-            <Setter Property="Width" Value="80" />
-            <Setter Property="Margin" Value="0,0,10,0" />
-        </Style>
         <Style TargetType="Button" x:Key="FlyoutButtonStyle">
             <Setter Property="Margin" Value="10" />
             <Setter Property="Foreground" Value="Black" />
         </Style>
+        <Style TargetType="Button" x:Key="ThumbnailButton">
+            <Setter Property="Width" Value="50" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="Button" x:Key="HousePictureButton">
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height" Value="200" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
     </Page.Resources>
 
+    
+    <!--Grids, not sure if these are suitable and good for the final project, just for fun-->
     
     <Grid>
     <Grid.RowDefinitions>
@@ -47,8 +56,11 @@
     </Grid.ColumnDefinitions>-->
         
     <!-- This is a test comment-->
+        <!--last try to push to master-->
         
       
+    <!--Some buttons, to refine the search, of course non of them are workin, hope Bob will teach us :)-->    
+        
       <StackPanel Grid.Column="0" Style="{StaticResource StackPanelStyle}">
           
           <Button Content="Region" 
@@ -99,34 +111,117 @@
         </StackPanel>
 
         
+    <!--And finally here can be shown the result of the search, I need to work on the design later on-->  
+        
+        
         <RelativePanel Grid.Row="2">
-        <StackPanel RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Grid.Row="2" Name="House1" Margin="20,20,0,0" Orientation="Vertical">
-            <Rectangle Fill="Black" Width="150" Height="250"/>
-            <Rectangle Fill="Aqua" Width="150" Height="30"/>
-            <Rectangle Fill="GreenYellow" Width="150" Height="30"/>
-        </StackPanel>
+        <StackPanel RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Name="House1" Margin="20,20,0,0" Orientation="Vertical">
+           <Button Style="{StaticResource HousePictureButton}">
+               <Image Source="Assets/house1.jpg" Stretch="UniformToFill"/>
+           </Button>
+            <StackPanel Orientation="Horizontal">
+                <Button Style="{StaticResource ThumbnailButton}">
+                <Image Source="Assets/house2.jpg" /> 
+                </Button>
+                <Button Style="{StaticResource ThumbnailButton}">
+                    <Image Source="Assets/house4.jpg"/>
+                </Button>
+                <Button Style="{StaticResource ThumbnailButton}">
+                    <Image Source="Assets/house3.jpg"/>
+                </Button>
+                <Button Style="{StaticResource ThumbnailButton}">
+                    <Image Source="Assets/house1.jpg"/>
+                </Button>
+                </StackPanel>
+         </StackPanel>
 
-        <StackPanel RelativePanel.RightOf="House1" Grid.Row="2" Name="House2" Margin="20,20,0,0" Orientation="Vertical">
-        <Rectangle Fill="Red" Width="150" Height="250"/>
-        <Rectangle Fill="Aqua" Width="150" Height="30"/>
-        <Rectangle Fill="GreenYellow" Width="150" Height="30"/>
-        </StackPanel>
+        <StackPanel RelativePanel.RightOf="House1" Name="House2" Margin="20,20,0,0" Orientation="Vertical">
+                <Button Style="{StaticResource HousePictureButton}">
+                    <Image Source="Assets/house2.jpg" Stretch="UniformToFill"/>
+                </Button>
+                <StackPanel Orientation="Horizontal">
+                    <Button Style="{StaticResource ThumbnailButton}">
+                        <Image Source="Assets/house3.jpg"/>
+                    </Button>
+                    <Button Style="{StaticResource ThumbnailButton}">
+                        <Image Source="Assets/house4.jpg"/>
+                    </Button>
+                    <Button Style="{StaticResource ThumbnailButton}">
+                        <Image Source="Assets/house5.jpg"/>
+                    </Button>
+                    <Button Style="{StaticResource ThumbnailButton}">
+                        <Image Source="Assets/house1.jpg"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
 
 
-            <StackPanel RelativePanel.RightOf="House2" Grid.Row="2" Name="House3" Margin="20,20,0,0" Orientation="Vertical">
-            <Rectangle Fill="Salmon" Width="150" Height="250"/>
-            <Rectangle Fill="Aqua" Width="150" Height="30"/>
-            <Rectangle Fill="GreenYellow" Width="150" Height="30"/>
-        </StackPanel>
+        <StackPanel RelativePanel.RightOf="House2" Name="House3" Margin="20,20,0,0" Orientation="Vertical">
+                <Button Style="{StaticResource HousePictureButton}">
+                    <Image Source="Assets/house3.jpg" Stretch="UniformToFill"/>
+                </Button>
+                <StackPanel Orientation="Horizontal">
+                    <Button Style="{StaticResource ThumbnailButton}">
+                        <Image Source="Assets/house2.jpg"/>
+                    </Button>
+                    <Button Style="{StaticResource ThumbnailButton}">
+                        <Image Source="Assets/house1.jpg"/>
+                    </Button>
+                    <Button Style="{StaticResource ThumbnailButton}">
+                        <Image Source="Assets/house4.jpg"/>
+                    </Button>
+                    <Button Style="{StaticResource ThumbnailButton}">
+                        <Image Source="Assets/house1.jpg"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
 
 
-            <StackPanel RelativePanel.RightOf="House3" Grid.Row="3" Name="House4" Margin="20,20,0,0" Orientation="Vertical">
-            <Rectangle Fill="MediumAquamarine" Width="150" Height="250"/>
-            <Rectangle Fill="Aqua" Width="150" Height="30"/>
-            <Rectangle Fill="GreenYellow" Width="150" Height="30"/>
-        </StackPanel>
+        <StackPanel RelativePanel.Below="House1" Name="House4" Margin="20,20,0,0" Orientation="Vertical">
+                <Button Style="{StaticResource HousePictureButton}">
+                    <Image Source="Assets/house4.jpg" Stretch="UniformToFill"/>
+                </Button>
+                <StackPanel Orientation="Horizontal">
+                    <Button Style="{StaticResource ThumbnailButton}">
+                        <Image Source="Assets/house2.jpg"/>
+                    </Button>
+                    <Button Style="{StaticResource ThumbnailButton}">
+                        <Image Source="Assets/house1.jpg"/>
+                    </Button>
+                    <Button Style="{StaticResource ThumbnailButton}">
+                        <Image Source="Assets/house4.jpg"/>
+                    </Button>
+                    <Button Style="{StaticResource ThumbnailButton}">
+                        <Image Source="Assets/house1.jpg"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
 
+        <StackPanel RelativePanel.RightOf="House3" Name="House5" Margin="20,20,0,0" Orientation="Vertical">
+                <Button Style="{StaticResource HousePictureButton}">
+                    <Image Source="Assets/house5.jpg" Stretch="UniformToFill"/>
+                </Button>
+                <StackPanel Orientation="Horizontal">
+                    <Button Style="{StaticResource ThumbnailButton}">
+                        <Image Source="Assets/house3.jpg"/>
+                    </Button>
+                    <Button Style="{StaticResource ThumbnailButton}">
+                        <Image Source="Assets/house2.jpg"/>
+                    </Button>
+                    <Button Style="{StaticResource ThumbnailButton}">
+                        <Image Source="Assets/house4.jpg"/>
+                    </Button>
+                    <Button Style="{StaticResource ThumbnailButton}">
+                        <Image Source="Assets/house1.jpg"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        
+        
         </RelativePanel>
+
+        <!--giiiiiiiiiiiiiithuuuuuuuuuuuuuuuub-->
+        
 
 
 

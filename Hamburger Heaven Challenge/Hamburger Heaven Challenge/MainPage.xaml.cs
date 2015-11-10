@@ -23,6 +23,8 @@ namespace Hamburger_Heaven_Challenge
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -83,6 +85,10 @@ namespace Hamburger_Heaven_Challenge
                 Title.Text = "Profile";
                 BackButton.Visibility = Visibility.Visible;
                 Title.Margin = new Thickness(0, 0, 0, 0);
+
+                var a = (Profile)MyFrame.Content;
+                if (a != null) 
+                    a.OnNavigateParentReady += OnCreateUser;
             }
             else if (ContactListBoxItem.IsSelected)
             {
@@ -153,16 +159,28 @@ namespace Hamburger_Heaven_Challenge
                     if (MyFrame.CanGoBack)
                         MyFrame.GoBack();
                 } 
+                else if (MyFrame.CurrentSourcePageType == typeof(CreateUser))
+                {
+                    Title.Text = "Create User";
+                    if (MyFrame.CanGoBack)
+                        MyFrame.GoBack();
+                }
+            }
 
+            if (MyFrame.CurrentSourcePageType == typeof(CreateUser))
+            {
+                MyFrame.SourcePageType = typeof(Profile);
             }
         }
 
-        public void CreateUser()
+        public void OnCreateUser(object sender, RoutedEventArgs e)
         {
             if (MySplitView.Content != null)
                 ((Frame)MySplitView.Content).Navigate(typeof(CreateUser));
             Title.Text = "Create User";
             BackButton.Visibility = Visibility.Visible;
+            Title.Margin = new Thickness(0, 0, 0, 0);
+
         }
     }
 }

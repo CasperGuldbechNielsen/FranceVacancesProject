@@ -23,11 +23,15 @@ namespace Hamburger_Heaven_Challenge
     public sealed partial class Profile : Page
     {
 
-        private string profileName;
-        private string password;
-        private Dictionary<string, string> usersDictionary = new Dictionary<string, string>(); 
+        public delegate void MyEventHandler(object source, RoutedEventArgs e);
 
-        MainPage page = new MainPage();
+        public event MyEventHandler OnNavigateParentReady;
+
+
+        private string _profileName;
+        private string _password;
+
+        private Dictionary<string, string> usersDictionary = new Dictionary<string, string>();
 
         public Profile()
         {
@@ -37,12 +41,12 @@ namespace Hamburger_Heaven_Challenge
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            profileName = ProfileName.Text;
-            password = PasswordBox.Password;
+            _profileName = ProfileName.Text;
+            _password = PasswordBox.Password;
 
-            if (usersDictionary.ContainsKey(profileName))
+            if (usersDictionary.ContainsKey(_profileName))
             {
-                if (usersDictionary[profileName] == password)
+                if (usersDictionary[_profileName] == _password)
                 {
                     ProfileName.Text = "LOGIN SUCCES!";
                 }
@@ -55,7 +59,10 @@ namespace Hamburger_Heaven_Challenge
 
         private void CreateUser_Click(object sender, RoutedEventArgs e)
         {
-            page.CreateUser();
+            if(OnNavigateParentReady != null)
+            { 
+                OnNavigateParentReady(sender, e);
+            }
         }
     }
 }
