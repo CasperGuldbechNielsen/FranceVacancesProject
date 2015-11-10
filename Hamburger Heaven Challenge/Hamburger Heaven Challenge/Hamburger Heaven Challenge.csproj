@@ -138,6 +138,11 @@
   <ItemGroup>
     <Content Include="Assets\Financial.png" />
     <Content Include="Assets\Food.png" />
+    <Content Include="Assets\house1.jpg" />
+    <Content Include="Assets\house2.jpg" />
+    <Content Include="Assets\house3.jpg" />
+    <Content Include="Assets\house4.jpg" />
+    <Content Include="Assets\house5.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
