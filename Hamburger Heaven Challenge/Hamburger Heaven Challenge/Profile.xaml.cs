@@ -22,9 +22,47 @@ namespace Hamburger_Heaven_Challenge
     /// </summary>
     public sealed partial class Profile : Page
     {
+
+        public delegate void MyEventHandler(object source, RoutedEventArgs e);
+
+        public event MyEventHandler OnNavigateParentReady;
+
+
+        private string _profileName;
+        private string _password;
+
+        private Dictionary<string, string> usersDictionary = new Dictionary<string, string>();
+
         public Profile()
         {
             this.InitializeComponent();
+            usersDictionary.Add("Casper", "12345");
+        }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            _profileName = ProfileName.Text;
+            _password = PasswordBox.Password;
+
+            if (usersDictionary.ContainsKey(_profileName))
+            {
+                if (usersDictionary[_profileName] == _password)
+                {
+                    ProfileName.Text = "LOGIN SUCCES!";
+                }
+            }
+            else
+            {
+                
+            }
+        }
+
+        private void CreateUser_Click(object sender, RoutedEventArgs e)
+        {
+            if(OnNavigateParentReady != null)
+            { 
+                OnNavigateParentReady(sender, e);
+            }
         }
     }
 }
