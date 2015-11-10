@@ -45,8 +45,9 @@ namespace Hamburger_Heaven_Challenge
                 MapIcon myIcon = new MapIcon();
                 myIcon.NormalizedAnchorPoint = new Point(0.5, 1.0);
                 myIcon.Title = "Apartment here";
-                MyMap.MapElements.Add(myIcon);
                 myIcon.Location = pushPin.MyGeopoint(i);
+                MyMap.MapElements.Add(myIcon);
+                
             }
         }
     }

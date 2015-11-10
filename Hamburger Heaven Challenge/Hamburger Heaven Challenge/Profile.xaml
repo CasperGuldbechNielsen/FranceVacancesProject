@@ -7,7 +7,48 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="400"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
+        <RelativePanel>
+            <TextBox Name="ProfileName" 
+                     HorizontalAlignment="Left" 
+                     TextWrapping="Wrap" 
+                     PlaceholderText="Profile Name" 
+                     RelativePanel.AlignHorizontalCenterWithPanel="True" 
+                     VerticalAlignment="Top" Margin="0,100,0,0"
+                     Width="300"/>
+            <PasswordBox Name="PasswordBox" 
+                         HorizontalAlignment="Left" 
+                         PlaceholderText="Password" 
+                         RelativePanel.AlignHorizontalCenterWithPanel="True" 
+                         RelativePanel.Below="ProfileName"
+                         VerticalAlignment="Top" 
+                         Margin="0,20,0,0" 
+                         Width="300"/>
+            <Button Name ="Login"
+                    HorizontalAlignment="Left"
+                    Content="Login"
+                    RelativePanel.AlignLeftWith="PasswordBox"
+                    RelativePanel.Below="PasswordBox"
+                    Margin="0,20,0,0"
+                    Width="100" Click="Login_Click" />
+            <Button Name ="CreateUser"
+                    HorizontalAlignment="Left"
+                    Content="Create User"
+                    RelativePanel.AlignRightWith="PasswordBox"
+                    RelativePanel.Below="PasswordBox"
+                    Margin="0,20,0,0" 
+                    Width="100" Click="CreateUser_Click"/>
+
+        </RelativePanel>
     </Grid>
 </Page>
