@@ -110,7 +110,7 @@
         </StackPanel>
 
         
-    <!--And finally here can be shown the result of the search, I need to work on the design later on-->    
+    <!--And finally here can be shown the result of the search, I need to work on the design later on-->  
         
         
         <RelativePanel Grid.Row="2">
