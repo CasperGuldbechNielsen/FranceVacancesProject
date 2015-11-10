@@ -6,11 +6,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="400"/>
-            <RowDefinition/>        
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400"/>
@@ -27,11 +27,23 @@
                             TextChanged="AutoSuggestBox_OnTextChanged"/>
             <CalendarDatePicker Name="CheckInPicker" RelativePanel.Below="AutoSuggestBox" RelativePanel.AlignLeftWith="AutoSuggestBox" Margin="0,20,0,0"/>
             <CalendarDatePicker Name="CheckOutPicker" RelativePanel.Below="AutoSuggestBox" RelativePanel.AlignRightWith="AutoSuggestBox" Margin="0,20,0,0"/>
-            <Button Name="SubmitSearchButton" Content="Search" Background="Yellow" Foreground="White" FontSize="20" Width="127" RelativePanel.Below="CheckOutPicker" RelativePanel.AlignRightWith="CheckOutPicker" Margin="0,40,0,0"/>
+            <!--<Button Name="SubmitSearchButton" Content="Search" Background="Yellow" Foreground="White" FontSize="20" Width="127" RelativePanel.Below="CheckOutPicker" RelativePanel.AlignRightWith="CheckOutPicker" Margin="0,40,0,0"/>-->
+            <ComboBox x:Name="numberOfGuestsBox"  Width="127" RelativePanel.Below="CheckInPicker" RelativePanel.AlignLeftWith="AutoSuggestBox" Margin="0,20,0,0" PlaceholderText="Choose" Header="Number of guests:" FontSize="10.667">
+                <x:String>1</x:String>
+                <x:String>2</x:String>
+                <x:String>3</x:String>
+                <x:String>4</x:String>
+                <x:String>5</x:String>
+                <x:String>6</x:String>
+                <x:String>7</x:String>
+                <x:String>8</x:String>
+                <x:String>9</x:String>
+                <x:String>10</x:String>
+            </ComboBox>
         </RelativePanel>
-        
+
 
     </Grid>
-    
-    
+
+
 </Page>
