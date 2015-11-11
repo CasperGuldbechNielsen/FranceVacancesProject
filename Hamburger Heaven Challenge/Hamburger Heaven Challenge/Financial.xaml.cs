@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -27,6 +28,8 @@ namespace Hamburger_Heaven_Challenge
         public Financial()
         {
             this.InitializeComponent();
+            MyMap.Center = new Geopoint(new BasicGeoposition() { Latitude = 46.8442643, Longitude = 2.5992004 });
+            MyMap.ZoomLevel = 6;
         }
 
         private void AutoSuggestBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
