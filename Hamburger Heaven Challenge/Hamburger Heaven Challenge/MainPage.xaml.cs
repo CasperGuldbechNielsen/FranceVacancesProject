@@ -110,66 +110,71 @@ namespace Hamburger_Heaven_Challenge
         {
             if (MyFrame.CanGoBack)
             {
-                MyFrame.GoBack();
 
-                if (MyFrame.CurrentSourcePageType == typeof (Financial))
+                if (MyFrame.CurrentSourcePageType == typeof (CreateUser))
                 {
-                    Title.Text = "Home";
-                    HomeListItem.IsSelected = true;
-                    if (MyFrame.CanGoBack)
-                        MyFrame.GoBack();
-                    if (!MyFrame.CanGoBack)
-                    {
-                        BackButton.Visibility = Visibility.Collapsed;
-                        Title.Margin = new Thickness(68, 0, 0, 0);
-                    }
-                }
-                else if (MyFrame.CurrentSourcePageType == typeof (Food))
-                {
-                    Title.Text = "Locations";
-                    LocationsListBoxItem.IsSelected = true;
-                    if (MyFrame.CanGoBack)
-                        MyFrame.GoBack();
-                }
-                else if (MyFrame.CurrentSourcePageType == typeof (MostPopular))
-                {
-                    Title.Text = "Most Popular";
-                    MostPopularListBoxItem.IsSelected = true;
-                    if (MyFrame.CanGoBack)
-                        MyFrame.GoBack();
-                }
-                else if (MyFrame.CurrentSourcePageType == typeof(Map))
-                {
-                    Title.Text = "Map";
-                    MapListBoxItem.IsSelected = true;
-                    if (MyFrame.CanGoBack)
-                        MyFrame.GoBack();
-                }
-                else if (MyFrame.CurrentSourcePageType == typeof(Profile))
-                {
+                    MyFrame.GoBack();
                     Title.Text = "Profile";
                     ProfileListBoxItem.IsSelected = true;
-                    if (MyFrame.CanGoBack)
-                        MyFrame.GoBack();
                 }
-                else if (MyFrame.CurrentSourcePageType == typeof(Contact))
+                else
                 {
-                    Title.Text = "Contact";
-                    ContactListBoxItem.IsSelected = true;
-                    if (MyFrame.CanGoBack)
-                        MyFrame.GoBack();
-                } 
-                else if (MyFrame.CurrentSourcePageType == typeof(CreateUser))
-                {
-                    Title.Text = "Create User";
-                    if (MyFrame.CanGoBack)
-                        MyFrame.GoBack();
-                }
-            }
+                    MyFrame.GoBack();
 
-            if (MyFrame.CurrentSourcePageType == typeof(CreateUser))
-            {
-                MyFrame.SourcePageType = typeof(Profile);
+                    if (MyFrame.CurrentSourcePageType == typeof (Financial))
+                    {
+                        Title.Text = "Home";
+                        HomeListItem.IsSelected = true;
+                        if (MyFrame.CanGoBack)
+                            MyFrame.GoBack();
+                        if (!MyFrame.CanGoBack)
+                        {
+                            BackButton.Visibility = Visibility.Collapsed;
+                            Title.Margin = new Thickness(68, 0, 0, 0);
+                        }
+                    }
+                    else if (MyFrame.CurrentSourcePageType == typeof (Food))
+                    {
+                        Title.Text = "Locations";
+                        LocationsListBoxItem.IsSelected = true;
+                        if (MyFrame.CanGoBack)
+                            MyFrame.GoBack();
+                    }
+                    else if (MyFrame.CurrentSourcePageType == typeof (MostPopular))
+                    {
+                        Title.Text = "Most Popular";
+                        MostPopularListBoxItem.IsSelected = true;
+                        if (MyFrame.CanGoBack)
+                            MyFrame.GoBack();
+                    }
+                    else if (MyFrame.CurrentSourcePageType == typeof (Map))
+                    {
+                        Title.Text = "Map";
+                        MapListBoxItem.IsSelected = true;
+                        if (MyFrame.CanGoBack)
+                            MyFrame.GoBack();
+                    }
+                    else if (MyFrame.CurrentSourcePageType == typeof (Profile))
+                    {
+                        Title.Text = "Profile";
+                        ProfileListBoxItem.IsSelected = true;
+                        if (MyFrame.CanGoBack)
+                            MyFrame.GoBack();
+                    }
+                    else if (MyFrame.CurrentSourcePageType == typeof (Contact))
+                    {
+                        Title.Text = "Contact";
+                        ContactListBoxItem.IsSelected = true;
+                        if (MyFrame.CanGoBack)
+                            MyFrame.GoBack();
+                    }
+                    else if (MyFrame.CurrentSourcePageType == typeof (CreateUser))
+                    {
+                        Title.Text = "Create User";
+                        if (MyFrame.CanGoBack)
+                            MyFrame.GoBack();
+                    }
+                }
             }
         }
 
