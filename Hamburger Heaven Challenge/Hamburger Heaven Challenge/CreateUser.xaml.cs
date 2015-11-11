@@ -70,15 +70,21 @@ namespace Hamburger_Heaven_Challenge
                         _lastName = LastName.Text;
                         _email = Email.Text;
                         _passwordOne = PasswordOne.Password;
+                        StorageFolder localFolder = ApplicationData.Current.LocalFolder;
 
-                        //FileStream myFileStream = new FileStream(".\\/Assets/Users.txt", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+                        var files = await localFolder.GetFilesAsync();
 
-                        //StreamWriter myWriter = new StreamWriter(myFileStream);
+                        foreach (StorageFile storageFile in files)
+                        {
+                            if (storageFile.Name == "Users.txt")
+                            {
+                                var oldFileContent = File.ReadAllText(storageFile.Path);
 
-                        //myWriter.Write(_firstName);
-
-
-                        // We need to add some method in which we save the profile so we can use it to log in.
+                                var newFileContent = oldFileContent + _firstName + " | " + _lastName + " | " + _email +
+                                                     " | " + _passwordOne + Environment.NewLine;
+                                File.WriteAllText(storageFile.Path, newFileContent);
+                            }
+                        }                      
                     }
                     else
                     {
