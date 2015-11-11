@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
@@ -28,13 +31,13 @@ namespace Hamburger_Heaven_Challenge
         private string _lastName;
         private string _email;
         private string _passwordOne;
-        private string _passwordTwo;
+
         public CreateUser()
         {
             this.InitializeComponent();
         }
 
-        private void CreateUserButton_Click(object sender, RoutedEventArgs e)
+        private async void CreateUserButton_Click(object sender, RoutedEventArgs e)
         {
 
             FirstName.Background = new SolidColorBrush(Colors.White);
@@ -45,6 +48,9 @@ namespace Hamburger_Heaven_Challenge
 
             if (FirstName.Text != "" && LastName.Text != "" && Email.Text != "" && PasswordOne.Password != "")
             {
+
+                // Check if the passwords match
+
                 if (PasswordOne.Password != PasswordTwo.Password)
                 {
                     PasswordOne.Background = new SolidColorBrush(Colors.Red);
@@ -55,10 +61,17 @@ namespace Hamburger_Heaven_Challenge
                 }
                 else
                 {
-                    FirstName.Text = "It works";
+                    // Check if Email contains a @ e.g. is a valid email. This should be done properly
+                    // but is done like this.
                     if (Email.Text.Contains("@"))
                     {
-                        // do whatever to do
+                        // Now all fields are filled, passwords match and the email is valid
+                        _firstName = FirstName.Text;
+                        _lastName = LastName.Text;
+                        _email = Email.Text;
+                        _passwordOne = PasswordOne.Password;
+
+                        // We need to add some method in which we save the profile so we can use it to log in.
                     }
                     else
                     {
@@ -66,6 +79,9 @@ namespace Hamburger_Heaven_Challenge
                     }
                 }
             }
+
+            // Check if any of the fields are blank
+
             else if (FirstName.Text == "")
             {
                 FirstName.Background = new SolidColorBrush(Colors.Red);
