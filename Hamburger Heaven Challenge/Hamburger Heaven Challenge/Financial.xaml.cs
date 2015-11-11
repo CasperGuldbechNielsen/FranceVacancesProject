@@ -35,8 +35,10 @@ namespace Hamburger_Heaven_Challenge
         private void AutoSuggestBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
             var autoSuggestBox = (AutoSuggestBox) sender;
-            var filtered = frenchCities.Where(p => p.StartsWith(autoSuggestBox.Text)).ToArray();
+            var filtered = frenchCities.Where(P => P.StartsWith((autoSuggestBox.Text), StringComparison.CurrentCultureIgnoreCase)).ToArray();
             autoSuggestBox.ItemsSource = filtered;
+
+            
         }
     }
 }
