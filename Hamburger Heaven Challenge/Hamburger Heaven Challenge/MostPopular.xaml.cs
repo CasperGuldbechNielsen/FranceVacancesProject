@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Hamburger_Heaven_Challenge.Models;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,12 +23,21 @@ namespace Hamburger_Heaven_Challenge
     /// </summary>
     public sealed partial class MostPopular : Page
     {
+        private List<Apartments> Apartments;
+             
         public MostPopular()
         {
             this.InitializeComponent();
+            Apartments = ApartmentManager.GetApartments();
         }
 
+        
 
+        private void GridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var apartment = (Apartments)e.ClickedItem;
+            ResultTextBlock.Text = "You selected " + apartment.ApartmentID;
+        }
         // User refine search by comboBox as follows:
 
         //private void ComboBox_RegionSelectionChanged(object sender, SelectionChangedEventArgs e)
