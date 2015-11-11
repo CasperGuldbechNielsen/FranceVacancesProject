@@ -19,6 +19,10 @@
         </Grid.ColumnDefinitions>
 
         <RelativePanel>
+            <TextBlock Name="ProfileText"
+                       Text="Profile Name" 
+                       Margin="50,75,-50,-75"
+                       ></TextBlock>
             <TextBox Name="ProfileName" 
                      HorizontalAlignment="Left" 
                      TextWrapping="Wrap" 
@@ -27,13 +31,17 @@
                      VerticalAlignment="Top" 
                      Margin="0,100,0,0"
                      Width="300"/>
+            <TextBlock Name="PasswordText"
+                       Text="Password" 
+                       Margin="50,147,-50,-147"
+                       ></TextBlock>
             <PasswordBox Name="PasswordBox" 
                          HorizontalAlignment="Left" 
                          PlaceholderText="Password" 
                          RelativePanel.AlignHorizontalCenterWithPanel="True" 
                          RelativePanel.Below="ProfileName"
                          VerticalAlignment="Top" 
-                         Margin="0,20,0,0" 
+                         Margin="0,40,0,0" 
                          Width="300"/>
             <Button Name ="Login"
                     HorizontalAlignment="Left"

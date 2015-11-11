@@ -9,7 +9,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="400"/>
+            <RowDefinition Height="600"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -19,34 +19,54 @@
         </Grid.ColumnDefinitions>
         
         <RelativePanel>
+            <TextBlock Name="FirstNameText"
+                       Text="First Name" 
+                       Margin="50,75,-50,-75"
+                       ></TextBlock>
             <TextBox Name="FirstName" 
                      PlaceholderText="First Name" 
                      RelativePanel.AlignHorizontalCenterWithPanel="True"
                      Margin="0,100,0,0"
                      Width="300"/>
+            <TextBlock Name="LastNameText"
+                       Text="Last Name" 
+                       Margin="50,147,-50,-147"
+                       ></TextBlock>
             <TextBox Name="LastName"
                      PlaceholderText="Last Name"
                      RelativePanel.AlignHorizontalCenterWithPanel="True"
                      RelativePanel.Below="FirstName"
-                     Margin="0,20,0,0"
+                     Margin="0,40,0,0"
                      Width="300"/>
+            <TextBlock Name="EmailText"
+                       Text="Email" 
+                       Margin="50,219,-50,-219"
+                       ></TextBlock>
             <TextBox Name="Email"
                      PlaceholderText="Email"
                      RelativePanel.AlignHorizontalCenterWithPanel="True"
                      RelativePanel.Below="LastName"
-                     Margin="0,20,0,0"
+                     Margin="0,40,0,0"
                      Width="300"/>
+            <TextBlock Name="PasswordOneText"
+                       Text="Password" 
+                       Margin="50,291,-50,-291"
+                       ></TextBlock>
             <PasswordBox Name="PasswordOne"
                          PlaceholderText="Password"
                          RelativePanel.AlignHorizontalCenterWithPanel="True"
                          RelativePanel.Below="Email"
-                         Margin="0,20,0,0"
+                         Margin="0,40,0,0"
                          Width="300"/>
+            <TextBlock Name="PasswordTwoText"
+                       Text="Repeat Password" 
+                       Margin="52,363,-52,-363"
+                       ></TextBlock>
             <PasswordBox Name="PasswordTwo"
                          PlaceholderText="Repeat Password"
                          RelativePanel.AlignHorizontalCenterWithPanel="True"
                          RelativePanel.Below="PasswordOne"
-                         Margin="0,20,0,0"
+                         Margin="0,40,0,0"
                          Width="300"/>
             <Button Name="CreateUserButton"
                     Content="Create User"

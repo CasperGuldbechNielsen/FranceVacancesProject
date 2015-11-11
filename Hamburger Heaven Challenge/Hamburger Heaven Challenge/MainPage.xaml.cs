@@ -116,6 +116,9 @@ namespace Hamburger_Heaven_Challenge
                     MyFrame.GoBack();
                     Title.Text = "Profile";
                     ProfileListBoxItem.IsSelected = true;
+                    var a = (Profile)MyFrame.Content;
+                    if (a != null)
+                        a.OnNavigateParentReady += OnCreateUser;
                 }
                 else
                 {
@@ -160,6 +163,9 @@ namespace Hamburger_Heaven_Challenge
                         ProfileListBoxItem.IsSelected = true;
                         if (MyFrame.CanGoBack)
                             MyFrame.GoBack();
+                        var a = (Profile)MyFrame.Content;
+                        if (a != null)
+                            a.OnNavigateParentReady += OnCreateUser;
                     }
                     else if (MyFrame.CurrentSourcePageType == typeof (Contact))
                     {
