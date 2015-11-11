@@ -53,47 +53,29 @@
           <RowDefinition Height="70"/>
           <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
-    <!--<Grid.ColumnDefinitions>
-          <ColumnDefinition Width="Auto"/>
-    </Grid.ColumnDefinitions>-->
+    
+    
         
-    <!-- This is a test comment-->
-        <!--last try to push to master-->
-
-        <GridView Grid.Row="2" ItemsSource="{x:Bind Apartments}">
-            <GridView.ItemTemplate>
-                <DataTemplate x:DataType="models:Apartments" x:Key="ApartmentsDataTemplate">
-                    <StackPanel Grid.Row="2" HorizontalAlignment="Center">
-                        <Image Width="150" Source="{x:Bind ApartmentCoverImage}" />
-                        <TextBlock FontSize="16" Text="{x:Bind ApartmentRegion}" HorizontalAlignment="Center" />
-                        <TextBlock FontSize="10" Text="{x:Bind ApartmentCity}" HorizontalAlignment="Center" />
-                        <TextBlock FontSize="10" Text="{x:Bind RoomNumbers}" HorizontalAlignment="Center" />
-                        <TextBlock FontSize="10" Text="{x:Bind ApartmentRating}" HorizontalAlignment="Center" />
-                    </StackPanel>
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
-
-
-        <!--Some buttons, to refine the search, of course non of them are workin, hope Bob will teach us :)-->    
         
-      <StackPanel Grid.Column="0" Style="{StaticResource StackPanelStyle}">
-          
-          <Button Content="Region" 
-                  Style="{StaticResource FlyoutButtonStyle}">
-              <Button.Flyout>
-                  <MenuFlyout>
-                        <MenuFlyoutItem Text="Capital" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Burgundy" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Champagne-Ardenne" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Nord-Pas-de-Calais" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Auvergne" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Rhône-Alpes" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Lorraine" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Midi-Pyrénées" Click="Region_Click"/>
-                    </MenuFlyout>
-              </Button.Flyout>
-          </Button>
+    <!--Some buttons, to refine the search, of course non of them are workin, hope Bob will teach us :)-->    
+        
+    <StackPanel Grid.Column="0" Style="{StaticResource StackPanelStyle}">
+       
+     <Button Content="Region" 
+             Style="{StaticResource FlyoutButtonStyle}">
+       <Button.Flyout>
+         <MenuFlyout>
+            <MenuFlyoutItem Text="Capital" Click="Region_Click"/>
+              <MenuFlyoutItem Text="Burgundy" Click="Region_Click"/>
+              <MenuFlyoutItem Text="Champagne-Ardenne" Click="Region_Click"/>
+              <MenuFlyoutItem Text="Nord-Pas-de-Calais" Click="Region_Click"/>
+              <MenuFlyoutItem Text="Auvergne" Click="Region_Click"/>
+              <MenuFlyoutItem Text="Rhône-Alpes" Click="Region_Click"/>
+              <MenuFlyoutItem Text="Lorraine" Click="Region_Click"/>
+              <MenuFlyoutItem Text="Midi-Pyrénées" Click="Region_Click"/>
+         </MenuFlyout>
+        </Button.Flyout>
+       </Button>
 
             <Button Content="Sort by: " 
                   Style="{StaticResource FlyoutButtonStyle}">
@@ -126,182 +108,35 @@
             <TextBlock Name="ResultTextBlock" Style="{StaticResource TextBlockStyle}"  />
         </StackPanel>
 
-        
-    <!--And finally here can be shown the result of the search, I need to work on the design later on-->  
-        
-        
-        <!--<RelativePanel Grid.Row="2">
-        <StackPanel RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Name="House1" Margin="20,20,0,0" Orientation="Vertical">
-           <Button Style="{StaticResource HousePictureButton}">
-               <Image Source="Assets/house1.jpg" Stretch="UniformToFill"/>
-           </Button>
-            <StackPanel Orientation="Horizontal">
-                <Button Style="{StaticResource ThumbnailButton}">
-                <Image Source="Assets/house2.jpg" /> 
-                </Button>
-                <Button Style="{StaticResource ThumbnailButton}">
-                    <Image Source="Assets/house4.jpg"/>
-                </Button>
-                <Button Style="{StaticResource ThumbnailButton}">
-                    <Image Source="Assets/house3.jpg"/>
-                </Button>
-                <Button Style="{StaticResource ThumbnailButton}">
-                    <Image Source="Assets/house1.jpg"/>
-                </Button>
-                </StackPanel>
-         </StackPanel>
+        <GridView Grid.Row="2" ItemsSource="{x:Bind Apartments}">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="models:Apartments" x:Key="ApartmentsDataTemplate">
+                    <StackPanel Grid.Row="2" Orientation="Vertical">
+                        <Image Width="150" Source="{x:Bind ApartmentCoverImage}" />
+                     
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="12" Text="Region: "/>
+                            <TextBlock FontSize="12" Text="{x:Bind ApartmentRegion}" />
+                          </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="12" Text="City: "/>
+                            <TextBlock FontSize="12" Text="{x:Bind ApartmentCity}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="12" Text="Room numbers: "/>
+                            <TextBlock FontSize="12" Text="{x:Bind RoomNumbers}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="12" Text="Average rating:"/>
+                            <TextBlock FontSize="12" Text="{x:Bind ApartmentRating}" />
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
 
-        <StackPanel RelativePanel.RightOf="House1" Name="House2" Margin="20,20,0,0" Orientation="Vertical">
-                <Button Style="{StaticResource HousePictureButton}">
-                    <Image Source="Assets/house2.jpg" Stretch="UniformToFill"/>
-                </Button>
-                <StackPanel Orientation="Horizontal">
-                    <Button Style="{StaticResource ThumbnailButton}">
-                        <Image Source="Assets/house3.jpg"/>
-                    </Button>
-                    <Button Style="{StaticResource ThumbnailButton}">
-                        <Image Source="Assets/house4.jpg"/>
-                    </Button>
-                    <Button Style="{StaticResource ThumbnailButton}">
-                        <Image Source="Assets/house5.jpg"/>
-                    </Button>
-                    <Button Style="{StaticResource ThumbnailButton}">
-                        <Image Source="Assets/house1.jpg"/>
-                    </Button>
-                </StackPanel>
-            </StackPanel>
-
-
-        <StackPanel RelativePanel.RightOf="House2" Name="House3" Margin="20,20,0,0" Orientation="Vertical">
-                <Button Style="{StaticResource HousePictureButton}">
-                    <Image Source="Assets/house3.jpg" Stretch="UniformToFill"/>
-                </Button>
-                <StackPanel Orientation="Horizontal">
-                    <Button Style="{StaticResource ThumbnailButton}">
-                        <Image Source="Assets/house2.jpg"/>
-                    </Button>
-                    <Button Style="{StaticResource ThumbnailButton}">
-                        <Image Source="Assets/house1.jpg"/>
-                    </Button>
-                    <Button Style="{StaticResource ThumbnailButton}">
-                        <Image Source="Assets/house4.jpg"/>
-                    </Button>
-                    <Button Style="{StaticResource ThumbnailButton}">
-                        <Image Source="Assets/house1.jpg"/>
-                    </Button>
-                </StackPanel>
-            </StackPanel>
-
-
-        <StackPanel RelativePanel.Below="House1" Name="House4" Margin="20,20,0,0" Orientation="Vertical">
-                <Button Style="{StaticResource HousePictureButton}">
-                    <Image Source="Assets/house4.jpg" Stretch="UniformToFill"/>
-                </Button>
-                <StackPanel Orientation="Horizontal">
-                    <Button Style="{StaticResource ThumbnailButton}">
-                        <Image Source="Assets/house2.jpg"/>
-                    </Button>
-                    <Button Style="{StaticResource ThumbnailButton}">
-                        <Image Source="Assets/house1.jpg"/>
-                    </Button>
-                    <Button Style="{StaticResource ThumbnailButton}">
-                        <Image Source="Assets/house4.jpg"/>
-                    </Button>
-                    <Button Style="{StaticResource ThumbnailButton}">
-                        <Image Source="Assets/house1.jpg"/>
-                    </Button>
-                </StackPanel>
-            </StackPanel>
-
-        <StackPanel RelativePanel.RightOf="House3" Name="House5" Margin="20,20,0,0" Orientation="Vertical">
-                <Button Style="{StaticResource HousePictureButton}">
-                    <Image Source="Assets/house5.jpg" Stretch="UniformToFill"/>
-                </Button>
-                <StackPanel Orientation="Horizontal">
-                    <Button Style="{StaticResource ThumbnailButton}">
-                        <Image Source="Assets/house3.jpg"/>
-                    </Button>
-                    <Button Style="{StaticResource ThumbnailButton}">
-                        <Image Source="Assets/house2.jpg"/>
-                    </Button>
-                    <Button Style="{StaticResource ThumbnailButton}">
-                        <Image Source="Assets/house4.jpg"/>
-                    </Button>
-                    <Button Style="{StaticResource ThumbnailButton}">
-                        <Image Source="Assets/house1.jpg"/>
-                    </Button>
-                </StackPanel>
-            </StackPanel>
-        
-        
-        </RelativePanel>-->
-
-        <!--giiiiiiiiiiiiiithuuuuuuuuuuuuuuuub-->
-        
-
-
-
-        <!--User refine Search by comboBox as follows-->
-        
-        <!--<StackPanel Grid.Column="0" Style="{StaticResource StackPanelStyle}">
-          
-          <ComboBox Name="RegionComboBox" SelectionChanged="ComboBox_RegionSelectionChanged" Style="{StaticResource ComboBoxStyle}" PlaceholderText="Select Region">
-                <ComboBoxItem Content="Capital" />
-                <ComboBoxItem Content="Burgundy"/>
-                <ComboBoxItem Content="Champagne-Ardenne"/>
-                <ComboBoxItem Content="Nord-Pas-de-Calais"/>
-                <ComboBoxItem Content="Auvergne"/>
-                <ComboBoxItem Content="Rhône-Alpes"/>
-                <ComboBoxItem Content="Lorraine"/>
-                <ComboBoxItem Content="Midi-Pyrénées"/>
-            </ComboBox>
-            <TextBlock Name="RegionResultTextBlock" Style="{StaticResource TextBlockStyle}" />
-      
-      </StackPanel>
 
       
-      <StackPanel Grid.Column="1" Style="{StaticResource StackPanelStyle}">
-           
-            <ComboBox Name="SortByComboBox" SelectionChanged="ComboBox_SortBySelectionChanged" Style="{StaticResource ComboBoxStyle}" PlaceholderText="Sort by:">
-                <ComboBoxItem Content="Bestsellers" />
-                <ComboBoxItem Content="Price descending"/>
-                <ComboBoxItem Content="Price ascending"/>
-                <ComboBoxItem Content="Highest rating first"/>
-            </ComboBox>
-            <TextBlock Name="SortResultTextBlock" Style="{StaticResource TextBlockStyle}" />
-        
-      </StackPanel>
-        
-      <StackPanel Grid.Column="2" Style="{StaticResource StackPanelStyle}">
-          
-            <ComboBox Name="RoomNumberComboBox" SelectionChanged="ComboBox_RoomsSelectionChanged" Style="{StaticResource ComboBoxStyle}" PlaceholderText="Number of rooms">
-                <ComboBoxItem Content="1" />
-                <ComboBoxItem Content="2" />
-                <ComboBoxItem Content="3" />
-                <ComboBoxItem Content="4 or more" />
-            </ComboBox>
-            <TextBlock Name="RoomsResultTextBlock" Style="{StaticResource TextBlockStyle}"/>
-          
-      </StackPanel>-->
-        
-       
-
-
-
-
-        <!--<RelativePanel Name="MostPopularPanel" Width="Auto" Height="Auto" Margin="10,10,10,0">
-           
-            <Rectangle Margin="10,10,10,10" Name="house1"  Fill="Aqua" MinHeight="200" MinWidth="250" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" />
-            <Rectangle Margin="10,10,10,10" Name="house2" Fill="Black"  MinHeight="200" MinWidth="250" RelativePanel.RightOf="house1"/>
-            <Rectangle Margin="10,10,10,10" Name="house3" Fill="Orange" MinHeight="200" MinWidth="250" RelativePanel.RightOf="house2" />
-            <Rectangle Margin="10,10,10,10" Name="house4" Fill="Red" MinHeight="200" MinWidth="250"  RelativePanel.Below="house1"/>
-            <Rectangle Margin="10,10,10,10" Name="house5" Fill="DarkGoldenrod" MinHeight="200" MinWidth="250" RelativePanel.RightOf="house4"/>
-            <Rectangle Margin="10,10,10,10" Name="house6" Fill="Salmon" MinHeight="200" MinWidth="250" RelativePanel.RightOf="house5"/>
-
-        </RelativePanel>-->
-
-
-        
     </Grid>
     
 </Page>

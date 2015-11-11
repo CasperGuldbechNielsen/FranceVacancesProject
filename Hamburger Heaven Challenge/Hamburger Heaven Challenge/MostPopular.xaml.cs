@@ -38,35 +38,7 @@ namespace Hamburger_Heaven_Challenge
             var apartment = (Apartments)e.ClickedItem;
             ResultTextBlock.Text = "You selected " + apartment.ApartmentID;
         }
-        // User refine search by comboBox as follows:
-
-        //private void ComboBox_RegionSelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    if (RegionResultTextBlock == null) return;
-
-        //    var combo = (ComboBox)sender;
-        //    var item = (ComboBoxItem)combo.SelectedItem;
-        //    RegionResultTextBlock.Text = item.Content.ToString();
-        //}
-
-        //private void ComboBox_SortBySelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    if (SortResultTextBlock == null) return;
-
-        //    var combo = (ComboBox)sender;
-        //    var item = (ComboBoxItem)combo.SelectedItem;
-        //    SortResultTextBlock.Text = item.Content.ToString();
-        //}
-
-        //private void ComboBox_RoomsSelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    if (RoomsResultTextBlock == null) return;
-
-        //    var combo = (ComboBox)sender;
-        //    var item = (ComboBoxItem)combo.SelectedItem;
-        //    RoomsResultTextBlock.Text = item.Content.ToString();
-        //}
-
+        
 
 
         // User refine the search by flyout buttons as follows:::
