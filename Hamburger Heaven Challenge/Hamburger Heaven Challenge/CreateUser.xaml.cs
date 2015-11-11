@@ -71,6 +71,13 @@ namespace Hamburger_Heaven_Challenge
                         _email = Email.Text;
                         _passwordOne = PasswordOne.Password;
 
+                        //FileStream myFileStream = new FileStream(".\\/Assets/Users.txt", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+
+                        //StreamWriter myWriter = new StreamWriter(myFileStream);
+
+                        //myWriter.Write(_firstName);
+
+
                         // We need to add some method in which we save the profile so we can use it to log in.
                     }
                     else
@@ -82,21 +89,25 @@ namespace Hamburger_Heaven_Challenge
 
             // Check if any of the fields are blank
 
-            else if (FirstName.Text == "")
+            if (FirstName.Text == "")
             {
                 FirstName.Background = new SolidColorBrush(Colors.Red);
             }
-            else if (LastName.Text == "")
+            if (LastName.Text == "")
             {
                 LastName.Background = new SolidColorBrush(Colors.Red);
             }
-            else if (Email.Text == "")
+            if (Email.Text == "")
             {
                 Email.Background = new SolidColorBrush(Colors.Red);
             }
-            else if (PasswordOne.Password == "")
+            if (PasswordOne.Password == "")
             {
                 PasswordOne.Background = new SolidColorBrush(Colors.Red);
+            }
+            if (PasswordTwo.Password == "")
+            {
+                PasswordTwo.Background = new SolidColorBrush(Colors.Red);
             }
         }
     }

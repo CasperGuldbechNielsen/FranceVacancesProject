@@ -10,7 +10,6 @@
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Maps:MapControl x:Name="MyMap" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="700" Width="1260">
-            <Maps:MapItemsControl ItemsSource="{Binding MapElements}"/>
         </Maps:MapControl>
     </Grid>
 </Page>
