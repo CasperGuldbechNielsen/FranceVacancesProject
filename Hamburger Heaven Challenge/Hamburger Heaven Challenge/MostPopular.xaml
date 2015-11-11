@@ -5,8 +5,10 @@
     xmlns:local="using:Hamburger_Heaven_Challenge"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
-    
+    mc:Ignorable="d"
+    xmlns:models="using:Hamburger_Heaven_Challenge.Models">
+
+
     <!--this are the styles of the page, like a design we can "call" them so no need to Repeat Yourself-->
     
     <Page.Resources>
@@ -57,9 +59,23 @@
         
     <!-- This is a test comment-->
         <!--last try to push to master-->
-        
-      
-    <!--Some buttons, to refine the search, of course non of them are workin, hope Bob will teach us :)-->    
+
+        <GridView Grid.Row="2" ItemsSource="{x:Bind Apartments}">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="models:Apartments" x:Key="ApartmentsDataTemplate">
+                    <StackPanel Grid.Row="2" HorizontalAlignment="Center">
+                        <Image Width="150" Source="{x:Bind ApartmentCoverImage}" />
+                        <TextBlock FontSize="16" Text="{x:Bind ApartmentRegion}" HorizontalAlignment="Center" />
+                        <TextBlock FontSize="10" Text="{x:Bind ApartmentCity}" HorizontalAlignment="Center" />
+                        <TextBlock FontSize="10" Text="{x:Bind RoomNumbers}" HorizontalAlignment="Center" />
+                        <TextBlock FontSize="10" Text="{x:Bind ApartmentRating}" HorizontalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+
+
+        <!--Some buttons, to refine the search, of course non of them are workin, hope Bob will teach us :)-->    
         
       <StackPanel Grid.Column="0" Style="{StaticResource StackPanelStyle}">
           
@@ -114,7 +130,7 @@
     <!--And finally here can be shown the result of the search, I need to work on the design later on-->  
         
         
-        <RelativePanel Grid.Row="2">
+        <!--<RelativePanel Grid.Row="2">
         <StackPanel RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Name="House1" Margin="20,20,0,0" Orientation="Vertical">
            <Button Style="{StaticResource HousePictureButton}">
                <Image Source="Assets/house1.jpg" Stretch="UniformToFill"/>
@@ -218,7 +234,7 @@
             </StackPanel>
         
         
-        </RelativePanel>
+        </RelativePanel>-->
 
         <!--giiiiiiiiiiiiiithuuuuuuuuuuuuuuuub-->
         
