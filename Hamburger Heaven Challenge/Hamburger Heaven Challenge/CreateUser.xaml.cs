@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,9 +23,65 @@ namespace Hamburger_Heaven_Challenge
     /// </summary>
     public sealed partial class CreateUser : Page
     {
+        // Fields for creating the account
+        private string _firstName;
+        private string _lastName;
+        private string _email;
+        private string _passwordOne;
+        private string _passwordTwo;
         public CreateUser()
         {
             this.InitializeComponent();
+        }
+
+        private void CreateUserButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            FirstName.Background = new SolidColorBrush(Colors.White);
+            LastName.Background = new SolidColorBrush(Colors.White);
+            Email.Background = new SolidColorBrush(Colors.White);
+            PasswordOne.Background = new SolidColorBrush(Colors.White);
+            PasswordTwo.Background = new SolidColorBrush(Colors.White);
+
+            if (FirstName.Text != "" && LastName.Text != "" && Email.Text != "" && PasswordOne.Password != "")
+            {
+                if (PasswordOne.Password != PasswordTwo.Password)
+                {
+                    PasswordOne.Background = new SolidColorBrush(Colors.Red);
+                    PasswordTwo.Background = new SolidColorBrush(Colors.Red);
+
+                    PasswordOne.PlaceholderText = "Passwords must match";
+                    PasswordTwo.PlaceholderText = "Passwords must match";
+                }
+                else
+                {
+                    FirstName.Text = "It works";
+                    if (Email.Text.Contains("@"))
+                    {
+                        // do whatever to do
+                    }
+                    else
+                    {
+                        Email.Background = new SolidColorBrush(Colors.Red);
+                    }
+                }
+            }
+            else if (FirstName.Text == "")
+            {
+                FirstName.Background = new SolidColorBrush(Colors.Red);
+            }
+            else if (LastName.Text == "")
+            {
+                LastName.Background = new SolidColorBrush(Colors.Red);
+            }
+            else if (Email.Text == "")
+            {
+                Email.Background = new SolidColorBrush(Colors.Red);
+            }
+            else if (PasswordOne.Password == "")
+            {
+                PasswordOne.Background = new SolidColorBrush(Colors.Red);
+            }
         }
     }
 }

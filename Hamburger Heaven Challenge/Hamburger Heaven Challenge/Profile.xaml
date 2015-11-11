@@ -24,7 +24,8 @@
                      TextWrapping="Wrap" 
                      PlaceholderText="Profile Name" 
                      RelativePanel.AlignHorizontalCenterWithPanel="True" 
-                     VerticalAlignment="Top" Margin="0,100,0,0"
+                     VerticalAlignment="Top" 
+                     Margin="0,100,0,0"
                      Width="300"/>
             <PasswordBox Name="PasswordBox" 
                          HorizontalAlignment="Left" 
