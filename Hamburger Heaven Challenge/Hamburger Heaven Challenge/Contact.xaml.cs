@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using System.Net;
+using System.Net.Mail;
 
 
 
@@ -32,7 +32,7 @@ namespace Hamburger_Heaven_Challenge
 
         private void SendBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+        
         }
     }
 }
