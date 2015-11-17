@@ -123,9 +123,9 @@
             <TextBlock Name="ResultTextBlock" Style="{StaticResource TextBlockStyle}"  />
         </StackPanel>
 
-            
-       <!--And here we are binding the apartments from page resources-->     
-            
+
+        <!--And here we are binding the apartments from page resources-->
+
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden" VerticalScrollMode="Enabled" >
         <GridView 
                   ItemsSource="{x:Bind Apartments}" 
