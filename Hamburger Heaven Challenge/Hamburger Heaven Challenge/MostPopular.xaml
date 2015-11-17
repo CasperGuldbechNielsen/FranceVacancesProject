@@ -13,11 +13,6 @@
     <!--this are the styles of the page, like a design we can "call" them so no need to Repeat Yourself-->
 
     <Page.Resources>
-        <Style TargetType="ComboBox" x:Key="ComboBoxStyle">
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="10,10,10,10"/>
-        </Style>
         <Style TargetType="TextBlock" x:Key="TextBlockStyle">
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -33,16 +28,9 @@
             <Setter Property="Margin" Value="10" />
             <Setter Property="Foreground" Value="Black" />
         </Style>
-        <Style TargetType="Button" x:Key="ThumbnailButton">
-            <Setter Property="Width" Value="50" />
-            <Setter Property="Height" Value="30" />
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-        </Style>
-        <Style TargetType="Button" x:Key="HousePictureButton">
-            <Setter Property="Width" Value="200" />
-            <Setter Property="Height" Value="200" />
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-        </Style>
+       
+      <!--this is where the magic happen, and the binding goes to the page resources--> 
+        
         <DataTemplate x:DataType="data:Apartments" x:Key="ApartmentDataTemplate">
             <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
                 <Image Width="150" Source="{x:Bind ApartmentCoverImage}" />
@@ -135,6 +123,9 @@
             <TextBlock Name="ResultTextBlock" Style="{StaticResource TextBlockStyle}"  />
         </StackPanel>
 
+            
+       <!--And here we are binding the apartments from page resources-->     
+            
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden" VerticalScrollMode="Enabled" >
         <GridView 
                   ItemsSource="{x:Bind Apartments}" 
