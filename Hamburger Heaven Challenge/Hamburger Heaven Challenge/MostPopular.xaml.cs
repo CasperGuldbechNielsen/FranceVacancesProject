@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,21 +25,21 @@ namespace Hamburger_Heaven_Challenge
     public sealed partial class MostPopular : Page
     {
         private List<Apartments> Apartments;
-             
+
         public MostPopular()
         {
             this.InitializeComponent();
             Apartments = ApartmentManager.GetApartments();
         }
 
-        
+
 
         private void GridView_ItemClick(object sender, ItemClickEventArgs e)
         {
             var apartment = (Apartments)e.ClickedItem;
             ResultTextBlock.Text = "You selected " + apartment.ApartmentID;
         }
-        
+
 
 
         // User refine the search by flyout buttons as follows:::
@@ -88,3 +89,4 @@ namespace Hamburger_Heaven_Challenge
         }
     }
 }
+

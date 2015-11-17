@@ -23,7 +23,7 @@ namespace Hamburger_Heaven_Challenge.Models
         {
             var apartments = new List<Apartments>();
 
-            apartments.Add(new Apartments { ApartmentID = 1, ApartmentRegion = "Capital", ApartmentCity = "Paris", RoomNumbers = 2, ApartmentCoverImage = "Assets/ApartmentImages/house1.jpg", ApartmentRating = "4.5"} );
+            apartments.Add(new Apartments { ApartmentID = 1, ApartmentRegion = "Capital", ApartmentCity = "Paris", RoomNumbers = 2, ApartmentCoverImage = "Assets/ApartmentImages/house1.jpg", ApartmentRating = "4.5" });
             apartments.Add(new Apartments { ApartmentID = 2, ApartmentRegion = "Burgundy", ApartmentCity = "Bordeaux", RoomNumbers = 1, ApartmentCoverImage = "Assets/ApartmentImages/house2.jpg", ApartmentRating = "5" });
             apartments.Add(new Apartments { ApartmentID = 3, ApartmentRegion = "Champagne-Ardenne", ApartmentCity = "Tolouse", RoomNumbers = 3, ApartmentCoverImage = "Assets/ApartmentImages/house3.jpg", ApartmentRating = "3" });
             apartments.Add(new Apartments { ApartmentID = 4, ApartmentRegion = "Nord-Pas-de-Calais", ApartmentCity = "Montpellier", RoomNumbers = 4, ApartmentCoverImage = "Assets/ApartmentImages/house4.jpg", ApartmentRating = "4.2" });
@@ -43,5 +43,4 @@ namespace Hamburger_Heaven_Challenge.Models
         }
     }
 }
-
 
