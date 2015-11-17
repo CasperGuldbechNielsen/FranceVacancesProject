@@ -135,7 +135,7 @@
             <TextBlock Name="ResultTextBlock" Style="{StaticResource TextBlockStyle}"  />
         </StackPanel>
 
-        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Enabled" >
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden" VerticalScrollMode="Enabled" >
         <GridView 
                   ItemsSource="{x:Bind Apartments}" 
                   IsItemClickEnabled="True"
