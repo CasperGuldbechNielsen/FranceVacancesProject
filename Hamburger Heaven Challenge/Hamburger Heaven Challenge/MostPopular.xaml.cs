@@ -37,7 +37,7 @@ namespace Hamburger_Heaven_Challenge
         private void GridView_ItemClick(object sender, ItemClickEventArgs e)
         {
             var apartment = (Apartments)e.ClickedItem;
-            ResultTextBlock.Text = "You selected " + apartment.ApartmentID;
+            ApartmentResultTextBlock.Text = "You have selected apartment # " + apartment.ApartmentID;
         }
 
 

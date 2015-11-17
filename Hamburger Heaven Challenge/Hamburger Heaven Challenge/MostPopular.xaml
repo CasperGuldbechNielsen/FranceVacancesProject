@@ -6,9 +6,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:models="using:Hamburger_Heaven_Challenge.Models">
-
-
+    xmlns:data="using:Hamburger_Heaven_Challenge.Models">
+    
+    
+    
     <!--this are the styles of the page, like a design we can "call" them so no need to Repeat Yourself-->
 
     <Page.Resources>
@@ -42,16 +43,42 @@
             <Setter Property="Height" Value="200" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
         </Style>
+        <DataTemplate x:DataType="data:Apartments" x:Key="ApartmentDataTemplate">
+            <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+                <Image Width="150" Source="{x:Bind ApartmentCoverImage}" />
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="12" Text="Region: "/>
+                    <TextBlock FontSize="12" Text="{x:Bind ApartmentRegion}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="12" Text="City: "/>
+                    <TextBlock FontSize="12" Text="{x:Bind ApartmentCity}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="12" Text="Room numbers: "/>
+                    <TextBlock FontSize="12" Text="{x:Bind RoomNumbers}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="12" Text="Average rating:"/>
+                    <TextBlock FontSize="12" Text="{x:Bind ApartmentRating}" />
+                </StackPanel>
+            </StackPanel>
+
+        </DataTemplate>
+        
+        
     </Page.Resources>
 
 
     <!--Grids, not sure if these are suitable and good for the final project, just for fun-->
-
-    <Grid>
+    
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
             <RowDefinition Height="70"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
 
@@ -108,36 +135,24 @@
             <TextBlock Name="ResultTextBlock" Style="{StaticResource TextBlockStyle}"  />
         </StackPanel>
 
-        <GridView Grid.Row="2" ItemsSource="{x:Bind Apartments}">
-            <GridView.ItemTemplate>
-                <DataTemplate x:DataType="models:Apartments" x:Key="ApartmentsDataTemplate">
-                    <StackPanel Grid.Row="2" Orientation="Vertical">
-                        <Image Width="150" Source="{x:Bind ApartmentCoverImage}" />
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock FontSize="12" Text="Region: "/>
-                            <TextBlock FontSize="12" Text="{x:Bind ApartmentRegion}" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock FontSize="12" Text="City: "/>
-                            <TextBlock FontSize="12" Text="{x:Bind ApartmentCity}" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock FontSize="12" Text="Room numbers: "/>
-                            <TextBlock FontSize="12" Text="{x:Bind RoomNumbers}" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock FontSize="12" Text="Average rating:"/>
-                            <TextBlock FontSize="12" Text="{x:Bind ApartmentRating}" />
-                        </StackPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </GridView.ItemTemplate>
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Enabled" >
+        <GridView 
+                  ItemsSource="{x:Bind Apartments}" 
+                  IsItemClickEnabled="True"
+                  ItemClick="GridView_ItemClick"
+                  ItemTemplate="{StaticResource ApartmentDataTemplate}">
+            
         </GridView>
+        </ScrollViewer>
+            
+        <TextBlock Grid.Row="3"
+                   Name="ApartmentResultTextBlock"
+                   FontSize="24"
+                   Margin="0,20,0,0"/>
 
-
-
+        
     </Grid>
+        
 
 </Page>
 
