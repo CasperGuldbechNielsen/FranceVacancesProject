@@ -84,7 +84,9 @@ namespace Hamburger_Heaven_Challenge
                                                      " | " + _passwordOne + Environment.NewLine;
                                 File.WriteAllText(storageFile.Path, newFileContent);
                             }
-                        }                      
+                        }
+                        
+                        // TODO: We have to implement a file in assets that we copy into localpath
                     }
                     else
                     {

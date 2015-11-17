@@ -14,6 +14,7 @@ namespace Hamburger_Heaven_Challenge.Models
         public int RoomNumbers { get; set; }
         public string ApartmentCoverImage { get; set; }
         public string ApartmentRating { get; set; }
+
     }
 
     public class ApartmentManager
@@ -39,7 +40,7 @@ namespace Hamburger_Heaven_Challenge.Models
             apartments.Add(new Apartments { ApartmentID = 15, ApartmentRegion = "Midi-Pyrénées", ApartmentCity = "Devoux", RoomNumbers = 1, ApartmentCoverImage = "Assets/ApartmentImages/house5.jpg", ApartmentRating = "not yet rated" });
 
             return apartments;
-        } 
+        }
     }
 }
 
