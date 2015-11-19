@@ -7,40 +7,51 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400"
-    >
+    d:DesignWidth="400" >
+
+    
+
     <!--this manager controls the adaptive layout, the bigger is the app window, the bigger are our objects-->
 
-    <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+    <StackPanel HorizontalAlignment="Center" Orientation="Vertical"  >
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
-                <VisualState x:Name="NarrowLayout">
+                <VisualState x:Name="Layout1">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="VisualTestImage.Width" Value="80" />
+                        <Setter Target="VisualTestImage.Width" Value="120" />
                         <Setter Target="VisualTest_TextBlock.FontSize" Value="12" />
                     </VisualState.Setters>
                 </VisualState>
-                <VisualState x:Name="WideLayout">
+                <VisualState x:Name="Layout2">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="1000"/>
+                        <AdaptiveTrigger MinWindowWidth="700"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="VisualTestImage.Width" Value="200" />
+                        <Setter Target="VisualTestImage.Width" Value="280" />
                         <Setter Target="VisualTest_TextBlock.FontSize" Value="24" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Layout3">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="VisualTestImage.Width" Value="400" />
+                        <Setter Target="VisualTest_TextBlock.FontSize" Value="44" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-
-        <Image Name="VisualTestImage" Width="80" Source="{x:Bind Apartments.ApartmentCoverImage}" />
+      <StackPanel Margin="10,10,10,10" Orientation="Vertical">
+        <Image Name="VisualTestImage" Source="{x:Bind Apartments.ApartmentCoverImage}" />
 
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Region: "/>
-            <TextBlock Name="VisualTest_TextBlock" FontSize="12" Text="{x:Bind Apartments.ApartmentRegion}" />
+            <TextBlock Name="VisualTest_TextBlock"  Text="{x:Bind Apartments.ApartmentRegion}" />
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock FontSize="12" Text="City: "/>
@@ -54,5 +65,8 @@
             <TextBlock FontSize="12" Text="Average rating:"/>
             <TextBlock FontSize="12" Text="{x:Bind Apartments.ApartmentRating}" />
         </StackPanel>
-    </StackPanel>
+      </StackPanel>
+        
+        
+ </StackPanel>
 </UserControl>
