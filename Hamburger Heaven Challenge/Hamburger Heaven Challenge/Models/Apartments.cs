@@ -8,10 +8,22 @@ namespace Hamburger_Heaven_Challenge.Models
 {
     public class Apartments
     {
+        private int _roomNumbers;
         public int ApartmentID { get; set; }
         public string ApartmentRegion { get; set; }
         public string ApartmentCity { set; get; }
-        public int RoomNumbers { get; set; }
+
+        public int RoomNumbers
+        {
+            get { return _roomNumbers; }
+            set
+            {
+                if (value <= 0) 
+                    throw new ArgumentOutOfRangeException(nameof(RoomNumbers));
+                _roomNumbers = value;
+            }
+        }
+
         public string ApartmentCoverImage { get; set; }
         public string ApartmentRating { get; set; }
 
@@ -38,6 +50,7 @@ namespace Hamburger_Heaven_Challenge.Models
             apartments.Add(new Apartments { ApartmentID = 13, ApartmentRegion = "Auvergne", ApartmentCity = "Fazios", RoomNumbers = 2, ApartmentCoverImage = "Assets/ApartmentImages/house3.jpg", ApartmentRating = "5" });
             apartments.Add(new Apartments { ApartmentID = 14, ApartmentRegion = "Rhône-Alpes", ApartmentCity = "Venice", RoomNumbers = 4, ApartmentCoverImage = "Assets/ApartmentImages/house4.jpg", ApartmentRating = "2.5" });
             apartments.Add(new Apartments { ApartmentID = 15, ApartmentRegion = "Midi-Pyrénées", ApartmentCity = "Devoux", RoomNumbers = 1, ApartmentCoverImage = "Assets/ApartmentImages/house5.jpg", ApartmentRating = "not yet rated" });
+
 
             return apartments;
         }
