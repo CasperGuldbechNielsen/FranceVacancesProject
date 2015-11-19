@@ -12,6 +12,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Net;
+
+
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,6 +28,11 @@ namespace Hamburger_Heaven_Challenge
         public Contact()
         {
             this.InitializeComponent();
+        }
+
+        private void SendBtn_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

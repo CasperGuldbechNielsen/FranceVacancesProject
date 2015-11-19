@@ -17,7 +17,7 @@ namespace Hamburger_Heaven_Challenge
         public MainPage()
         {
             this.InitializeComponent();
-            MyFrame.Navigate(typeof(Financial));
+            MyFrame.Navigate(typeof(Home));
             BackButton.Visibility = Visibility.Collapsed;
             Title.Margin = new Thickness(68,0,0,0);
         }
@@ -28,7 +28,7 @@ namespace Hamburger_Heaven_Challenge
             {
                 MySplitView.IsPaneOpen = false;
                 if (MySplitView.Content != null)
-                    ((Frame)MySplitView.Content).Navigate(typeof(Financial));
+                    ((Frame)MySplitView.Content).Navigate(typeof(Home));
                 Title.Text = "Home";
                 BackButton.Visibility = Visibility.Visible;
                 Title.Margin = new Thickness(0, 0, 0, 0);
@@ -113,7 +113,7 @@ namespace Hamburger_Heaven_Challenge
                 {
                     MyFrame.GoBack();
 
-                    if (MyFrame.CurrentSourcePageType == typeof (Financial))
+                    if (MyFrame.CurrentSourcePageType == typeof (Home))
                     {
                         Title.Text = "Home";
                         HomeListItem.IsSelected = true;

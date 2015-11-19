@@ -19,7 +19,43 @@
         </Grid.ColumnDefinitions>
 
         <RelativePanel>
-            
+            <TextBlock x:Name="NameText"
+        		Text="Name" 
+        		Margin="44,69,-44,-69"
+                       />
+            <TextBox x:Name="Namebox" 
+        		PlaceholderText="Name" 
+        		RelativePanel.AlignHorizontalCenterWithPanel="True"
+        		Margin="-6,94,6,0"
+        		Width="300" Text="" Height="32" VerticalAlignment="Top"/>
+            <TextBlock x:Name="emailText"
+            	Text="E-mail" 
+            	Margin="44,133,-44,-133"
+                       />
+            <TextBox x:Name="email" 
+            	PlaceholderText="E-Mail" 
+            	RelativePanel.AlignHorizontalCenterWithPanel="True"
+            	Margin="-6,158,6,-58"
+            	Width="300" Text=""/>
+
         </RelativePanel>
+        <TextBlock x:Name="SubjectText"
+        	Text="Subject" 
+        	Margin="44,197,284,183"
+                       />
+        <TextBox x:Name="Subject" 
+        	PlaceholderText="Subject" 
+        	RelativePanel.AlignHorizontalCenterWithPanel="True"
+        	Margin="44,222,56,146"
+        	Width="300" Text=""/>
+        <TextBlock x:Name="MessageText"
+        	Text="Message" 
+        	Margin="44,261,284,119"
+                       />
+        <TextBox x:Name="Message" 
+        	PlaceholderText="Message" 
+        	RelativePanel.AlignHorizontalCenterWithPanel="True"
+        	Margin="44,286,0,205" Text="" Grid.RowSpan="2"/>
+        <Button x:Name="SendBtn" Content="Send" HorizontalAlignment="Left" Margin="346,136,0,152" Click="SendBtn_Click" Grid.Row="1"/>
     </Grid>
 </Page>

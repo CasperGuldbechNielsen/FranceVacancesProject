@@ -6,23 +6,19 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:models="using:Hamburger_Heaven_Challenge.Models">
-
-
-    <!--this are the styles of the page, like a design we can "call" them so no need to Repeat Yourself-->
+    xmlns:data="using:Hamburger_Heaven_Challenge.Models">
     
+    
+    
+    <!--this are the styles of the page, like a design we can "call" them so no need to Repeat Yourself-->
+
     <Page.Resources>
-        <Style TargetType="ComboBox" x:Key="ComboBoxStyle">
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="10,10,10,10"/>
-         </Style>
         <Style TargetType="TextBlock" x:Key="TextBlockStyle">
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="Margin" Value="10,10,10,10" />
             <Setter Property="FontSize" Value="18" />
-            </Style>
+        </Style>
         <Style TargetType="StackPanel" x:Key="StackPanelStyle">
             <Setter Property="Orientation" Value="Horizontal" />
             <Setter Property="HorizontalAlignment" Value="Left" />
@@ -32,50 +28,69 @@
             <Setter Property="Margin" Value="10" />
             <Setter Property="Foreground" Value="Black" />
         </Style>
-        <Style TargetType="Button" x:Key="ThumbnailButton">
-            <Setter Property="Width" Value="50" />
-            <Setter Property="Height" Value="30" />
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-        </Style>
-        <Style TargetType="Button" x:Key="HousePictureButton">
-            <Setter Property="Width" Value="200" />
-            <Setter Property="Height" Value="200" />
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-        </Style>
+       
+      <!--this is where the magic happen, and the binding goes to the page resources--> 
+        
+        <DataTemplate x:DataType="data:Apartments" x:Key="ApartmentDataTemplate">
+            <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+                <Image Width="150" Source="{x:Bind ApartmentCoverImage}" />
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="12" Text="Region: "/>
+                    <TextBlock FontSize="12" Text="{x:Bind ApartmentRegion}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="12" Text="City: "/>
+                    <TextBlock FontSize="12" Text="{x:Bind ApartmentCity}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="12" Text="Room numbers: "/>
+                    <TextBlock FontSize="12" Text="{x:Bind RoomNumbers}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="12" Text="Average rating:"/>
+                    <TextBlock FontSize="12" Text="{x:Bind ApartmentRating}" />
+                </StackPanel>
+            </StackPanel>
+
+        </DataTemplate>
+        
+        
     </Page.Resources>
 
-    
+
     <!--Grids, not sure if these are suitable and good for the final project, just for fun-->
     
-    <Grid>
-    <Grid.RowDefinitions>
-          <RowDefinition Height="70"/>
-          <RowDefinition Height="70"/>
-          <RowDefinition Height="Auto"/>
-    </Grid.RowDefinitions>
-    
-    
-        
-        
-    <!--Some buttons, to refine the search, of course non of them are workin, hope Bob will teach us :)-->    
-        
-    <StackPanel Grid.Column="0" Style="{StaticResource StackPanelStyle}">
-       
-     <Button Content="Region" 
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+
+
+
+        <!--Some buttons, to refine the search, of course non of them are workin, hope Bob will teach us :)-->
+
+        <StackPanel Grid.Column="0" Style="{StaticResource StackPanelStyle}">
+
+            <Button Content="Region" 
              Style="{StaticResource FlyoutButtonStyle}">
-       <Button.Flyout>
-         <MenuFlyout>
-            <MenuFlyoutItem Text="Capital" Click="Region_Click"/>
-              <MenuFlyoutItem Text="Burgundy" Click="Region_Click"/>
-              <MenuFlyoutItem Text="Champagne-Ardenne" Click="Region_Click"/>
-              <MenuFlyoutItem Text="Nord-Pas-de-Calais" Click="Region_Click"/>
-              <MenuFlyoutItem Text="Auvergne" Click="Region_Click"/>
-              <MenuFlyoutItem Text="Rhône-Alpes" Click="Region_Click"/>
-              <MenuFlyoutItem Text="Lorraine" Click="Region_Click"/>
-              <MenuFlyoutItem Text="Midi-Pyrénées" Click="Region_Click"/>
-         </MenuFlyout>
-        </Button.Flyout>
-       </Button>
+                <Button.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="Capital" Click="Region_Click"/>
+                        <MenuFlyoutItem Text="Burgundy" Click="Region_Click"/>
+                        <MenuFlyoutItem Text="Champagne-Ardenne" Click="Region_Click"/>
+                        <MenuFlyoutItem Text="Nord-Pas-de-Calais" Click="Region_Click"/>
+                        <MenuFlyoutItem Text="Auvergne" Click="Region_Click"/>
+                        <MenuFlyoutItem Text="Rhône-Alpes" Click="Region_Click"/>
+                        <MenuFlyoutItem Text="Lorraine" Click="Region_Click"/>
+                        <MenuFlyoutItem Text="Midi-Pyrénées" Click="Region_Click"/>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
 
             <Button Content="Sort by: " 
                   Style="{StaticResource FlyoutButtonStyle}">
@@ -108,35 +123,27 @@
             <TextBlock Name="ResultTextBlock" Style="{StaticResource TextBlockStyle}"  />
         </StackPanel>
 
-        <GridView Grid.Row="2" ItemsSource="{x:Bind Apartments}">
-            <GridView.ItemTemplate>
-                <DataTemplate x:DataType="models:Apartments" x:Key="ApartmentsDataTemplate">
-                    <StackPanel Grid.Row="2" Orientation="Vertical">
-                        <Image Width="150" Source="{x:Bind ApartmentCoverImage}" />
-                     
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock FontSize="12" Text="Region: "/>
-                            <TextBlock FontSize="12" Text="{x:Bind ApartmentRegion}" />
-                          </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock FontSize="12" Text="City: "/>
-                            <TextBlock FontSize="12" Text="{x:Bind ApartmentCity}" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock FontSize="12" Text="Room numbers: "/>
-                            <TextBlock FontSize="12" Text="{x:Bind RoomNumbers}" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock FontSize="12" Text="Average rating:"/>
-                            <TextBlock FontSize="12" Text="{x:Bind ApartmentRating}" />
-                        </StackPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </GridView.ItemTemplate>
+
+        <!--And here we are binding the apartments from page resources-->
+
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden" VerticalScrollMode="Enabled" >
+        <GridView 
+                  ItemsSource="{x:Bind Apartments}" 
+                  IsItemClickEnabled="True"
+                  ItemClick="GridView_ItemClick"
+                  ItemTemplate="{StaticResource ApartmentDataTemplate}">
+            
         </GridView>
+        </ScrollViewer>
+            
+        <TextBlock Grid.Row="3"
+                   Name="ApartmentResultTextBlock"
+                   FontSize="24"
+                   Margin="0,20,0,0"/>
 
-
-      
+        
     </Grid>
-    
+        
+
 </Page>
+
