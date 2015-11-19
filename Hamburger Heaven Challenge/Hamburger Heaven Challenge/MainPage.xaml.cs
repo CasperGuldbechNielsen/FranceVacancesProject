@@ -152,6 +152,7 @@ namespace Hamburger_Heaven_Challenge
                         ProfileListBoxItem.IsSelected = true;
                         if (MyFrame.CanGoBack)
                             MyFrame.GoBack();
+
                         var a = (Profile)MyFrame.Content;
                         if (a != null)
                             a.OnNavigateParentReady += OnCreateUser;
@@ -168,6 +169,7 @@ namespace Hamburger_Heaven_Challenge
                         Title.Text = "Create User";
                         if (MyFrame.CanGoBack)
                             MyFrame.GoBack();
+
                     }
                 }
             }
@@ -194,6 +196,10 @@ namespace Hamburger_Heaven_Challenge
             Title.Text = "Profile";
             BackButton.Visibility = Visibility.Visible;
             Title.Margin = new Thickness(0, 0, 0, 0);
+
+            var a = (Profile)MyFrame.Content;
+            if (a != null)
+                a.OnNavigateParentReady += OnCreateUser;
         }
     }
 }
