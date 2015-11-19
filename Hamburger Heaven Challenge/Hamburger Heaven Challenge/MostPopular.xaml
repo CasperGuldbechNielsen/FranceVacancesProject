@@ -15,7 +15,7 @@
     <!--this are the styles of the page, like a design we can "call" them so no need to Repeat Yourself-->
 
     <Page.Resources>
-        
+
         <Style TargetType="TextBlock" x:Key="TextBlockStyle">
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="HorizontalAlignment" Value="Center" />
