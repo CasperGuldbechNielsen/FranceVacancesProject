@@ -7,12 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:data="using:Hamburger_Heaven_Challenge.Models">
+
     
     
     
+
     <!--this are the styles of the page, like a design we can "call" them so no need to Repeat Yourself-->
 
     <Page.Resources>
+
         <Style TargetType="TextBlock" x:Key="TextBlockStyle">
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -29,34 +32,19 @@
             <Setter Property="Foreground" Value="Black" />
         </Style>
        
-      <!--this is where the magic happen, and the binding goes to the page resources--> 
+      <!--this is where the magic happen, and the binding comes from the user control--> 
         
         <DataTemplate x:DataType="data:Apartments" x:Key="ApartmentDataTemplate">
-            <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
-                <Image Width="150" Source="{x:Bind ApartmentCoverImage}" />
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock FontSize="12" Text="Region: "/>
-                    <TextBlock FontSize="12" Text="{x:Bind ApartmentRegion}" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock FontSize="12" Text="City: "/>
-                    <TextBlock FontSize="12" Text="{x:Bind ApartmentCity}" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock FontSize="12" Text="Room numbers: "/>
-                    <TextBlock FontSize="12" Text="{x:Bind RoomNumbers}" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock FontSize="12" Text="Average rating:"/>
-                    <TextBlock FontSize="12" Text="{x:Bind ApartmentRating}" />
-                </StackPanel>
-            </StackPanel>
+            <local:MostPopularUserControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
         </DataTemplate>
         
         
     </Page.Resources>
+    
+    
+
+    
 
 
     <!--Grids, not sure if these are suitable and good for the final project, just for fun-->

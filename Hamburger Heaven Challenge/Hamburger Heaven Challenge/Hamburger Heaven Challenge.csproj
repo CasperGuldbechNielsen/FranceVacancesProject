@@ -125,6 +125,9 @@
     <Compile Include="MostPopular.xaml.cs">
       <DependentUpon>MostPopular.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MostPopularUserControl.xaml.cs">
+      <DependentUpon>MostPopularUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Profile.xaml.cs">
       <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
@@ -191,6 +194,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MostPopular.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MostPopularUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
