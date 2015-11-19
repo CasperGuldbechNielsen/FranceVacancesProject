@@ -53,23 +53,23 @@ namespace Hamburger_Heaven_Challenge
         {
             var selected = (MenuFlyoutItem)sender;
             _region = selected.Text;
-            displayResult();
+            DisplayResult();
         }
 
         private void SortBy_Click(object sender, RoutedEventArgs e)
         {
             var selected = (MenuFlyoutItem)sender;
             _sortBy = selected.Text;
-            displayResult();
+            DisplayResult();
         }
 
         private void RoomNumber_Click(object sender, RoutedEventArgs e)
         {
             var selected = (MenuFlyoutItem)sender;
             _roomNumber = selected.Text;
-            displayResult();
+            DisplayResult();
         }
-        private void displayResult()
+        private void DisplayResult()
         {
             if (_region == "None" || String.IsNullOrEmpty(_region))
             {
