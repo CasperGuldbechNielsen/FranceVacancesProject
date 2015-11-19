@@ -70,22 +70,51 @@ namespace Hamburger_Heaven_Challenge
                         _lastName = LastName.Text;
                         _email = Email.Text;
                         _passwordOne = PasswordOne.Password;
-                        StorageFolder localFolder = ApplicationData.Current.LocalFolder;
 
-                        var files = await localFolder.GetFilesAsync();
-
-                        foreach (StorageFile storageFile in files)
+                        try
                         {
-                            if (storageFile.Name == "Users.txt")
-                            {
-                                var oldFileContent = File.ReadAllText(storageFile.Path);
+                            StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Users.txt"));
 
-                                var newFileContent = oldFileContent + _firstName + " | " + _lastName + " | " + _email +
-                                                     " | " + _passwordOne + Environment.NewLine;
-                                File.WriteAllText(storageFile.Path, newFileContent);
+                            await file.CopyAsync(ApplicationData.Current.LocalFolder, "Users.txt");
+
+                            StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+
+                            var files = await localFolder.GetFilesAsync();
+
+                            foreach (StorageFile storageFile in files)
+                            {
+                                if (storageFile.Name == "Users.txt")
+                                {
+                                    var oldFileContent = File.ReadAllText(storageFile.Path);
+
+                                    var newFileContent = oldFileContent + _firstName + " | " + _lastName + " | " +
+                                                         _email +
+                                                         " | " + _passwordOne + Environment.NewLine;
+                                    File.WriteAllText(storageFile.Path, newFileContent);
+                                }
                             }
                         }
-                        
+                        catch
+                        {
+
+                            StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+
+                            var files = await localFolder.GetFilesAsync();
+
+                            foreach (StorageFile storageFile in files)
+                            {
+                                if (storageFile.Name == "Users.txt")
+                                {
+                                    var oldFileContent = File.ReadAllText(storageFile.Path);
+
+                                    var newFileContent = oldFileContent + _firstName + " | " + _lastName + " | " +
+                                                         _email +
+                                                         " | " + _passwordOne + Environment.NewLine;
+                                    File.WriteAllText(storageFile.Path, newFileContent);
+                                }
+                            }
+                        }
+
                         // TODO: We have to implement a file in assets that we copy into localpath
                     }
                     else
