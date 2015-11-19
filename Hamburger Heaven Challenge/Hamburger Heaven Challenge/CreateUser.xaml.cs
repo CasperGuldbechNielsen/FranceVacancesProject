@@ -32,6 +32,10 @@ namespace Hamburger_Heaven_Challenge
         private string _email;
         private string _passwordOne;
 
+        public delegate void MyEventHandler(object source, RoutedEventArgs e);
+
+        public event MyEventHandler OnNavigateParentReady;
+
         public CreateUser()
         {
             this.InitializeComponent();
@@ -91,6 +95,12 @@ namespace Hamburger_Heaven_Challenge
                                                          _email +
                                                          " | " + _passwordOne + Environment.NewLine;
                                     File.WriteAllText(storageFile.Path, newFileContent);
+
+                                    if (OnNavigateParentReady != null)
+                                    {
+                                        OnNavigateParentReady(sender, e);
+                                    }
+
                                 }
                             }
                         }
@@ -111,6 +121,11 @@ namespace Hamburger_Heaven_Challenge
                                                          _email +
                                                          " | " + _passwordOne + Environment.NewLine;
                                     File.WriteAllText(storageFile.Path, newFileContent);
+
+                                    if (OnNavigateParentReady != null)
+                                    {
+                                        OnNavigateParentReady(sender, e);
+                                    }
                                 }
                             }
                         }

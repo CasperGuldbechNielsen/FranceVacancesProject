@@ -181,6 +181,19 @@ namespace Hamburger_Heaven_Challenge
             BackButton.Visibility = Visibility.Visible;
             Title.Margin = new Thickness(0, 0, 0, 0);
 
+            var a = (CreateUser)MyFrame.Content;
+            if (a != null)
+                a.OnNavigateParentReady += OnUserCreated;
+
+        }
+
+        public void OnUserCreated(object sender, RoutedEventArgs e)
+        {
+            if (MySplitView.Content != null)
+                ((Frame)MySplitView.Content).Navigate(typeof(Profile));
+            Title.Text = "Profile";
+            BackButton.Visibility = Visibility.Visible;
+            Title.Margin = new Thickness(0, 0, 0, 0);
         }
     }
 }
