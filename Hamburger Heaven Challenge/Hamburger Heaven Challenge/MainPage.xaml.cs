@@ -213,11 +213,13 @@ namespace Hamburger_Heaven_Challenge
 
         private void MyAutoSuggestBox_OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
-
+            
         }
 
         private void MyAutoSuggestBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
+            //The search results in the AutoSuggestBox shows all instances of a region instead of just once per region. 
+            //Tried creating an enum for the regions which didn't work. Still trying to fix this..
             ApartmentManager.GetAllApartments(Apartments);
             Suggestions = Apartments
                 .Where(p => p.ApartmentRegion.StartsWith(sender.Text))
