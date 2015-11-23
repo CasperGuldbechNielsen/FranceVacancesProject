@@ -21,6 +21,10 @@ namespace Hamburger_Heaven_Challenge
             MyFrame.Navigate(typeof(Home));
             BackButton.Visibility = Visibility.Collapsed;
             Title.Margin = new Thickness(68,0,0,0);
+
+            // Populates the observable collection 'Apartments'
+            Apartments = new ObservableCollection<Apartments>();
+            ApartmentManager.GetAllApartments(Apartments);
         }
 
         private void IconsLIstBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
