@@ -18,7 +18,7 @@
             <Button Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="28" Height="48" Width="48" Click="HamburgerButton_OnClick"/>
             <TextBlock Name="Title" Text="Home" FontSize="24" RelativePanel.RightOf="BackButton" Width="282" Margin="0,0,-144,0"/>
             <Button Name="BackButton" FontFamily="Segoe MDL2 Assets" Margin="20,0,0,0" Content="&#xE0C4;" FontSize="28" Height="48" Width="48" RelativePanel.RightOf="HamburgerButton" Background="#33FFFFFF" Visibility="Collapsed" Click="BackButton_OnClick"/>
-            <AutoSuggestBox Name="MyAutoSuggestBox" QueryIcon="Find" RelativePanel.AlignRightWithPanel="True" Width="200" Margin="0,10,10,0" PlaceholderText="Search location"/>
+            <AutoSuggestBox Name="MyAutoSuggestBox" QueryIcon="Find" QuerySubmitted="MyAutoSuggestBox_OnQuerySubmitted" TextChanged="MyAutoSuggestBox_OnTextChanged" RelativePanel.AlignRightWithPanel="True" Width="200" Margin="0,10,10,0" PlaceholderText="Search location"/>
         </RelativePanel>
 
         <!--Split View-->

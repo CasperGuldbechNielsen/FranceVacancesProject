@@ -206,5 +206,15 @@ namespace Hamburger_Heaven_Challenge
             if (a != null)
                 a.OnNavigateParentReady += OnCreateUser;
         }
+
+        private void MyAutoSuggestBox_OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+
+        }
+
+        private void MyAutoSuggestBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            
+        }
     }
 }
