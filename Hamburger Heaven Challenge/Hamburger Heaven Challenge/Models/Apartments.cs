@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,12 @@ namespace Hamburger_Heaven_Challenge.Models
 
     public class ApartmentManager
     {
+        public static void GetAllApartments(ObservableCollection<Apartments> apartments)
+        {
+            var allApartments = GetApartments();
+            apartments.Clear();
+            allApartments.ForEach(p => apartments.Add(p));
+        }
         public static List<Apartments> GetApartments()
         {
             var apartments = new List<Apartments>();

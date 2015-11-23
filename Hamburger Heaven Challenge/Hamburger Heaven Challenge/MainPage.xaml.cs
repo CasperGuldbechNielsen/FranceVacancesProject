@@ -1,6 +1,7 @@
-﻿using Windows.UI.Xaml;
+﻿using System.Collections.ObjectModel;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-
+using Hamburger_Heaven_Challenge.Models;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -12,7 +13,7 @@ namespace Hamburger_Heaven_Challenge
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
+        private ObservableCollection<Apartments> Apartments;
 
         public MainPage()
         {
