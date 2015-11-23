@@ -1,4 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Hamburger_Heaven_Challenge.Models;
@@ -14,6 +17,7 @@ namespace Hamburger_Heaven_Challenge
     public sealed partial class MainPage : Page
     {
         private ObservableCollection<Apartments> Apartments;
+        private List<String> Suggestions;
 
         public MainPage()
         {
@@ -214,7 +218,12 @@ namespace Hamburger_Heaven_Challenge
 
         private void MyAutoSuggestBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-            
+            ApartmentManager.GetAllApartments(Apartments);
+            Suggestions = Apartments
+                .Where(p => p.ApartmentRegion.StartsWith(sender.Text))
+                .Select(p => p.ApartmentRegion)
+                .ToList();
+            MyAutoSuggestBox.ItemsSource = Suggestions;
         }
     }
 }
