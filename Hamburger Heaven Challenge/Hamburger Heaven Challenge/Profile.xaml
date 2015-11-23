@@ -20,13 +20,13 @@
 
         <RelativePanel>
             <TextBlock Name="ProfileText"
-                       Text="Profile Name" 
+                       Text="Email" 
                        Margin="50,75,-50,-75"
                        ></TextBlock>
             <TextBox Name="ProfileName" 
                      HorizontalAlignment="Left" 
                      TextWrapping="Wrap" 
-                     PlaceholderText="Profile Name" 
+                     PlaceholderText="Email" 
                      RelativePanel.AlignHorizontalCenterWithPanel="True" 
                      VerticalAlignment="Top" 
                      Margin="0,100,0,0"

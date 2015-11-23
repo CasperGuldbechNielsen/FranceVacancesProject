@@ -1,6 +1,7 @@
-﻿using Windows.UI.Xaml;
+﻿using System.Collections.ObjectModel;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-
+using Hamburger_Heaven_Challenge.Models;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -12,7 +13,7 @@ namespace Hamburger_Heaven_Challenge
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
+        private ObservableCollection<Apartments> Apartments;
 
         public MainPage()
         {
@@ -20,6 +21,10 @@ namespace Hamburger_Heaven_Challenge
             MyFrame.Navigate(typeof(Home));
             BackButton.Visibility = Visibility.Collapsed;
             Title.Margin = new Thickness(68,0,0,0);
+
+            // Populates the observable collection 'Apartments'
+            Apartments = new ObservableCollection<Apartments>();
+            ApartmentManager.GetAllApartments(Apartments);
         }
 
         private void IconsLIstBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -152,6 +157,7 @@ namespace Hamburger_Heaven_Challenge
                         ProfileListBoxItem.IsSelected = true;
                         if (MyFrame.CanGoBack)
                             MyFrame.GoBack();
+
                         var a = (Profile)MyFrame.Content;
                         if (a != null)
                             a.OnNavigateParentReady += OnCreateUser;
@@ -168,6 +174,7 @@ namespace Hamburger_Heaven_Challenge
                         Title.Text = "Create User";
                         if (MyFrame.CanGoBack)
                             MyFrame.GoBack();
+
                     }
                 }
             }
@@ -181,6 +188,33 @@ namespace Hamburger_Heaven_Challenge
             BackButton.Visibility = Visibility.Visible;
             Title.Margin = new Thickness(0, 0, 0, 0);
 
+            var a = (CreateUser)MyFrame.Content;
+            if (a != null)
+                a.OnNavigateParentReady += OnUserCreated;
+
+        }
+
+        public void OnUserCreated(object sender, RoutedEventArgs e)
+        {
+            if (MySplitView.Content != null)
+                ((Frame)MySplitView.Content).Navigate(typeof(Profile));
+            Title.Text = "Profile";
+            BackButton.Visibility = Visibility.Visible;
+            Title.Margin = new Thickness(0, 0, 0, 0);
+
+            var a = (Profile)MyFrame.Content;
+            if (a != null)
+                a.OnNavigateParentReady += OnCreateUser;
+        }
+
+        private void MyAutoSuggestBox_OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+
+        }
+
+        private void MyAutoSuggestBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            
         }
     }
 }
