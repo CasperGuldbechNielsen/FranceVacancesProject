@@ -46,14 +46,14 @@
             <Button Name ="Login"
                     HorizontalAlignment="Left"
                     Content="Login"
-                    RelativePanel.AlignLeftWith="PasswordBox"
+                    RelativePanel.AlignRightWith="PasswordBox"
                     RelativePanel.Below="PasswordBox"
                     Margin="0,20,0,0"
                     Width="100" Click="Login_Click" />
             <Button Name ="CreateUser"
                     HorizontalAlignment="Left"
                     Content="Create User"
-                    RelativePanel.AlignRightWith="PasswordBox"
+                    RelativePanel.AlignLeftWith="PasswordBox"
                     RelativePanel.Below="PasswordBox"
                     Margin="0,20,0,0" 
                     Width="100" Click="CreateUser_Click"/>

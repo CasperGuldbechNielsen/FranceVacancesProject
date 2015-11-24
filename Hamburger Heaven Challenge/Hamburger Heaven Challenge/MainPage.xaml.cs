@@ -87,6 +87,10 @@ namespace Hamburger_Heaven_Challenge
                 var a = (Profile)MyFrame.Content;
                 if (a != null) 
                     a.OnNavigateParentReady += OnCreateUser;
+
+                var b = (Profile)MyFrame.Content;
+                if (b != null)
+                    b.OnNavigateLogin += OnLogin;
             }
             else if (ContactListBoxItem.IsSelected)
             {
@@ -117,6 +121,23 @@ namespace Hamburger_Heaven_Challenge
                     var a = (Profile)MyFrame.Content;
                     if (a != null)
                         a.OnNavigateParentReady += OnCreateUser;
+
+                    var b = (Profile)MyFrame.Content;
+                    if (b != null)
+                        b.OnNavigateLogin += OnLogin;
+                }
+                else if (MyFrame.CurrentSourcePageType == typeof (MyProfile))
+                {
+                    MyFrame.GoBack();
+                    Title.Text = "Profile";
+                    ProfileListBoxItem.IsSelected = true;
+                    var a = (Profile)MyFrame.Content;
+                    if (a != null)
+                        a.OnNavigateParentReady += OnCreateUser;
+
+                    var b = (Profile)MyFrame.Content;
+                    if (b != null)
+                        b.OnNavigateLogin += OnLogin;
                 }
                 else
                 {
@@ -165,6 +186,10 @@ namespace Hamburger_Heaven_Challenge
                         var a = (Profile)MyFrame.Content;
                         if (a != null)
                             a.OnNavigateParentReady += OnCreateUser;
+
+                        var b = (Profile)MyFrame.Content;
+                        if (b != null)
+                            b.OnNavigateLogin += OnLogin;
                     }
                     else if (MyFrame.CurrentSourcePageType == typeof (Contact))
                     {
@@ -196,6 +221,7 @@ namespace Hamburger_Heaven_Challenge
             if (a != null)
                 a.OnNavigateParentReady += OnUserCreated;
 
+
         }
 
         public void OnUserCreated(object sender, RoutedEventArgs e)
@@ -209,6 +235,19 @@ namespace Hamburger_Heaven_Challenge
             var a = (Profile)MyFrame.Content;
             if (a != null)
                 a.OnNavigateParentReady += OnCreateUser;
+
+            var b = (Profile)MyFrame.Content;
+            if (b != null)
+                b.OnNavigateLogin += OnLogin;
+        }
+
+        public void OnLogin(object sender, RoutedEventArgs e)
+        {
+            if (MySplitView.Content != null)
+                ((Frame) MySplitView.Content).Navigate(typeof (MyProfile));
+            Title.Text = "My Profile";
+            BackButton.Visibility = Visibility.Visible;
+            Title.Margin = new Thickness(0, 0, 0, 0);
         }
 
         private void MyAutoSuggestBox_OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)

@@ -32,7 +32,7 @@
             	Text="E-mail" 
             	Margin="44,133,-44,-133"
                        />
-            <TextBox x:Name="email" 
+            <TextBox x:Name="mailtxt" 
             	PlaceholderText="E-Mail" 
             	RelativePanel.AlignHorizontalCenterWithPanel="True"
             	Margin="-6,158,6,-58"

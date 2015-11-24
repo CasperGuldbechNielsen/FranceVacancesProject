@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.ApplicationModel.Email;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -15,12 +13,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-using System.Threading.Tasks;
-using EASendMailRT;
-
-
-
-
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Hamburger_Heaven_Challenge
@@ -28,24 +20,11 @@ namespace Hamburger_Heaven_Challenge
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Contact : Page
+    public sealed partial class MyProfile : Page
     {
-        public Contact()
+        public MyProfile()
         {
             this.InitializeComponent();
         }
-
-        email mail = new email();
-        private async void SendBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-            SendBtn.IsEnabled = false;
-            await mail.Send_Email("vancanfrance@gmail.com", Subject.Text,"message from " + Namebox.Text +" "+ mailtxt.Text +"    ----   "+ Message.Text);
-            SendBtn.IsEnabled = true;
-        }
-
-       
-
-       
     }
 }
