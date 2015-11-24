@@ -35,57 +35,17 @@ namespace Hamburger_Heaven_Challenge
             this.InitializeComponent();
         }
 
+        email mail = new email();
         private async void SendBtn_Click(object sender, RoutedEventArgs e)
         {
 
             SendBtn.IsEnabled = false;
-            await Send_Email();
+            await mail.Send_Email("vancanfrance@gmail.com", Subject.Text,"message from " + Namebox.Text +" "+ mailtxt.Text +"    ----   "+ Message.Text);
             SendBtn.IsEnabled = true;
         }
 
        
 
-        private async Task Send_Email()
-        {
-            String Result = "";
-            try
-            {
-                SmtpMail oMail = new SmtpMail("TryIt");
-                SmtpClient oSmtp = new SmtpClient();
-
-                // Set your gmail email address
-                oMail.From = new MailAddress("vancanfrance@gmail.com");
-
-                // Add recipient email address, please change it to yours
-                oMail.To.Add(new MailAddress("vancanfrance@gmail.com"));
-
-                // Set email subject and email body text
-                oMail.Subject = Subject.Text;
-                oMail.TextBody = Message.Text;
-
-                // Gmail SMTP server
-                SmtpServer oServer = new SmtpServer("smtp.gmail.com");
-
-                // User and password for ESMTP authentication           
-                oServer.User = "vancanfrance@gmail.com";
-                oServer.Password = "123123fv";
-
-                // Enable TLS connection on 25 port, please add this line
-                oServer.ConnectType = SmtpConnectType.ConnectSSLAuto;
-
-                await oSmtp.SendMailAsync(oServer, oMail);
-                Result = "Email was sent successfully!";
-            }
-            catch (Exception ep)
-            {
-                Result = String.Format("Failed to send email with the following error: {0}", ep.Message);
-            }
-
-            // Display Result by Diaglog box
-            Windows.UI.Popups.MessageDialog dlg = new
-                Windows.UI.Popups.MessageDialog(Result);
-
-            await dlg.ShowAsync();
-        }
+       
     }
 }
