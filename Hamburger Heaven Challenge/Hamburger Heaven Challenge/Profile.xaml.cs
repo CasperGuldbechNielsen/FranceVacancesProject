@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,29 +27,49 @@ namespace Hamburger_Heaven_Challenge
         public delegate void MyEventHandler(object source, RoutedEventArgs e);
 
         public event MyEventHandler OnNavigateParentReady;
-
+        public event MyEventHandler OnNavigateLogin;
 
         private string _profileName;
         private string _password;
 
-        private Dictionary<string, string> usersDictionary = new Dictionary<string, string>();
-
         public Profile()
         {
             this.InitializeComponent();
-            usersDictionary.Add("Casper", "12345");
+            
         }
 
-        private void Login_Click(object sender, RoutedEventArgs e)
+        private async void Login_Click(object sender, RoutedEventArgs e)
         {
             _profileName = ProfileName.Text;
             _password = PasswordBox.Password;
-
-            if (usersDictionary.ContainsKey(_profileName))
+            if (_profileName != "" && _password != "")
             {
-                if (usersDictionary[_profileName] == _password)
+                StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+
+                var files = await localFolder.GetFilesAsync();
+
+                foreach (StorageFile storageFile in files)
                 {
-                    ProfileName.Text = "LOGIN SUCCES!";
+                    if (storageFile.Name == "Users.txt")
+                    {
+                        var read = await FileIO.ReadLinesAsync(storageFile);
+
+                        foreach (var line in read)
+                        {
+                            string[] profileInfo = line.Split('|');
+
+                            if (profileInfo[2].Contains(_profileName))
+                            {
+                                if (profileInfo[3].Contains(_password))
+                                {
+                                    if (OnNavigateLogin != null)
+                                    {
+                                        OnNavigateLogin(sender, e);
+                                    }
+                                }
+                            }
+                        }            
+                    }
                 }
             }
             else
