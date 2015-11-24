@@ -129,8 +129,6 @@ namespace Hamburger_Heaven_Challenge
                                 }
                             }
                         }
-
-                        // TODO: We have to implement a file in assets that we copy into localpath
                     }
                     else
                     {
