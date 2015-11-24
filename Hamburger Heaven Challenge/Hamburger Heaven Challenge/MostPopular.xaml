@@ -67,36 +67,56 @@
             <Button Content="Region" 
              Style="{StaticResource FlyoutButtonStyle}">
                 <Button.Flyout>
-                    <MenuFlyout>
-                        <MenuFlyoutItem Text="Alsace" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Aquitaine" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Auvergne" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Basse-Normandie" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Bourgogne" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Bretagne" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Centre-Val de Loire" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Champagne-Ardenne" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Corsica" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Franche-Comté" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Haute-Normandie" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Île-de-France" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Languedoc-Roussillon" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Lorraine" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Midi-Pyrénées" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Nord-Pas-de-Calais" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Pays de la Loire" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Picardie" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Poitou-Charentes" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Provence-Alpes-Côte d'Azur" Click="Region_Click"/>
-                        <MenuFlyoutItem Text="Rhône-Alpes" Click="Region_Click"/>
+                    <MenuFlyout Placement="Bottom">
                         
+                        <MenuFlyoutSubItem Text="North France">
                         
+                            <MenuFlyoutItem Text="Basse-Normandie" Click="Region_Click"/>
+                            <MenuFlyoutItem Text="Haute-Normandie" Click="Region_Click"/>
+                            <MenuFlyoutItem Text="Nord-Pas-de-Calais" Click="Region_Click"/>
+                            <MenuFlyoutItem Text="Picardie" Click="Region_Click"/>
+                        </MenuFlyoutSubItem>
+
+                        <MenuFlyoutSubItem Text="Central France">
+
+                            <MenuFlyoutItem Text="Auvergne" Click="Region_Click"/>
+                            <MenuFlyoutItem Text="Centre-Val de Loire" Click="Region_Click"/>
+                            <MenuFlyoutItem Text="Île-de-France" Click="Region_Click"/>
+                            <MenuFlyoutItem Text="Limousin" Click="Region_Click"/>
+                        </MenuFlyoutSubItem>
                         
+                        <MenuFlyoutSubItem Text="West France">
+                        
+                            <MenuFlyoutItem Text="Bretagne" Click="Region_Click"/>
+                            <MenuFlyoutItem Text="Pays de la Loire" Click="Region_Click"/>
+                            <MenuFlyoutItem Text="Poitou-Charentes" Click="Region_Click"/>
+                        </MenuFlyoutSubItem>
+                        <MenuFlyoutSubItem Text="SouthWest France">
+                        
+                            <MenuFlyoutItem Text="Aquitaine" Click="Region_Click"/>
+                            <MenuFlyoutItem Text="Midi-Pyrénées" Click="Region_Click"/>
+                        </MenuFlyoutSubItem>
+                        <MenuFlyoutSubItem Text="South France">
+
+                            <MenuFlyoutItem Text="Corsica" Click="Region_Click"/>
+                            <MenuFlyoutItem Text="Languedoc-Roussillon" Click="Region_Click"/>
+                            <MenuFlyoutItem Text="Provence-Alpes-Côte d'Azur" Click="Region_Click"/>
+                            <MenuFlyoutItem Text="Rhône-Alpes" Click="Region_Click"/>
+                        </MenuFlyoutSubItem>
+                        <MenuFlyoutSubItem Text="East France">
+                        
+                            <MenuFlyoutItem Text="Alsace" Click="Region_Click"/>
+                            <MenuFlyoutItem Text="Bourgogne" Click="Region_Click"/>
+                            <MenuFlyoutItem Text="Champagne-Ardenne" Click="Region_Click"/>
+                            <MenuFlyoutItem Text="Franche-Comté" Click="Region_Click"/>
+                            <MenuFlyoutItem Text="Lorraine" Click="Region_Click"/>
+                        </MenuFlyoutSubItem>
                     </MenuFlyout>
                 </Button.Flyout>
             </Button>
 
-            <Button Content="Sort by: " 
+            
+                <Button Content="Sort by: " 
                   Style="{StaticResource FlyoutButtonStyle}">
                 <Button.Flyout>
                     <MenuFlyout>
