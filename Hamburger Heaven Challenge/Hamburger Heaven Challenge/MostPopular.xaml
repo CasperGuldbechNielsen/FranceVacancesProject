@@ -34,7 +34,7 @@
        
       <!--this is where the magic happen, and the binding comes from the user control--> 
         
-        <DataTemplate x:DataType="data:Apartments" x:Key="ApartmentDataTemplate">
+        <DataTemplate x:DataType="data:Apartment" x:Key="ApartmentDataTemplate">
             <local:MostPopularUserControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
         </DataTemplate>
@@ -91,11 +91,13 @@
                             <MenuFlyoutItem Text="Pays de la Loire" Click="Region_Click"/>
                             <MenuFlyoutItem Text="Poitou-Charentes" Click="Region_Click"/>
                         </MenuFlyoutSubItem>
+                        
                         <MenuFlyoutSubItem Text="SouthWest France">
 
                             <MenuFlyoutItem Text="Aquitaine" Click="Region_Click"/>
                             <MenuFlyoutItem Text="Midi-Pyrénées" Click="Region_Click"/>
                         </MenuFlyoutSubItem>
+                        
                         <MenuFlyoutSubItem Text="South France">
 
                             <MenuFlyoutItem Text="Corsica" Click="Region_Click"/>
@@ -103,6 +105,7 @@
                             <MenuFlyoutItem Text="Provence-Alpes-Côte d'Azur" Click="Region_Click"/>
                             <MenuFlyoutItem Text="Rhône-Alpes" Click="Region_Click"/>
                         </MenuFlyoutSubItem>
+                        
                         <MenuFlyoutSubItem Text="East France">
 
                             <MenuFlyoutItem Text="Alsace" Click="Region_Click"/>

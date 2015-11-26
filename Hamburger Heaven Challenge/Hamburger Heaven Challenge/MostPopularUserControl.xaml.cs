@@ -19,7 +19,7 @@ namespace Hamburger_Heaven_Challenge
 {
     public sealed partial class MostPopularUserControl : UserControl
     {
-        public Models.Apartments Apartments { get { return this.DataContext as Models.Apartments; } }
+        public Models.Apartment Apartment { get { return this.DataContext as Models.Apartment; } }
 
         public MostPopularUserControl()
         {

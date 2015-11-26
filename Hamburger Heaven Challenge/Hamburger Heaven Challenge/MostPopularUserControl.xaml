@@ -45,28 +45,33 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        
+        
+        
+        
 
       <StackPanel Margin="10,10,10,10" Orientation="Vertical">
-        <Image Name="VisualTestImage" Source="{x:Bind Apartments.ApartmentCoverImage}" />
+        <Image Name="VisualTestImage" Source="{x:Bind Apartment.ApartmentCoverImage}" />
+            <Image Source="{x:Bind Apartment.ApartmentInsideImage}" />
 
-        <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal">
             <TextBlock Text="Region: "/>
-            <TextBlock Name="VisualTest_TextBlock"  Text="{x:Bind Apartments.ApartmentRegion}" />
+            <TextBlock Name="VisualTest_TextBlock"  Text="{x:Bind Apartment.ApartmentRegion}" />
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock FontSize="12" Text="City: "/>
-            <TextBlock FontSize="12" Text="{x:Bind Apartments.ApartmentCity}" />
+            <TextBlock FontSize="12" Text="{x:Bind Apartment.ApartmentCity}" />
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock FontSize="12" Text="Room numbers: "/>
-            <TextBlock FontSize="12" Text="{x:Bind Apartments.RoomNumbers}" />
+                <TextBlock FontSize="12" Text="{x:Bind Apartment.ApartmentRoomNumber}" />
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock FontSize="12" Text="Average rating:"/>
-            <TextBlock FontSize="12" Text="{x:Bind Apartments.ApartmentRating}" />
+            <TextBlock FontSize="12" Text="{x:Bind Apartment.ApartmentRating}" />
         </StackPanel>
       </StackPanel>
         
         
- </StackPanel>
+   </StackPanel>
 </UserControl>
