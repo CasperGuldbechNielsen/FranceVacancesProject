@@ -16,7 +16,7 @@ namespace Hamburger_Heaven_Challenge
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private ObservableCollection<Apartments> Apartments;
+        private ObservableCollection<Apartment> apartments;
         private List<String> Suggestions;
 
         public MainPage()
@@ -26,9 +26,9 @@ namespace Hamburger_Heaven_Challenge
             BackButton.Visibility = Visibility.Collapsed;
             Title.Margin = new Thickness(68,0,0,0);
 
-            // Populates the observable collection 'Apartments'
-            Apartments = new ObservableCollection<Apartments>();
-            ApartmentManager.GetAllApartments(Apartments);
+            // Populates the observable collection 'Apartment'
+            apartments = new ObservableCollection<Apartment>();
+            ApartmentManager.GetAllApartments(apartments);
         }
 
         private void IconsLIstBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -252,19 +252,24 @@ namespace Hamburger_Heaven_Challenge
 
         private void MyAutoSuggestBox_OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
-            
+            //ApartmentManager.GetAllApartments(apartments);
+            //BackButton.Visibility = Visibility.Visible;
         }
 
         private void MyAutoSuggestBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
             //The search results in the AutoSuggestBox shows all instances of a region instead of just once per region. 
             //Tried creating an enum for the regions which didn't work. Still trying to fix this..
-            ApartmentManager.GetAllApartments(Apartments);
-            Suggestions = Apartments
-                .Where(p => p.ApartmentRegion.StartsWith(sender.Text))
-                .Select(p => p.ApartmentRegion)
-                .ToList();
-            MyAutoSuggestBox.ItemsSource = Suggestions;
+
+            //if (String.IsNullOrEmpty(sender.Text)) MyFrame.GoBack();
+
+            //ApartmentManager.GetAllApartments(apartments);
+            //Suggestions = apartments
+            //    .Where(p => p.ApartmentRegion.StartsWith(sender.Text))
+            //    .Select(p => p.ApartmentRegion)
+            //    .ToList();
+            //MyAutoSuggestBox.ItemsSource = Suggestions;
+            //BackButton.Visibility = Visibility.Visible;
         }
     }
 }

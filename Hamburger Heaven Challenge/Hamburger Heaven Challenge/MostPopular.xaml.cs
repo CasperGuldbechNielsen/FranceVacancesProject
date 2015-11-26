@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -24,20 +25,23 @@ namespace Hamburger_Heaven_Challenge
     /// </summary>
     public sealed partial class MostPopular : Page
     {
-        private List<Apartments> Apartments;
 
-        public MostPopular()
-        {
-            this.InitializeComponent();
-            Apartments = ApartmentManager.GetApartments();
-        }
+        private ObservableCollection<Apartment> Apartments;
+
+        
+            public MostPopular()
+            {
+                this.InitializeComponent();
+                Apartments = new ObservableCollection<Apartment>();
+                ApartmentManager.GetAllApartments(Apartments);
+            }
 
 
 
         private void GridView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var apartment = (Apartments)e.ClickedItem;
-            ApartmentResultTextBlock.Text = "You have selected apartment # " + apartment.ApartmentID;
+            var apartment = (Apartment)e.ClickedItem;
+            ApartmentResultTextBlock.Text = "You have selected apartment # " + apartment.ApartmentId;
         }
 
 
