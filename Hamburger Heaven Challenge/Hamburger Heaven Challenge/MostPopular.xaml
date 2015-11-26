@@ -8,14 +8,7 @@
     mc:Ignorable="d"
     xmlns:data="using:Hamburger_Heaven_Challenge.Models">
 
-    
-    
-    
-
-    <!--this are the styles of the page, like a design we can "call" them so no need to Repeat Yourself-->
-
     <Page.Resources>
-
         <Style TargetType="TextBlock" x:Key="TextBlockStyle">
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -27,131 +20,48 @@
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="Margin" Value="10,10,10,10" />
         </Style>
-        <Style TargetType="Button" x:Key="FlyoutButtonStyle">
-            <Setter Property="Margin" Value="10" />
-            <Setter Property="Foreground" Value="Black" />
-        </Style>
-       
-      <!--this is where the magic happen, and the binding comes from the user control--> 
-        
+
         <DataTemplate x:DataType="data:Apartment" x:Key="ApartmentDataTemplate">
             <local:MostPopularUserControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-
         </DataTemplate>
-        
-        
     </Page.Resources>
     
-    
-
-    
-
-
-    <!--Grids, not sure if these are suitable and good for the final project, just for fun-->
-    
-        <Grid>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-
-
-
-
-        <!--Some buttons, to refine the search, of course non of them are workin, hope Bob will teach us :)-->
-
-        <StackPanel Grid.Column="0" Style="{StaticResource StackPanelStyle}">
-
-            <Button Content="Region" 
-             Style="{StaticResource FlyoutButtonStyle}">
+        
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button Content="Select Region">
                 <Button.Flyout>
                     <MenuFlyout Placement="Bottom">
-                        
-                        <MenuFlyoutSubItem Text="North France">
-                        
-                            <MenuFlyoutItem Text="Basse-Normandie" Click="Region_Click"/>
-                            <MenuFlyoutItem Text="Haute-Normandie" Click="Region_Click"/>
-                            <MenuFlyoutItem Text="Nord-Pas-de-Calais" Click="Region_Click"/>
-                            <MenuFlyoutItem Text="Picardie" Click="Region_Click"/>
-                        </MenuFlyoutSubItem>
-
-                        <MenuFlyoutSubItem Text="Central France">
-
-                            <MenuFlyoutItem Text="Auvergne" Click="Region_Click"/>
-                            <MenuFlyoutItem Text="Centre-Val de Loire" Click="Region_Click"/>
-                            <MenuFlyoutItem Text="Île-de-France" Click="Region_Click"/>
-                            <MenuFlyoutItem Text="Limousin" Click="Region_Click"/>
-                        </MenuFlyoutSubItem>
-                        
-                        <MenuFlyoutSubItem Text="West France">
-                        
-                            <MenuFlyoutItem Text="Bretagne" Click="Region_Click"/>
-                            <MenuFlyoutItem Text="Pays de la Loire" Click="Region_Click"/>
-                            <MenuFlyoutItem Text="Poitou-Charentes" Click="Region_Click"/>
-                        </MenuFlyoutSubItem>
-                        
-                        <MenuFlyoutSubItem Text="SouthWest France">
-                        
-                            <MenuFlyoutItem Text="Aquitaine" Click="Region_Click"/>
-                            <MenuFlyoutItem Text="Midi-Pyrénées" Click="Region_Click"/>
-                        </MenuFlyoutSubItem>
-                        
-                        <MenuFlyoutSubItem Text="South France">
-
-                            <MenuFlyoutItem Text="Corsica" Click="Region_Click"/>
-                            <MenuFlyoutItem Text="Languedoc-Roussillon" Click="Region_Click"/>
-                            <MenuFlyoutItem Text="Provence-Alpes-Côte d'Azur" Click="Region_Click"/>
-                            <MenuFlyoutItem Text="Rhône-Alpes" Click="Region_Click"/>
-                        </MenuFlyoutSubItem>
-                        
-                        <MenuFlyoutSubItem Text="East France">
-                        
-                            <MenuFlyoutItem Text="Alsace" Click="Region_Click"/>
-                            <MenuFlyoutItem Text="Bourgogne" Click="Region_Click"/>
-                            <MenuFlyoutItem Text="Champagne-Ardenne" Click="Region_Click"/>
-                            <MenuFlyoutItem Text="Franche-Comté" Click="Region_Click"/>
-                            <MenuFlyoutItem Text="Lorraine" Click="Region_Click"/>
-                        </MenuFlyoutSubItem>
+                        <MenuFlyoutItem Text="{x:Bind ApartmentRegionSelector}" Click="ApartmentRegionSelect_Click"/>
                     </MenuFlyout>
                 </Button.Flyout>
             </Button>
-
-            
-                <Button Content="Sort by: " 
-                  Style="{StaticResource FlyoutButtonStyle}">
+            <Button Content="Select City">
                 <Button.Flyout>
-                    <MenuFlyout>
-                        <MenuFlyoutItem Text="Bestsellers" Click="SortBy_Click"/>
-                        <MenuFlyoutItem Text="Price descending" Click="SortBy_Click"/>
-                        <MenuFlyoutItem Text="Price ascending" Click="SortBy_Click"/>
-                        <MenuFlyoutItem Text="Highest rating first" Click="SortBy_Click"/>
+                    <MenuFlyout Placement="Bottom">
+                        <MenuFlyoutItem Text="{x:Bind ApartmentCitySelector}" Click="ApartmentCitySelect_Click"/>
                     </MenuFlyout>
                 </Button.Flyout>
             </Button>
-
-            <Button Content="Number of rooms:" 
-                  Style="{StaticResource FlyoutButtonStyle}">
+            <Button Content="Select Rooms">
                 <Button.Flyout>
-                    <MenuFlyout>
-                        <MenuFlyoutItem Text="1 room" Click="RoomNumber_Click"/>
-                        <MenuFlyoutItem Text="2 rooms" Click="RoomNumber_Click"/>
-                        <MenuFlyoutItem Text="3 rooms" Click="RoomNumber_Click"/>
-                        <MenuFlyoutItem Text="4 or more rooms..." Click="RoomNumber_Click"/>
+                    <MenuFlyout Placement="Bottom">
+                        <MenuFlyoutItem Text="{x:Bind ApartmentRoomSelector}" Click="ApartmentRoomSelect_Click"/>
                     </MenuFlyout>
                 </Button.Flyout>
             </Button>
-
         </StackPanel>
 
         <StackPanel Style="{StaticResource StackPanelStyle}" Grid.Row="1" Grid.Column="0">
             <TextBlock Text="Selected categories: " Style="{StaticResource TextBlockStyle}" />
             <TextBlock Name="ResultTextBlock" Style="{StaticResource TextBlockStyle}"  />
         </StackPanel>
-
-
-        <!--And here we are binding the apartments from page resources-->
 
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden" VerticalScrollMode="Enabled" >
         <GridView 
@@ -167,10 +77,7 @@
                    Name="ApartmentResultTextBlock"
                    FontSize="24"
                    Margin="0,20,0,0"/>
-
         
     </Grid>
-        
-
 </Page>
 

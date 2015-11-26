@@ -106,10 +106,20 @@ namespace Hamburger_Heaven_Challenge
             ApartmentResultTextBlock.Text = "You have selected apartment # " + apartments.ApartmentId;
         }
 
+        private void ApartmentRegionSelect_Click(object sender, RoutedEventArgs e)
+        {
 
-      
+        }
 
-        
+        private void ApartmentCitySelect_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ApartmentRoomSelect_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
 
