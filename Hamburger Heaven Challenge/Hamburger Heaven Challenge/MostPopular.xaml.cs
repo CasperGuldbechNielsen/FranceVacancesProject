@@ -39,6 +39,7 @@ namespace Hamburger_Heaven_Challenge
           Apartments = new ObservableCollection<Apartment>();
           ApartmentManager.GetAllApartments(Apartments);
 
+            ApartmentRegionSelector = new List<ApartmentRegionSelector>();
             ApartmentRegionSelector.Add(new ApartmentRegionSelector { ApartmentRegion = RegionCategory.Alsace});
             ApartmentRegionSelector.Add(new ApartmentRegionSelector { ApartmentRegion = RegionCategory.Aquitaine });
             ApartmentRegionSelector.Add(new ApartmentRegionSelector { ApartmentRegion = RegionCategory.Auvergne });
@@ -62,7 +63,7 @@ namespace Hamburger_Heaven_Challenge
             ApartmentRegionSelector.Add(new ApartmentRegionSelector { ApartmentRegion = RegionCategory.ProvenceAlpesCôteDAzur });
             ApartmentRegionSelector.Add(new ApartmentRegionSelector { ApartmentRegion = RegionCategory.RhôneAlpes });
 
-
+            ApartmentCitySelector = new List<ApartmentCitySelector>();
             ApartmentCitySelector.Add(new ApartmentCitySelector{ ApartmentCity = CityCategory.Ajaccio });
             ApartmentCitySelector.Add(new ApartmentCitySelector { ApartmentCity = CityCategory.Strasbourg });
             ApartmentCitySelector.Add(new ApartmentCitySelector { ApartmentCity = CityCategory.Bordeaux });
@@ -85,6 +86,7 @@ namespace Hamburger_Heaven_Challenge
             ApartmentCitySelector.Add(new ApartmentCitySelector { ApartmentCity = CityCategory.Lyon });
             ApartmentCitySelector.Add(new ApartmentCitySelector { ApartmentCity = CityCategory.Rouen });
             
+            ApartmentRoomSelector = new List<ApartmentRoomSelector>();
             ApartmentRoomSelector.Add(new ApartmentRoomSelector { ApartmentRoomNumber = RoomCategory.One});
             ApartmentRoomSelector.Add(new ApartmentRoomSelector { ApartmentRoomNumber = RoomCategory.Two });
             ApartmentRoomSelector.Add(new ApartmentRoomSelector { ApartmentRoomNumber = RoomCategory.Three });
