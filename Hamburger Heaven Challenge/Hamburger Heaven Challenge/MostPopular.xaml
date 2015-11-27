@@ -97,26 +97,27 @@
         </GridView>
         </ScrollViewer>
             
-        <TextBlock Grid.Row="3"
+       <StackPanel Orientation="Horizontal" Grid.Row="3"> 
+        <TextBlock Grid.Row="3" 
                    Name="ApartmentResultTextBlock"
                    FontSize="24"
                    Margin="0,20,0,0"/>
         
-        <TextBlock Grid.Row="3"
+        <TextBlock Grid.Row="3" 
                    Name="RegionResultTextBlock"
                    FontSize="24"
                    Margin="0,20,0,0"/>
         
-        <TextBlock Grid.Row="3"
+        <TextBlock Grid.Row="3" 
                    Name="CityResultTextBlock"
                    FontSize="24"
                    Margin="0,20,0,0"/>
 
-        <TextBlock Grid.Row="3"
+        <TextBlock Grid.Row="3" 
                    Name="RoomResultTextBlock"
                    FontSize="24"
                    Margin="0,20,0,0"/>
-
+        </StackPanel>
     </Grid>
 </Page>
 
