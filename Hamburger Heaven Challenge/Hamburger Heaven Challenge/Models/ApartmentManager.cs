@@ -155,6 +155,6 @@ namespace Hamburger_Heaven_Challenge.Models
                 return apartments;
 
             }
-
-        }
+        
+    }
 }

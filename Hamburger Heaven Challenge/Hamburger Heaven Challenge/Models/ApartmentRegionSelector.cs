@@ -9,5 +9,6 @@ namespace Hamburger_Heaven_Challenge.Models
     class ApartmentRegionSelector
     {
         public RegionCategory ApartmentRegion { get; set; }
+
     }
 }

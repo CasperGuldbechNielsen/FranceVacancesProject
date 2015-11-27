@@ -30,8 +30,8 @@ namespace Hamburger_Heaven_Challenge
 
         private List<ApartmentRegionSelector> ApartmentRegionSelector;
         private List<ApartmentCitySelector> ApartmentCitySelector;
-        private List<ApartmentRoomSelector> ApartmentRoomSelector; 
-
+        private List<ApartmentRoomSelector> ApartmentRoomSelector;
+        
         
         public MostPopular()
         {
@@ -40,7 +40,7 @@ namespace Hamburger_Heaven_Challenge
           ApartmentManager.GetAllApartments(Apartments);
 
             ApartmentRegionSelector = new List<ApartmentRegionSelector>();
-            ApartmentRegionSelector.Add(new ApartmentRegionSelector { ApartmentRegion = RegionCategory.Alsace});
+            ApartmentRegionSelector.Add(new ApartmentRegionSelector { ApartmentRegion = RegionCategory.Alsace });
             ApartmentRegionSelector.Add(new ApartmentRegionSelector { ApartmentRegion = RegionCategory.Aquitaine });
             ApartmentRegionSelector.Add(new ApartmentRegionSelector { ApartmentRegion = RegionCategory.Auvergne });
             ApartmentRegionSelector.Add(new ApartmentRegionSelector { ApartmentRegion = RegionCategory.BasseNormandie });
@@ -64,7 +64,7 @@ namespace Hamburger_Heaven_Challenge
             ApartmentRegionSelector.Add(new ApartmentRegionSelector { ApartmentRegion = RegionCategory.RhôneAlpes });
 
             ApartmentCitySelector = new List<ApartmentCitySelector>();
-            ApartmentCitySelector.Add(new ApartmentCitySelector{ ApartmentCity = CityCategory.Ajaccio });
+            ApartmentCitySelector.Add(new ApartmentCitySelector { ApartmentCity = CityCategory.Ajaccio });
             ApartmentCitySelector.Add(new ApartmentCitySelector { ApartmentCity = CityCategory.Strasbourg });
             ApartmentCitySelector.Add(new ApartmentCitySelector { ApartmentCity = CityCategory.Bordeaux });
             ApartmentCitySelector.Add(new ApartmentCitySelector { ApartmentCity = CityCategory.ClermontFerrand });
@@ -85,9 +85,9 @@ namespace Hamburger_Heaven_Challenge
             ApartmentCitySelector.Add(new ApartmentCitySelector { ApartmentCity = CityCategory.Marseille });
             ApartmentCitySelector.Add(new ApartmentCitySelector { ApartmentCity = CityCategory.Lyon });
             ApartmentCitySelector.Add(new ApartmentCitySelector { ApartmentCity = CityCategory.Rouen });
-            
+
             ApartmentRoomSelector = new List<ApartmentRoomSelector>();
-            ApartmentRoomSelector.Add(new ApartmentRoomSelector { ApartmentRoomNumber = RoomCategory.One});
+            ApartmentRoomSelector.Add(new ApartmentRoomSelector { ApartmentRoomNumber = RoomCategory.One });
             ApartmentRoomSelector.Add(new ApartmentRoomSelector { ApartmentRoomNumber = RoomCategory.Two });
             ApartmentRoomSelector.Add(new ApartmentRoomSelector { ApartmentRoomNumber = RoomCategory.Three });
             ApartmentRoomSelector.Add(new ApartmentRoomSelector { ApartmentRoomNumber = RoomCategory.Four });
@@ -96,7 +96,7 @@ namespace Hamburger_Heaven_Challenge
             ApartmentRoomSelector.Add(new ApartmentRoomSelector { ApartmentRoomNumber = RoomCategory.Seven });
             ApartmentRoomSelector.Add(new ApartmentRoomSelector { ApartmentRoomNumber = RoomCategory.Eight });
 
-
+           
 
         }
 
@@ -108,19 +108,42 @@ namespace Hamburger_Heaven_Challenge
             ApartmentResultTextBlock.Text = "You have selected apartment # " + apartments.ApartmentId;
         }
 
-        private void ApartmentRegionSelect_Click(object sender, RoutedEventArgs e)
+
+        public List<RegionCategory> RegionsList;
+        public List<CityCategory> CityList;
+        public List<RoomCategory> RoomList;
+
+        public Apartment Apartment { get { return this.DataContext as Apartment; } }
+
+        
+        private void RegionSelectorListView_OnItemClick(object sender, ItemClickEventArgs e)
         {
+            var selectedRegion = (ApartmentRegionSelector)e.ClickedItem;
+
+            // Filter on category
+            RegionResultTextBlock.Text = selectedRegion.ApartmentRegion.ToString();
+            ApartmentManager.GetApartmentsByRegionCategory(Apartments, selectedRegion.ApartmentRegion);
 
         }
 
-        private void ApartmentCitySelect_Click(object sender, RoutedEventArgs e)
+        private void CitySelectorListView_OnItemClick(object sender, ItemClickEventArgs e)
         {
+            var selectedCity = (ApartmentCitySelector)e.ClickedItem;
 
+            // Filter on category
+            CityResultTextBlock.Text = selectedCity.ApartmentCity.ToString();
+            ApartmentManager.GetApartmentsByCityCategory(Apartments, selectedCity.ApartmentCity);
         }
 
-        private void ApartmentRoomSelect_Click(object sender, RoutedEventArgs e)
-        {
 
+
+        private void RoomSelectorListView_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            var selectedRoom = (ApartmentRoomSelector)e.ClickedItem;
+
+            // Filter on category
+            RoomResultTextBlock.Text = selectedRoom.ApartmentRoomNumber.ToString();
+            ApartmentManager.GetApartmentsByRoomCategory(Apartments, selectedRoom.ApartmentRoomNumber);
         }
     }
 }
