@@ -1,23 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Hamburger_Heaven_Challenge.Models
 {
-    
     public class Apartment
     {
-        
+     
         public int ApartmentId { get; set; }
         public RegionCategory ApartmentRegion { get; set; }
         public CityCategory ApartmentCity { get; set; }
         public RoomCategory ApartmentRoomNumber { get; set; }
         public string ApartmentCoverImage { get; set; }
         public string ApartmentInsideImage { get; set; }
-        public  double ApartmentRating { get; set; }
+        public double ApartmentRating { get; set; }
         public bool IsApartmentAvailable { get; set; }
 
         public Apartment(int _apartmentId, RegionCategory _apartmentRegion, CityCategory _apartmentCity,
@@ -27,8 +25,8 @@ namespace Hamburger_Heaven_Challenge.Models
             ApartmentRegion = _apartmentRegion;
             ApartmentCity = _apartmentCity;
             ApartmentRoomNumber = _apartmentRoomNumber;
-            ApartmentCoverImage = String.Format("Assets/ApartmentImages/CoverImages/{0}/FrontView.jpg", _apartmentId);
-            ApartmentInsideImage = String.Format("Assets/ApartmentImages/InsideImages/{0}/InsideView.jpg", _apartmentId);
+            ApartmentCoverImage = String.Format("Assets/ApartmentImages/CoverImages/{0}/FrontView.jpg",  _apartmentId);
+            ApartmentInsideImage = String.Format("Assets/ApartmentImages/InsideImages/{0}/InsideView.jpg",  _apartmentId);
             ApartmentRating = _apartmentRating;
             IsApartmentAvailable = _isApartmentAvailable;
 
@@ -100,6 +98,6 @@ namespace Hamburger_Heaven_Challenge.Models
     }
 
     
- }
-
+  }
+ 
 

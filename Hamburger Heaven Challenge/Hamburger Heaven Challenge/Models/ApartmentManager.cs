@@ -150,11 +150,9 @@ namespace Hamburger_Heaven_Challenge.Models
                 apartments.Add(new Apartment(099, RegionCategory.LanguedocRoussillon, CityCategory.Rouen, RoomCategory.Four, 2.7, true));
                 apartments.Add(new Apartment(100, RegionCategory.PoitouCharentes, CityCategory.Rouen, RoomCategory.Five, 3.8, true));
                 
-
-
                 return apartments;
 
             }
-
-        }
+        
+    }
 }
