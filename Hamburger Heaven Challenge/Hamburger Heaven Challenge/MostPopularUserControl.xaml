@@ -22,10 +22,10 @@
                         <AdaptiveTrigger MinWindowWidth="0"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="ShowHeaderImage.Width" Value="150" />
-                        <Setter Target="ShowHeaderImage.Height" Value="150" />
-                        <Setter Target="ShowThumbnailImage.Width" Value="40" />
-                        <Setter Target="ShowThumbnailImage.Height" Value="40" />
+                        <Setter Target="ShowHeaderImage.Width" Value="50" />
+                        <!--<Setter Target="ShowHeaderImage.Height" Value="50" />-->
+                        <Setter Target="ShowThumbnailImage.Width" Value="10" />
+                        <!--<Setter Target="ShowThumbnailImage.Height" Value="10" />-->
 
                         <Setter Target="ShowRegionText.FontSize" Value="12" />
                         <Setter Target="ShowRegionTextBlock.Fontsize" Value="12" />
@@ -45,10 +45,10 @@
                         <AdaptiveTrigger MinWindowWidth="320"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="ShowHeaderImage.Width" Value="300" />
-                        <Setter Target="ShowHeaderImage.Height" Value="300" />
-                        <Setter Target="ShowThumbnailImage.Width" Value="80" />
-                        <Setter Target="ShowThumbnailImage.Height" Value="80" />
+                        <Setter Target="ShowHeaderImage.Width" Value="150" />
+                        <!--<Setter Target="ShowHeaderImage.Height" Value="150" />-->
+                        <Setter Target="ShowThumbnailImage.Width" Value="40" />
+                        <!--<Setter Target="ShowThumbnailImage.Height" Value="40" />-->
 
                         <Setter Target="ShowRegionText.FontSize" Value="24" />
                         <Setter Target="ShowRegionTextBlock.Fontsize" Value="24" />
@@ -68,10 +68,10 @@
                         <AdaptiveTrigger MinWindowWidth="720"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="ShowHeaderImage.Width" Value="500" />
-                        <Setter Target="ShowHeaderImage.Height" Value="500" />
-                        <Setter Target="ShowThumbnailImage.Width" Value="120" />
-                        <Setter Target="ShowThumbnailImage.Height" Value="120" />
+                        <Setter Target="ShowHeaderImage.Width" Value="300" />
+                        <!--<Setter Target="ShowHeaderImage.Height" Value="300" />-->
+                        <Setter Target="ShowThumbnailImage.Width" Value="80" />
+                        <!--<Setter Target="ShowThumbnailImage.Height" Value="80" />-->
 
                         <Setter Target="ShowRegionText.FontSize" Value="24" />
                         <Setter Target="ShowRegionTextBlock.Fontsize" Value="24" />
@@ -94,23 +94,23 @@
         
 
       <StackPanel Margin="10,10,10,10" Orientation="Vertical">
-            <Image Name="ShowHeaderImage" Source="{x:Bind Apartment.ApartmentCoverImage}" />
-            <Image Name="ShowThumbnailImage" Source="{x:Bind Apartment.ApartmentInsideImage}" />
+            <Image Name="ShowHeaderImage" Width="150" Source="{x:Bind Apartment.ApartmentCoverImage}" />
+            <Image Name="ShowThumbnailImage" Width="150" Source="{x:Bind Apartment.ApartmentInsideImage}" />
             <StackPanel Orientation="Horizontal">
-            <TextBlock Name="ShowRegionText" Text="Region: "/>
-            <TextBlock Name="ShowRegionTextBlock"  Text="{x:Bind Apartment.ApartmentRegion}" />
+            <TextBlock Margin="10,0,10,0" Name="ShowRegionText" Text="Region: "/>
+            <TextBlock Margin="10,0,10,0" Name="ShowRegionTextBlock"  Text="{x:Bind Apartment.ApartmentRegion}" />
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Name="ShowCityText" Text="City: "/>
-            <TextBlock Name="ShowCityTextBlock" Text="{x:Bind Apartment.ApartmentCity}" />
+            <TextBlock Margin="10,0,10,0" Name="ShowCityText" Text="City: "/>
+            <TextBlock Margin="10,0,10,0" Name="ShowCityTextBlock" Text="{x:Bind Apartment.ApartmentCity}" />
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Name="ShowRoomNumbersText" Text="Room numbers: "/>
-            <TextBlock Name="ShowRoomNumbersTextBlock" Text="{x:Bind Apartment.ApartmentRoomNumber}" />
+            <TextBlock Margin="10,0,10,0" Name="ShowRoomNumbersText" Text="Room numbers: "/>
+            <TextBlock Margin="10,0,10,0" Name="ShowRoomNumbersTextBlock" Text="{x:Bind Apartment.ApartmentRoomNumber}" />
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Name="ShowAverageRatingText" Text="Average rating:"/>
-            <TextBlock Name="ShowAverageRatingTextblock" Text="{x:Bind Apartment.ApartmentRating}" />
+            <TextBlock Margin="10,0,10,0" Name="ShowAverageRatingText" Text="Average rating:"/>
+            <TextBlock Margin="10,0,10,0" Name="ShowAverageRatingTextblock" Text="{x:Bind Apartment.ApartmentRating}" />
         </StackPanel>
       </StackPanel>
         
