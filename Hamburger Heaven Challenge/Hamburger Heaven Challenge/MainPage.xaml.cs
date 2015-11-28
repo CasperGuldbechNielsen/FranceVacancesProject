@@ -265,8 +265,8 @@ namespace Hamburger_Heaven_Challenge
 
             //ApartmentManager.GetAllApartments(apartments);
             //Suggestions = apartments
-            //    .Where(p => p.ApartmentRegion.StartsWith(sender.Text))
-            //    .Select(p => p.ApartmentRegion)
+            //    .Where(p => p.ApartmentCity.StartsWith(sender.Text))
+            //    .Select(p => p.ApartmentCity)
             //    .ToList();
             //MyAutoSuggestBox.ItemsSource = Suggestions;
             //BackButton.Visibility = Visibility.Visible;
