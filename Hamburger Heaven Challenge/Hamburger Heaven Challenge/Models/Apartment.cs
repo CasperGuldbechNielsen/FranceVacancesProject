@@ -25,8 +25,8 @@ namespace Hamburger_Heaven_Challenge.Models
             ApartmentRegion = _apartmentRegion;
             ApartmentCity = _apartmentCity;
             ApartmentRoomNumber = _apartmentRoomNumber;
-            ApartmentCoverImage = String.Format("Assets/ApartmentImages/CoverImages/{0}/FrontView.jpg",  _apartmentId);
-            ApartmentInsideImage = String.Format("Assets/ApartmentImages/InsideImages/{0}/InsideView.jpg",  _apartmentId);
+            ApartmentCoverImage = String.Format("Assets/ApartmentImages/CoverImages/{0}/FrontView.jpg", _apartmentId);
+            ApartmentInsideImage = String.Format("Assets/ApartmentImages/InsideImages/{0}/InsideView.jpg", _apartmentId);
             ApartmentRating = _apartmentRating;
             IsApartmentAvailable = _isApartmentAvailable;
 
