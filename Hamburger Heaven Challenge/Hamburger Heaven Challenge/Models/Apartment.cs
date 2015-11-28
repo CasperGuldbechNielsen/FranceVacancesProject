@@ -9,7 +9,7 @@ namespace Hamburger_Heaven_Challenge.Models
     public class Apartment
     {
      
-        public int ApartmentId { get; set; }
+        public string ApartmentId { get; set; }
         public RegionCategory ApartmentRegion { get; set; }
         public CityCategory ApartmentCity { get; set; }
         public RoomCategory ApartmentRoomNumber { get; set; }
@@ -18,7 +18,7 @@ namespace Hamburger_Heaven_Challenge.Models
         public double ApartmentRating { get; set; }
         public bool IsApartmentAvailable { get; set; }
 
-        public Apartment(int _apartmentId, RegionCategory _apartmentRegion, CityCategory _apartmentCity,
+        public Apartment(string _apartmentId, RegionCategory _apartmentRegion, CityCategory _apartmentCity,
             RoomCategory _apartmentRoomNumber, double _apartmentRating, bool _isApartmentAvailable)
         {
             ApartmentId = _apartmentId;
