@@ -149,6 +149,7 @@
     <Content Include="Assets\ApartmentImages\house3.jpg" />
     <Content Include="Assets\ApartmentImages\house4.jpg" />
     <Content Include="Assets\ApartmentImages\house5.jpg" />
+    <Content Include="Assets\france_countryside.jpg" />
     <Content Include="Assets\french.jpg" />
     <Content Include="Assets\Users.txt" />
     <Content Include="Properties\Default.rd.xml" />

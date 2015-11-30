@@ -29,6 +29,7 @@ namespace Hamburger_Heaven_Challenge.Models
         public string ApartmentRating { get; set; }
 
     }
+    
 
     public class ApartmentManager
     {
