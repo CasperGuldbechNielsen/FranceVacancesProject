@@ -145,6 +145,7 @@ namespace Hamburger_Heaven_Challenge
             RoomResultTextBlock.Text = selectedRoom.ApartmentRoomNumber.ToString();
             ApartmentManager.GetApartmentsByRoomCategory(Apartments, selectedRoom.ApartmentRoomNumber);
         }
-    }
+
+      }
 }
 

@@ -98,22 +98,23 @@
         </ScrollViewer>
             
        <StackPanel Orientation="Horizontal" Grid.Row="3"> 
-        <TextBlock Grid.Row="3" 
+        <TextBlock Text="You've selected:"/>
+        <TextBlock  
                    Name="ApartmentResultTextBlock"
                    FontSize="24"
                    Margin="0,20,0,0"/>
         
-        <TextBlock Grid.Row="3" 
+        <TextBlock  
                    Name="RegionResultTextBlock"
                    FontSize="24"
                    Margin="0,20,0,0"/>
         
-        <TextBlock Grid.Row="3" 
+        <TextBlock  
                    Name="CityResultTextBlock"
                    FontSize="24"
                    Margin="0,20,0,0"/>
 
-        <TextBlock Grid.Row="3" 
+        <TextBlock  
                    Name="RoomResultTextBlock"
                    FontSize="24"
                    Margin="0,20,0,0"/>
