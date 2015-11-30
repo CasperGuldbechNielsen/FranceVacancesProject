@@ -8,55 +8,47 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="400"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        <RelativePanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFC33E3E" Margin="10,0,-10,0"/>
+        <RelativePanel Height="550" Width="500" RelativePanel.AlignHorizontalCenterWithPanel ="True" RelativePanel.AlignVerticalCenterWithPanel ="True"  Margin="710,265"  >
 
-        <RelativePanel>
+            <TextBlock x:Name="SubjectText"
+        		Text="Subject" 
+        		Margin="176,170,53,200"
+                       />
+            <TextBox x:Name="Subject" 
+        		PlaceholderText="Subject" 
+        		RelativePanel.AlignHorizontalCenterWithPanel="True"
+        		Margin="10,195,10,173"
+        		Width="300" Text=""/>
+            <TextBlock x:Name="MessageText"
+        		Text="Message" 
+        		Margin="176,237,-41,143"
+                       />
+            <TextBox x:Name="Message" 
+        		PlaceholderText="Message" 
+        		RelativePanel.AlignHorizontalCenterWithPanel="True"
+        		Margin="-150,262,-150,-467" Text="" TextWrapping="Wrap"
+                 />
+            <Button x:Name="SendBtn" Content="Send" HorizontalAlignment="Left" Margin="347,508,-128,-188" Click="SendBtn_Click" Width="101"/>
             <TextBlock x:Name="NameText"
         		Text="Name" 
-        		Margin="44,69,-44,-69"
+        		Margin="178,39,-179,-39"
                        />
             <TextBox x:Name="Namebox" 
         		PlaceholderText="Name" 
         		RelativePanel.AlignHorizontalCenterWithPanel="True"
-        		Margin="-6,94,6,0"
+        		Margin="0,64,0,0"
         		Width="300" Text="" Height="32" VerticalAlignment="Top"/>
             <TextBlock x:Name="emailText"
-            	Text="E-mail" 
-            	Margin="44,133,-44,-133"
+        		Text="E-mail" 
+        		Margin="176,105,-176,-105"
                        />
             <TextBox x:Name="mailtxt" 
-            	PlaceholderText="E-Mail" 
-            	RelativePanel.AlignHorizontalCenterWithPanel="True"
-            	Margin="-6,158,6,-58"
-            	Width="300" Text=""/>
-
+        		PlaceholderText="E-Mail" 
+        		RelativePanel.AlignHorizontalCenterWithPanel="True"
+        		Margin="0,130,0,-30"
+        		Width="300" Text=""/>
         </RelativePanel>
-        <TextBlock x:Name="SubjectText"
-        	Text="Subject" 
-        	Margin="44,197,284,183"
-                       />
-        <TextBox x:Name="Subject" 
-        	PlaceholderText="Subject" 
-        	RelativePanel.AlignHorizontalCenterWithPanel="True"
-        	Margin="44,222,56,146"
-        	Width="300" Text=""/>
-        <TextBlock x:Name="MessageText"
-        	Text="Message" 
-        	Margin="44,261,284,119"
-                       />
-        <TextBox x:Name="Message" 
-        	PlaceholderText="Message" 
-        	RelativePanel.AlignHorizontalCenterWithPanel="True"
-        	Margin="44,286,40,205" Text="" Grid.RowSpan="2" TextWrapping="Wrap"
-                 />
-        <Button x:Name="SendBtn" Content="Send" HorizontalAlignment="Left" Margin="346,136,0,152" Click="SendBtn_Click" Grid.Row="1"/>
+
     </Grid>
 </Page>

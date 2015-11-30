@@ -74,7 +74,7 @@
 
             <!--SplitView Content-->
             <SplitView.Content>
-                <Frame Name="MyFrame" VerticalAlignment="Top">
+                <Frame Name="MyFrame" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 
                 </Frame>
             </SplitView.Content>

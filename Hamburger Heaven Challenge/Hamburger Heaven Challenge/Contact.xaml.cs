@@ -45,7 +45,5 @@ namespace Hamburger_Heaven_Challenge
         }
 
        
-
-       
     }
 }
