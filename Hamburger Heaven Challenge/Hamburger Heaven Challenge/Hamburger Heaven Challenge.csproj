@@ -93,6 +93,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Assets\EASendMailRT.winmd" />
     <None Include="ClassDiagram1.cd" />
     <None Include="project.json" />
   </ItemGroup>
@@ -416,10 +417,9 @@
   <ItemGroup>
     <Reference Include="EASendMailRT, Version=7.2.0.1, Culture=neutral, PublicKeyToken=88adb80ecd66540b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\EASendMail\windows8.winmd\EASendMailRT.winmd</HintPath>
+      <HintPath>Assets\EASendMailRT.winmd</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
