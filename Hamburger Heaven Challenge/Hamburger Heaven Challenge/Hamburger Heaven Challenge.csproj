@@ -353,6 +353,7 @@
     <Content Include="Assets\ApartmentImages\InsideImages\100\InsideView.jpg" />
     <Content Include="Assets\Financial.png" />
     <Content Include="Assets\Food.png" />
+    <Content Include="Assets\france_countryside.jpg" />
     <Content Include="Assets\french.jpg" />
     <Content Include="Assets\Users.txt" />
     <Content Include="Properties\Default.rd.xml" />

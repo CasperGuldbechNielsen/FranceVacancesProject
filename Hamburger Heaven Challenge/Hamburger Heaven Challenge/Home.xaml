@@ -8,23 +8,15 @@
     xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="Assets/france_countryside.jpg" Opacity="0.4"/>
         </Grid.Background>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="665"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>    
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+     
 
         <!--Search section-->
         
-        <RelativePanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1">
+        <RelativePanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Find available apartment" FontSize="24" Margin="30" RelativePanel.AlignHorizontalCenterWithPanel="True" />
             <AutoSuggestBox Name="AutoSuggestBox" 
                             PlaceholderText="Search" 
