@@ -44,14 +44,14 @@ namespace Hamburger_Heaven_Challenge.Models
                 filteredApartments.ForEach(p => apartments.Add(p));
             }
 
-            public static void GetApartmentsByCity(ObservableCollection<Apartment> apartments, CityCategory searchCity)
+            public static void SearchApartmentsByCity(ObservableCollection<Apartment> apartments, string numberId)
             {
-                var allApartments = getApartments();
-                var filteredApartments = allApartments.Where(p => p.ApartmentCity == searchCity).ToList();
-                apartments.Clear();
-                filteredApartments.ForEach(p => apartments.Add(p));
+            var allSounds = getApartments();
+            var filteredSounds = allSounds.Where(p => p.ApartmentId == numberId).ToList();
+            apartments.Clear();
+            filteredSounds.ForEach(p => apartments.Add(p));
 
-            }
+        }
     
 
             private static List<Apartment> getApartments()
