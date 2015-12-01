@@ -27,8 +27,7 @@
                    Grid.Row="1" 
                    DisplayMode="CompactOverlay" 
                    OpenPaneLength="200" 
-                   CompactPaneLength="48" 
-                   HorizontalAlignment="Left">
+                   CompactPaneLength="48" >
 
             <!--SplitView Pane for icons-->
             <SplitView.Pane>
@@ -73,11 +72,7 @@
             </SplitView.Pane>
 
             <!--SplitView Content-->
-            <SplitView.Content>
-                <Frame Name="MyFrame" VerticalAlignment="Top">
-
-                </Frame>
-            </SplitView.Content>
+            <Frame x:Name="MyFrame" Width="auto"/>
         </SplitView>
 
     </Grid>
