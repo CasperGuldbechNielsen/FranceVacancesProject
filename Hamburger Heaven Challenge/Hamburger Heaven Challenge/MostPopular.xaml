@@ -42,7 +42,10 @@
                 <Button Margin="2,0,2,0" Content="Select Region: ">
                     <Button.Flyout>
                         <Flyout Placement="Bottom">
-                            <ListView Name="RegionSelectorListView" IsItemClickEnabled="True" ItemsSource="{x:Bind ApartmentRegionSelector}" ItemClick="RegionSelectorListView_OnItemClick">
+                            <ListView Name="RegionSelectorListView" 
+                                      IsItemClickEnabled="True" 
+                                      ItemsSource="{x:Bind ApartmentRegionSelector}" 
+                                      ItemClick="RegionSelectorListView_OnItemClick">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding ApartmentRegion}"/>
@@ -55,7 +58,10 @@
                 <Button Margin="2,0,2,0" Content="Select City: ">
                     <Button.Flyout>
                         <Flyout Placement="Bottom">
-                            <ListView Name="CitySelectorListView" IsItemClickEnabled="True" ItemsSource="{x:Bind ApartmentCitySelector}" ItemClick="CitySelectorListView_OnItemClick">
+                            <ListView Name="CitySelectorListView" 
+                                      IsItemClickEnabled="True" 
+                                      ItemsSource="{x:Bind ApartmentCitySelector}" 
+                                      ItemClick="CitySelectorListView_OnItemClick">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding ApartmentCity}"/>
@@ -68,7 +74,10 @@
                 <Button Margin="2,0,2,0" Content="Specify number of rooms:">
                     <Button.Flyout>
                         <Flyout Placement="Bottom">
-                            <ListView Name="RoomSelectorListView" IsItemClickEnabled="True" ItemsSource="{x:Bind ApartmentRoomSelector}" ItemClick="RoomSelectorListView_OnItemClick">
+                            <ListView Name="RoomSelectorListView" 
+                                      IsItemClickEnabled="True" 
+                                      ItemsSource="{x:Bind ApartmentRoomSelector}" 
+                                      ItemClick="RoomSelectorListView_OnItemClick">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding ApartmentRoomNumber}"/>
