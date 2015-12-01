@@ -256,14 +256,12 @@ namespace Hamburger_Heaven_Challenge
         private void MyAutoSuggestBox_OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
             ApartmentManager.SearchApartmentsByCity(apartments, sender.Text);
-            BackButton.Visibility = Visibility.Visible;
+            
 
         }
 
         private void MyAutoSuggestBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-           
-            //if (String.IsNullOrEmpty(sender.Text)) MyFrame.GoBack();
 
             ApartmentManager.GetAllApartments(apartments);
             Suggestions = apartments
@@ -271,8 +269,7 @@ namespace Hamburger_Heaven_Challenge
                 .Select(p => p.ApartmentId)
                 .ToList();
             MyAutoSuggestBox.ItemsSource = Suggestions;
-            BackButton.Visibility = Visibility.Visible;
-
+            
             
         }
     }
