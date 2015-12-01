@@ -255,24 +255,25 @@ namespace Hamburger_Heaven_Challenge
 
         private void MyAutoSuggestBox_OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
-            //ApartmentManager.GetAllApartments(apartments);
-            //BackButton.Visibility = Visibility.Visible;
+            ApartmentManager.SearchApartmentsByCity(apartments, sender.Text);
+            BackButton.Visibility = Visibility.Visible;
+
         }
 
         private void MyAutoSuggestBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-            //The search results in the AutoSuggestBox shows all instances of a region instead of just once per region. 
-            //Tried creating an enum for the regions which didn't work. Still trying to fix this..
-
+           
             //if (String.IsNullOrEmpty(sender.Text)) MyFrame.GoBack();
 
-            //ApartmentManager.GetAllApartments(apartments);
-            //Suggestions = apartments
-            //    .Where(p => p.ApartmentCity.StartsWith(sender.Text))
-            //    .Select(p => p.ApartmentCity)
-            //    .ToList();
-            //MyAutoSuggestBox.ItemsSource = Suggestions;
-            //BackButton.Visibility = Visibility.Visible;
+            ApartmentManager.GetAllApartments(apartments);
+            Suggestions = apartments
+                .Where(p => p.ApartmentId.StartsWith(sender.Text))
+                .Select(p => p.ApartmentId)
+                .ToList();
+            MyAutoSuggestBox.ItemsSource = Suggestions;
+            BackButton.Visibility = Visibility.Visible;
+
+            
         }
     }
 }
