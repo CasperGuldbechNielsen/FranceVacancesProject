@@ -204,9 +204,6 @@ namespace Hamburger_Heaven_Challenge
                     else if (MyFrame.CurrentSourcePageType == typeof (CreateUser))
                     {
                         Title.Text = "Create User";
-                        if (MyFrame.CanGoBack)
-                            MyFrame.GoBack();
-
                     }
                 }
             }

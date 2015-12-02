@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -31,6 +32,9 @@ namespace Hamburger_Heaven_Challenge
 
         private string _profileName;
         private string _password;
+
+        private bool _correctUser = false;
+        private bool _correctPass = false;
 
         public Profile()
         {
@@ -60,15 +64,48 @@ namespace Hamburger_Heaven_Challenge
 
                             if (profileInfo[2].Contains(_profileName))
                             {
+                                _correctUser = true;
                                 if (profileInfo[3].Contains(_password))
                                 {
-                                    if (OnNavigateLogin != null)
-                                    {
-                                        OnNavigateLogin(sender, e);
-                                    }
+                                    _correctPass = true;
+                                }
+                               
+                            }
+
+                        }
+                        if (_correctUser)
+                        {
+
+                            if (_correctPass)
+                            {
+                                if (OnNavigateLogin != null)
+                                {
+                                    OnNavigateLogin(sender, e);
+                                    break;
                                 }
                             }
-                        }            
+                            else
+                            {
+                                var message = new MessageDialog("Wrong password", "Error");
+
+                                await message.ShowAsync();
+
+                                PasswordBox.Password = "";
+
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            var message = new MessageDialog("User does not exist!", "Error");
+
+                            await message.ShowAsync();
+
+                            ProfileName.Text = "";
+                            PasswordBox.Password = "";
+
+                            break;
+                        }
                     }
                 }
             }
