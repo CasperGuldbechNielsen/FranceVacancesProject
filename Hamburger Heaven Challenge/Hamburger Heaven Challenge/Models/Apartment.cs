@@ -38,9 +38,10 @@ namespace Hamburger_Heaven_Challenge.Models
 
         }
 
-        public double GetBookingPriceTotal()
+        public double GetBookingPriceTotal(int _numberOfNightSpent)
         {
-            ApartmentPriceTotal = ApartmentPriceByNight*NumberOfNightSpent;
+            NumberOfNightSpent = _numberOfNightSpent;
+            ApartmentPriceTotal = ApartmentPriceByNight*_numberOfNightSpent;
             return ApartmentPriceTotal;
         }
 
