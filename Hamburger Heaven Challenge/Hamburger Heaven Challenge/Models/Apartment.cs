@@ -9,8 +9,7 @@ namespace Hamburger_Heaven_Challenge.Models
 {
     public class Apartment
     {
-        private object MessageBox;
-
+        
         public string ApartmentId { get; set; }
         public RegionCategory ApartmentRegion { get; set; }
         public CityCategory ApartmentCity { get; set; }
