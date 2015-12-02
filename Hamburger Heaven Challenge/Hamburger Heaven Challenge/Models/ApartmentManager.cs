@@ -55,14 +55,7 @@ namespace Hamburger_Heaven_Challenge.Models
 
             }
 
-        // a method to calculate total price of booking
-
-            //public static void GetTotalPriceOfBooking()
-            //{
-                
-            //}
-    
-
+        
             private static List<Apartment> getApartments()
             {
                 var apartments = new List<Apartment>();
