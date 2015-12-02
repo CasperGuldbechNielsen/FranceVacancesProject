@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 
 namespace Hamburger_Heaven_Challenge.Models
 {
     public class Apartment
     {
-     
+        private object MessageBox;
+
         public string ApartmentId { get; set; }
         public RegionCategory ApartmentRegion { get; set; }
         public CityCategory ApartmentCity { get; set; }
@@ -35,6 +37,13 @@ namespace Hamburger_Heaven_Challenge.Models
             ApartmentPriceByNight = _apartmentPriceByNight;
 
         }
+
+        public double GetBookingPriceTotal()
+        {
+            ApartmentPriceTotal = ApartmentPriceByNight*NumberOfNightSpent;
+            return ApartmentPriceTotal;
+        }
+
     }
 
     
