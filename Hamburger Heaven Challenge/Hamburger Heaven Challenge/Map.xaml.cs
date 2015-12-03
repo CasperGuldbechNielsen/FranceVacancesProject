@@ -50,5 +50,10 @@ namespace Hamburger_Heaven_Challenge
                 
             }
         }
+
+        private void mapItemButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
+        }
     }
 }

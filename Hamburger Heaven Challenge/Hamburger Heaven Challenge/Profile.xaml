@@ -8,38 +8,28 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="400"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
-        <RelativePanel>
-            <TextBlock Name="ProfileText"
-                       Text="Email" 
-                       Margin="50,75,-50,-75"
-                       ></TextBlock>
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="Assets/france_countryside.jpg" Opacity="0.4" />
+        </Grid.Background>
+        <RelativePanel VerticalAlignment="Center">
+            <TextBlock Text="Login" 
+                       FontSize="24" Margin="30"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True" />
             <TextBox Name="ProfileName" 
                      HorizontalAlignment="Left" 
                      TextWrapping="Wrap" 
                      PlaceholderText="Email" 
                      RelativePanel.AlignHorizontalCenterWithPanel="True" 
                      VerticalAlignment="Top" 
-                     Margin="0,100,0,0"
-                     Width="300"/>
-            <TextBlock Name="PasswordText"
-                       Text="Password" 
-                       Margin="50,147,-50,-147"
-                       ></TextBlock>
+                     Header="Email:"
+                     Width="300"
+                     Margin="0,100,0,0"/>
             <PasswordBox Name="PasswordBox" 
                          HorizontalAlignment="Left" 
                          PlaceholderText="Password" 
                          RelativePanel.AlignHorizontalCenterWithPanel="True" 
                          RelativePanel.Below="ProfileName"
+                         Header="Password:"
                          VerticalAlignment="Top" 
                          Margin="0,40,0,0" 
                          Width="300"/>
@@ -49,14 +39,22 @@
                     RelativePanel.AlignRightWith="PasswordBox"
                     RelativePanel.Below="PasswordBox"
                     Margin="0,20,0,0"
-                    Width="100" Click="Login_Click" />
+                    Width="130" 
+                    Click="Login_Click" 
+                    Height="50" 
+                    Background="MediumSeaGreen"
+                    Foreground="AliceBlue"/>
             <Button Name ="CreateUser"
                     HorizontalAlignment="Left"
                     Content="Create User"
                     RelativePanel.AlignLeftWith="PasswordBox"
                     RelativePanel.Below="PasswordBox"
                     Margin="0,20,0,0" 
-                    Width="100" Click="CreateUser_Click"/>
+                    Width="130" 
+                    Click="CreateUser_Click"
+                    Height="50" 
+                    Background="MediumSeaGreen"
+                    Foreground="AliceBlue"/>
 
         </RelativePanel>
     </Grid>

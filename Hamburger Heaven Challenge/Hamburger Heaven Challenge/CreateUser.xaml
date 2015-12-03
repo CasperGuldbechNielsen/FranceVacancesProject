@@ -8,64 +8,45 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="600"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        
-        <RelativePanel>
-            <TextBlock Name="FirstNameText"
-                       Text="First Name" 
-                       Margin="50,75,-50,-75"
-                       ></TextBlock>
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="Assets/france_countryside.jpg" Opacity="0.4" />
+        </Grid.Background>
+        <RelativePanel VerticalAlignment="Center">
+            <TextBlock Text="Create a user" 
+                       FontSize="24" Margin="30" 
+                       RelativePanel.AlignHorizontalCenterWithPanel="True" />
             <TextBox Name="FirstName" 
                      PlaceholderText="First Name" 
                      RelativePanel.AlignHorizontalCenterWithPanel="True"
                      Margin="0,100,0,0"
+                     Header="First Name:"
                      Width="300"/>
-            <TextBlock Name="LastNameText"
-                       Text="Last Name" 
-                       Margin="50,147,-50,-147"
-                       ></TextBlock>
             <TextBox Name="LastName"
                      PlaceholderText="Last Name"
                      RelativePanel.AlignHorizontalCenterWithPanel="True"
                      RelativePanel.Below="FirstName"
+                     Header="Last Name:"
                      Margin="0,40,0,0"
                      Width="300"/>
-            <TextBlock Name="EmailText"
-                       Text="Email" 
-                       Margin="50,219,-50,-219"
-                       ></TextBlock>
             <TextBox Name="Email"
                      PlaceholderText="Email"
                      RelativePanel.AlignHorizontalCenterWithPanel="True"
                      RelativePanel.Below="LastName"
+                     Header="E-mail:"
                      Margin="0,40,0,0"
                      Width="300"/>
-            <TextBlock Name="PasswordOneText"
-                       Text="Password" 
-                       Margin="50,291,-50,-291"
-                       ></TextBlock>
             <PasswordBox Name="PasswordOne"
                          PlaceholderText="Password"
                          RelativePanel.AlignHorizontalCenterWithPanel="True"
                          RelativePanel.Below="Email"
+                         Header="Password"
                          Margin="0,40,0,0"
                          Width="300"/>
-            <TextBlock Name="PasswordTwoText"
-                       Text="Repeat Password" 
-                       Margin="52,363,-52,-363"
-                       ></TextBlock>
             <PasswordBox Name="PasswordTwo"
                          PlaceholderText="Repeat Password"
                          RelativePanel.AlignHorizontalCenterWithPanel="True"
                          RelativePanel.Below="PasswordOne"
+                         Header="Repeat password"
                          Margin="0,40,0,0"
                          Width="300"/>
             <Button Name="CreateUserButton"
@@ -74,7 +55,11 @@
                     RelativePanel.Below="PasswordTwo"
                     RelativePanel.AlignRightWith="PasswordTwo"
                     Margin="0,20,0,0"
-                    Width="100" Click="CreateUserButton_Click"></Button>
+                    Width="300" 
+                    Click="CreateUserButton_Click"
+                    Height="50" 
+                    Background="MediumSeaGreen" 
+                    Foreground="AliceBlue"/>
         </RelativePanel>
     </Grid>
 </Page>

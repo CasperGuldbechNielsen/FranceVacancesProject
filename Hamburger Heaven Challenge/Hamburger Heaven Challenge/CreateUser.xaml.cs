@@ -91,9 +91,7 @@ namespace Hamburger_Heaven_Challenge
                                 {
                                     var oldFileContent = File.ReadAllText(storageFile.Path);
 
-                                    var newFileContent = oldFileContent + _firstName + " | " + _lastName + " | " +
-                                                         _email +
-                                                         " | " + _passwordOne + Environment.NewLine;
+                                    var newFileContent = oldFileContent + _firstName + " | " + _lastName + " | " + _email + " | " + _passwordOne + Environment.NewLine;
                                     File.WriteAllText(storageFile.Path, newFileContent);
 
                                     if (OnNavigateParentReady != null)

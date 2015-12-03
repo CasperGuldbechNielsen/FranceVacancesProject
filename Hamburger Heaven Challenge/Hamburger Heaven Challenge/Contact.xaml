@@ -8,54 +8,58 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="400"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
-        <RelativePanel>
-            <TextBlock x:Name="NameText"
-        		Text="Name" 
-        		Margin="44,69,-44,-69"
-                       />
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="Assets/france_countryside.jpg" Opacity="0.4" />
+        </Grid.Background>
+        <RelativePanel VerticalAlignment="Center">
+            <TextBlock Text="Contact France Vacances" 
+                       FontSize="24" Margin="30"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True" />
             <TextBox x:Name="Namebox" 
-        		PlaceholderText="Name" 
-        		RelativePanel.AlignHorizontalCenterWithPanel="True"
-        		Margin="-6,94,6,0"
-        		Width="300" Text="" Height="32" VerticalAlignment="Top"/>
-            <TextBlock x:Name="emailText"
-            	Text="E-mail" 
-            	Margin="44,133,-44,-133"
-                       />
+                     PlaceholderText="Name" 
+        		     RelativePanel.AlignHorizontalCenterWithPanel="True"
+                     Header="Name:"
+        		     Width="300" 
+                     Text="" 
+                     VerticalAlignment="Top"
+                     Margin="0,100,0,0"/>
             <TextBox x:Name="mailtxt" 
-            	PlaceholderText="E-Mail" 
-            	RelativePanel.AlignHorizontalCenterWithPanel="True"
-            	Margin="-6,158,6,-58"
-            	Width="300" Text=""/>
-
+            	     PlaceholderText="E-Mail" 
+            	     RelativePanel.AlignHorizontalCenterWithPanel="True"
+                     RelativePanel.Below="Namebox"
+                     Header="E-mail:"
+            	     Width="300" 
+                     Text=""
+                     Margin="0,40,0,0"/>
+            <TextBox x:Name="Subject" 
+        	         PlaceholderText="Subject" 
+        	         RelativePanel.AlignHorizontalCenterWithPanel="True"
+                     RelativePanel.Below="mailtxt"
+                     Header="Subject:"
+        	         Width="300" 
+                     Text=""
+                     Margin="0,40,0,0"/>
+            <TextBox x:Name="Message" 
+        	         PlaceholderText="Message" 
+        	         RelativePanel.AlignHorizontalCenterWithPanel="True"
+                     RelativePanel.Below="Subject"
+                     Header="Message:"
+                     Width="300"
+                     Height="150"
+                     Text="" 
+                     TextWrapping="Wrap"
+                     Margin="0,40,0,0" />
+            <Button x:Name="SendBtn" 
+                    Content="Send" 
+                    HorizontalAlignment="Left" 
+                    RelativePanel.Below="Message"
+                    RelativePanel.AlignRightWith="Message"
+                    Margin="0,20,0,0"
+                    Click="SendBtn_Click"
+                    Height="50" 
+                    Width="300"
+                    Background="MediumSeaGreen"
+                    Foreground="AliceBlue"/>
         </RelativePanel>
-        <TextBlock x:Name="SubjectText"
-        	Text="Subject" 
-        	Margin="44,197,284,183"
-                       />
-        <TextBox x:Name="Subject" 
-        	PlaceholderText="Subject" 
-        	RelativePanel.AlignHorizontalCenterWithPanel="True"
-        	Margin="44,222,56,146"
-        	Width="300" Text=""/>
-        <TextBlock x:Name="MessageText"
-        	Text="Message" 
-        	Margin="44,261,284,119"
-                       />
-        <TextBox x:Name="Message" 
-        	PlaceholderText="Message" 
-        	RelativePanel.AlignHorizontalCenterWithPanel="True"
-        	Margin="44,286,56,205" Text="" Grid.RowSpan="2" TextWrapping="Wrap" />
-        <Button x:Name="SendBtn" Content="Send" HorizontalAlignment="Left" Margin="346,136,0,152" Click="SendBtn_Click" Grid.Row="1"/>
     </Grid>
 </Page>
