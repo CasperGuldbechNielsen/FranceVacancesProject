@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 
 namespace Hamburger_Heaven_Challenge.Models
 {
     public class Apartment
     {
-     
+        
         public string ApartmentId { get; set; }
         public RegionCategory ApartmentRegion { get; set; }
         public CityCategory ApartmentCity { get; set; }
@@ -17,9 +18,12 @@ namespace Hamburger_Heaven_Challenge.Models
         public string ApartmentInsideImage { get; set; }
         public double ApartmentRating { get; set; }
         public bool IsApartmentAvailable { get; set; }
-
+        public double ApartmentPriceByNight { get; set; }
+        public int NumberOfNightSpent { get; set; }
+        public double ApartmentPriceTotal { get; set; }
+        
         public Apartment(string _apartmentId, RegionCategory _apartmentRegion, CityCategory _apartmentCity,
-            RoomCategory _apartmentRoomNumber, double _apartmentRating, bool _isApartmentAvailable)
+            RoomCategory _apartmentRoomNumber, double _apartmentRating, bool _isApartmentAvailable, double _apartmentPriceByNight )
         {
             ApartmentId = _apartmentId;
             ApartmentRegion = _apartmentRegion;
@@ -29,10 +33,20 @@ namespace Hamburger_Heaven_Challenge.Models
             ApartmentInsideImage = String.Format("Assets/ApartmentImages/InsideImages/{0}/InsideView.jpg", _apartmentId);
             ApartmentRating = _apartmentRating;
             IsApartmentAvailable = _isApartmentAvailable;
+            ApartmentPriceByNight = _apartmentPriceByNight;
 
         }
+
+        public double GetBookingPriceTotal(int _numberOfNightSpent)
+        {
+            NumberOfNightSpent = _numberOfNightSpent;
+            ApartmentPriceTotal = ApartmentPriceByNight*_numberOfNightSpent;
+            return ApartmentPriceTotal;
+        }
+
     }
 
+    
     public enum RegionCategory
     {
         Alsace,

@@ -14,7 +14,7 @@
 
     <!--this manager controls the adaptive layout, the bigger is the app window, the bigger are our objects-->
 
-    <StackPanel HorizontalAlignment="Center" Orientation="Vertical"  >
+    
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="MinimumLayout">
@@ -94,7 +94,7 @@
         
 
       <StackPanel Margin="10,10,10,10" Orientation="Vertical">
-            <Image Name="ShowHeaderImage" Width="150" Source="{x:Bind Apartment.ApartmentCoverImage}" />
+            <Image Name="ShowHeaderImage" Width="150"  Source="{x:Bind Apartment.ApartmentCoverImage}" />
             <Image Name="ShowThumbnailImage" Width="150" Source="{x:Bind Apartment.ApartmentInsideImage}" />
             <StackPanel Orientation="Horizontal">
             <TextBlock Margin="10,0,10,0" Name="ShowRegionText" Text="Region: "/>
@@ -115,5 +115,5 @@
       </StackPanel>
         
         
-   </StackPanel>
+   
 </UserControl>

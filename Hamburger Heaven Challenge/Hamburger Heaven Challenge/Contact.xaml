@@ -55,8 +55,7 @@
         <TextBox x:Name="Message" 
         	PlaceholderText="Message" 
         	RelativePanel.AlignHorizontalCenterWithPanel="True"
-        	Margin="44,286,40,205" Text="" Grid.RowSpan="2" TextWrapping="Wrap"
-                 />
+        	Margin="44,286,56,205" Text="" Grid.RowSpan="2" TextWrapping="Wrap" />
         <Button x:Name="SendBtn" Content="Send" HorizontalAlignment="Left" Margin="346,136,0,152" Click="SendBtn_Click" Grid.Row="1"/>
     </Grid>
 </Page>
