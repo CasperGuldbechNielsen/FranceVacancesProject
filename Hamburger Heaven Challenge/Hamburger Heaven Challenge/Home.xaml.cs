@@ -29,8 +29,6 @@ namespace Hamburger_Heaven_Challenge
         public Home()
         {
             this.InitializeComponent();
-            //MyMap.Center = new Geopoint(new BasicGeoposition() { Latitude = 46.8442643, Longitude = 2.5992004 });
-            //MyMap.ZoomLevel = 6;
         }
 
         private void AutoSuggestBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
@@ -38,8 +36,6 @@ namespace Hamburger_Heaven_Challenge
             var autoSuggestBox = (AutoSuggestBox) sender;
             var filtered = frenchCities.Where(P => P.StartsWith((autoSuggestBox.Text), StringComparison.CurrentCultureIgnoreCase)).ToArray();
             autoSuggestBox.ItemsSource = filtered;
-
-            
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
