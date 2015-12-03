@@ -15,7 +15,7 @@
 
         <!--Search section-->
 
-        <RelativePanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <RelativePanel VerticalAlignment="Center" Margin="10,0,-10,0">
             <TextBlock Text="Find available apartment" FontSize="24" Margin="30" RelativePanel.AlignHorizontalCenterWithPanel="True" />
             <AutoSuggestBox Name="AutoSuggestBox" 
                             PlaceholderText="Search" 
