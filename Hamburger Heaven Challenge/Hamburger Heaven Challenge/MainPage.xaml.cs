@@ -252,8 +252,8 @@ namespace Hamburger_Heaven_Challenge
 
         private void MyAutoSuggestBox_OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
-            ApartmentManager.SearchApartmentsByCity(apartments, sender.Text);
-            
+            ApartmentManager.GetAllApartments(apartments);
+            // we gonna write the code to navigate the new page called "searches" looks alike "MostPopular"
 
         }
 
