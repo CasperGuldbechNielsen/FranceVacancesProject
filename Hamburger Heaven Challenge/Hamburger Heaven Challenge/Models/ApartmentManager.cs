@@ -44,17 +44,6 @@ namespace Hamburger_Heaven_Challenge.Models
                 filteredApartments.ForEach(p => apartments.Add(p));
             }
 
-        //Only works with the ApartmentID so far, it looks like the "StartsWith" only works with strings...
-
-            public static void SearchApartmentsByCity(ObservableCollection<Apartment> apartments, string numberId)
-            {
-            var allApartments = getApartments();
-            var filteredSounds = allApartments.Where(p => p.ApartmentId == numberId).ToList();
-            apartments.Clear();
-            filteredSounds.ForEach(p => apartments.Add(p));
-
-            }
-
         
             private static List<Apartment> getApartments()
             {
