@@ -8,11 +8,13 @@ namespace Hamburger_Heaven_Challenge.Models
 {
     public class Reservation
     {
-       
+        //fields
         private DateTime _arrival;
         private DateTime _departure;
         private TimeSpan _staying;
 
+
+        //properties
         public DateTime Arrival
         {
             get { return _arrival; }
@@ -43,11 +45,15 @@ namespace Hamburger_Heaven_Challenge.Models
             }
         }
 
-        public Reservation(DateTime _arrival, DateTime _departure, TimeSpan _staying)
+
+        //Constructor
+        public Reservation(DateTime arrival, DateTime departure, TimeSpan staying)
         {
-            Arrival = _arrival;
-            Departure = _departure;
-            Staying = _staying;
+            Arrival = arrival;
+            Departure = departure;
+            Staying = staying;
         }
+
+       
     }
 }
