@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hamburger_Heaven_Challenge.Models
 {
-    class Reservation
+    public class Reservation
     {
        
         private DateTime _arrival;
@@ -41,6 +41,13 @@ namespace Hamburger_Heaven_Challenge.Models
                 // Throwing nice and fancy exceptions we can use in Unitesting
                 _staying = value;
             }
+        }
+
+        public Reservation(DateTime _arrival, DateTime _departure, TimeSpan _staying)
+        {
+            Arrival = _arrival;
+            Departure = _departure;
+            Staying = _staying;
         }
     }
 }
