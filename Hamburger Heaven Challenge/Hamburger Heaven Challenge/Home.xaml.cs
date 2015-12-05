@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -24,22 +25,28 @@ namespace Hamburger_Heaven_Challenge
     /// </summary>
     public sealed partial class Home : Page
     {
-        private string[] frenchCities = new string[] {"Paris", "Lyon", "Nice", "Antibes", "Pardour", "Lille" };
+        private ObservableCollection<Apartment> apartments;
+        private List<String> Suggestions;
 
         public Home()
         {
             this.InitializeComponent();
             //MyMap.Center = new Geopoint(new BasicGeoposition() { Latitude = 46.8442643, Longitude = 2.5992004 });
             //MyMap.ZoomLevel = 6;
+            apartments = new ObservableCollection<Apartment>();
+            ApartmentManager.GetAllApartments(apartments);
         }
 
         private void AutoSuggestBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-            var autoSuggestBox = (AutoSuggestBox) sender;
-            var filtered = frenchCities.Where(P => P.StartsWith((autoSuggestBox.Text), StringComparison.CurrentCultureIgnoreCase)).ToArray();
-            autoSuggestBox.ItemsSource = filtered;
+            ApartmentManager.GetAllApartments(apartments);
+            Suggestions = apartments
+                .Where(p => p.ApartmentCity.ToString().StartsWith(sender.Text))
+                .Select(p => p.ApartmentCity.ToString()).Distinct()
+                .ToList();
+            AutoSuggestBox.ItemsSource = Suggestions;
 
-            
+
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
