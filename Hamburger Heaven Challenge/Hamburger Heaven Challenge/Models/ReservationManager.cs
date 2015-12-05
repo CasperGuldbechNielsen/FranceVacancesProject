@@ -8,12 +8,15 @@ using System.Threading.Tasks;
 
 namespace Hamburger_Heaven_Challenge.Models
 {
-    public static class ReservationManager
+    public class ReservationManager
     {
-        public static void MakeReservation(DateTime arrivalDate, DateTime departureDate, TimeSpan lenghtStaying )
+        public Reservation MakeReservation(DateTime arrivalDate, DateTime departureDate, TimeSpan lenghtStaying )
         {
-            // bool isAvailable
-            //break;
+            Reservation newReservation = new Reservation(arrivalDate, arrivalDate, lenghtStaying);
+            newReservation.Arrival = arrivalDate;
+            newReservation.Departure = departureDate;
+            newReservation.Staying = lenghtStaying;
+            return newReservation;
         }
 
 
@@ -25,5 +28,21 @@ namespace Hamburger_Heaven_Challenge.Models
 
             return bookings;
         }
+
+
+
+        //Some methods
+
+        public string BookAnApartment()
+        {
+            return "You have booked";
+        }
+
+        public string CancelBooking()
+        {
+            return "You have succesfuly canceled your booking";
+        }
+
+
     }
 }
