@@ -11,9 +11,13 @@ namespace Hamburger_Heaven_Challenge.Models
     {
         
         public string ApartmentId { get; set; }
+
+        // aggregation starts here
         public RegionCategory ApartmentRegion { get; set; }
         public CityCategory ApartmentCity { get; set; }
         public RoomCategory ApartmentRoomNumber { get; set; }
+        //aggregation ended
+
         public string ApartmentCoverImage { get; set; }
         public string ApartmentInsideImage { get; set; }
         public double ApartmentRating { get; set; }
