@@ -113,6 +113,7 @@
                         and adds dynamic RelativePanel constraints that puts all elements stacked below each other -->
                         <Setter Target="MySplitView.DisplayMode" Value="Overlay" />
                         <Setter Target="MySplitView.IsPaneOpen" Value="False" />
+                        <Setter Target="MyAutoSuggestBox.Visibility" Value="Collapsed" />
                         
                     </VisualState.Setters>
                 </VisualState>
