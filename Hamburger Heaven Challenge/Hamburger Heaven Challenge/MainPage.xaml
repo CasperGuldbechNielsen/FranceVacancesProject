@@ -76,7 +76,7 @@
         </SplitView>
 
         <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
+            <VisualStateGroup x:Name="stategroup">
                 <VisualState>
                     <!-- VisualState to be triggered when window width is >=720 effective pixels -->
                     <VisualState.StateTriggers>
@@ -90,7 +90,7 @@
                         
                     </VisualState.Setters>
                 </VisualState>
-                <VisualState>
+                <VisualState x:Name="compact">
                     <!-- VisualState to be triggered when window width is >=548 and <720 effective pixels -->
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="548" />
