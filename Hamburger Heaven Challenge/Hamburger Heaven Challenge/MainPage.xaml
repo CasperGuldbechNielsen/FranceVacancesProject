@@ -103,7 +103,7 @@
                     
                     </VisualState.Setters>
                 </VisualState>
-                <VisualState>
+                <VisualState x:Name="NoUI">
                     <!-- VisualState to be triggered when window width is >=0 and <548 effective pixels -->
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0" />
