@@ -75,5 +75,49 @@
             <Frame x:Name="MyFrame" Width="auto"/>
         </SplitView>
 
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <!-- VisualState to be triggered when window width is >=720 effective pixels -->
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- Widest possible layout moves some elements around to optimize for more available width 
+                        and keeps SplitView pane always showing inline -->
+                        <Setter Target="MySplitView.DisplayMode" Value="Inline" />
+                        <Setter Target="MySplitView.IsPaneOpen" Value="True" />
+                        
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <!-- VisualState to be triggered when window width is >=548 and <720 effective pixels -->
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="548" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- For intermediate window widths as well as most phones on landscape orientation, 
+                        this state keeps primary layout narrow while showing the splitview pane to take advantage of more available width than narrow layout -->
+                        <Setter Target="MySplitView.DisplayMode" Value="CompactInline" />
+                        <Setter Target="MySplitView.IsPaneOpen" Value="false" />
+                    
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <!-- VisualState to be triggered when window width is >=0 and <548 effective pixels -->
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- For the most narrow windows and phones in portrait orientation, this state collapses the SplitView pane into overlay mode
+                        and adds dynamic RelativePanel constraints that puts all elements stacked below each other -->
+                        <Setter Target="MySplitView.DisplayMode" Value="Overlay" />
+                        <Setter Target="MySplitView.IsPaneOpen" Value="False" />
+                        
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
     </Grid>
 </Page>
