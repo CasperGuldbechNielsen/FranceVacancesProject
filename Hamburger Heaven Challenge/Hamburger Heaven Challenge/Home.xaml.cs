@@ -41,7 +41,7 @@ namespace Hamburger_Heaven_Challenge
         {
             ApartmentManager.GetAllApartments(apartments);
             Suggestions = apartments
-                .Where(p => p.ApartmentCity.ToString().StartsWith(sender.Text))
+                .Where(p => p.ApartmentCity.ToString().ToLower().StartsWith(sender.Text))
                 .Select(p => p.ApartmentCity.ToString()).Distinct()
                 .ToList();
             AutoSuggestBox.ItemsSource = Suggestions;
