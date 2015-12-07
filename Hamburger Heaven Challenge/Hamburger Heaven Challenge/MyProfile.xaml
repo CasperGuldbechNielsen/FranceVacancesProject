@@ -7,7 +7,81 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="Assets/france_countryside.jpg" Opacity="0.4" />
+        </Grid.Background>
 
+        <ScrollViewer>
+            <RelativePanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="609" Height="auto">
+                <TextBlock x:Name="MyProfileText"
+                           Text="My Profile" 
+                           FontSize="32" 
+                           RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                <Image x:Name="ProfilePicture"
+                       Source="Assets/ProfilePictures/Female2.jpg"
+                       Width="150"
+                       Margin="0,40,0,0"
+                       RelativePanel.Below="MyProfileText"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                <TextBox x:Name="Adress"
+                         Header="Adress"
+                         Margin="0,20,0,0"
+                         Width="300"
+                         RelativePanel.Below="ProfilePicture"
+                         RelativePanel.AlignLeftWithPanel="True"/>
+                <TextBox x:Name="City"
+                         Header="City"
+                         Margin="0,40,0,0"
+                         Width="300"
+                         RelativePanel.Below="Adress"/>
+                <TextBox x:Name="Country"
+                         Header="Country"
+                         Margin="0,40,0,0"
+                         Width="300"
+                         RelativePanel.Below="City"/>
+
+                <TextBox x:Name="CardNumber"
+                         Header="Card Number"
+                         Margin="0,20,0,0"
+                         Width="300"
+                         RelativePanel.Below="ProfilePicture"
+                         RelativePanel.AlignRightWithPanel="True"/>
+                <DatePicker x:Name="ExpiryDate"
+                            Header="Expiry date"
+                            Margin="0,40,0,0"
+                            Width="300"
+                            RelativePanel.Below="CardNumber"
+                            RelativePanel.AlignRightWithPanel="True"/>
+                <TextBox x:Name="SecurityNum"
+                         Header="Security Number"
+                         Margin="0,40,0,0"
+                         Width="300"
+                         RelativePanel.Below="ExpiryDate"
+                         RelativePanel.AlignRightWithPanel="True"/>
+                <Button x:Name="Save"
+                        Content="Save"
+                        Margin="0,20,0,0"
+                        RelativePanel.Below="SecurityNum"
+                        RelativePanel.AlignHorizontalCenterWithPanel="True"
+                        Height="50" 
+                        Width="300"
+                        Background="MediumSeaGreen"
+                        Foreground="AliceBlue"/>
+                
+                <TextBlock x:Name="MyBookingsText"
+                           Text="My Bookings"
+                           FontSize="32"
+                           RelativePanel.Below="Save"
+                           RelativePanel.AlignHorizontalCenterWithPanel="True"
+                           Margin="0,40,0,0"/>
+                <ListView x:Name="MyBookings"
+                          RelativePanel.Below="MyBookingsText"
+                          RelativePanel.AlignHorizontalCenterWithPanel="True"
+                          Height="600">
+                    
+                </ListView>
+            </RelativePanel>
+        </ScrollViewer>
     </Grid>
 </Page>

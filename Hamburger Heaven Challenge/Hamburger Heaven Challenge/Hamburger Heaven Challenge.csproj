@@ -357,6 +357,12 @@
     <Content Include="Assets\Food.png" />
     <Content Include="Assets\france_countryside.jpg" />
     <Content Include="Assets\french.jpg" />
+    <Content Include="Assets\ProfilePictures\Female1.jpg" />
+    <Content Include="Assets\ProfilePictures\Female2.jpg" />
+    <Content Include="Assets\ProfilePictures\Female3.jpg" />
+    <Content Include="Assets\ProfilePictures\Male1.jpg" />
+    <Content Include="Assets\ProfilePictures\Male2.jpg" />
+    <Content Include="Assets\ProfilePictures\Male3.jpg" />
     <Content Include="Assets\Users.txt" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
