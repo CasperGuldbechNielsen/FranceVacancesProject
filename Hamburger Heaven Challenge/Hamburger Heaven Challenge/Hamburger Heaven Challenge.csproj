@@ -111,9 +111,6 @@
     <Compile Include="Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Food.xaml.cs">
-      <DependentUpon>Food.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Locations.xaml.cs">
       <DependentUpon>Locations.xaml</DependentUpon>
     </Compile>
@@ -358,8 +355,27 @@
     <Content Include="Assets\Food.png" />
     <Content Include="Assets\france_countryside.jpg" />
     <Content Include="Assets\french.jpg" />
+    <Content Include="Assets\LocationPictures\Ajaccio.jpg" />
+    <Content Include="Assets\LocationPictures\Amiens.jpg" />
+    <Content Include="Assets\LocationPictures\Bordeaux.jpg" />
+    <Content Include="Assets\LocationPictures\Caen.jpg" />
+    <Content Include="Assets\LocationPictures\ChâlonsEnChampagne.jpg" />
+    <Content Include="Assets\LocationPictures\ClermontFerrand.jpg" />
+    <Content Include="Assets\LocationPictures\Dijon.jpg" />
+    <Content Include="Assets\LocationPictures\Lille.jpg" />
+    <Content Include="Assets\LocationPictures\Limoges.jpg" />
+    <Content Include="Assets\LocationPictures\Lyon.jpg" />
+    <Content Include="Assets\LocationPictures\Marseille.jpg" />
+    <Content Include="Assets\LocationPictures\Metz.jpg" />
+    <Content Include="Assets\LocationPictures\Montpellier.jpg" />
+    <Content Include="Assets\LocationPictures\Nantes.jpg" />
+    <Content Include="Assets\LocationPictures\Orléans.jpg" />
     <Content Include="Assets\LocationPictures\Paris.jpg" />
+    <Content Include="Assets\LocationPictures\Poitiers.jpg" />
+    <Content Include="Assets\LocationPictures\Rennes.jpg" />
+    <Content Include="Assets\LocationPictures\Rouen.jpg" />
     <Content Include="Assets\LocationPictures\Strasbourg.jpg" />
+    <Content Include="Assets\LocationPictures\Tolouse.jpg" />
     <Content Include="Assets\ProfilePictures\Female1.jpg" />
     <Content Include="Assets\ProfilePictures\Female2.jpg" />
     <Content Include="Assets\ProfilePictures\Female3.jpg" />
@@ -390,10 +406,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Home.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Food.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
