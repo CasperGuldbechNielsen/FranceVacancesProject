@@ -96,7 +96,7 @@
       <StackPanel Margin="10,10,10,10" Orientation="Vertical">
             <Image Name="ShowHeaderImage" Width="150"  Source="{x:Bind Apartment.ApartmentCoverImage}" />
             <Image Name="ShowThumbnailImage" Width="150" Source="{x:Bind Apartment.ApartmentInsideImage}" />
-            <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal">
             <TextBlock Margin="10,0,10,0" Name="ShowRegionText" Text="Region: "/>
             <TextBlock Margin="10,0,10,0" Name="ShowRegionTextBlock"  Text="{x:Bind Apartment.ApartmentRegion}" />
         </StackPanel>

@@ -128,6 +128,7 @@
     <Compile Include="Models\Apartment.cs" />
     <Compile Include="Models\ApartmentManager.cs" />
     <Compile Include="Models\ApartmentRoomSelector.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\ReservationManager.cs" />
     <Compile Include="MostPopular.xaml.cs">
@@ -357,6 +358,8 @@
     <Content Include="Assets\Food.png" />
     <Content Include="Assets\france_countryside.jpg" />
     <Content Include="Assets\french.jpg" />
+    <Content Include="Assets\LocationPictures\Paris.jpg" />
+    <Content Include="Assets\LocationPictures\Strasbourg.jpg" />
     <Content Include="Assets\ProfilePictures\Female1.jpg" />
     <Content Include="Assets\ProfilePictures\Female2.jpg" />
     <Content Include="Assets\ProfilePictures\Female3.jpg" />
