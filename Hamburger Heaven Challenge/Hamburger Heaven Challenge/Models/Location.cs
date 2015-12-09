@@ -44,16 +44,15 @@ namespace Hamburger_Heaven_Challenge.Models
             locations.Add(new Location { CityImage = "Assets/LocationPictures/Montpellier.jpg", City = "Montpellier", Description = "Getting sick on vacation is a major drag, but if you have to be under the weather, Montpellier is an ideal place to do it. People have studied medicine here for centuries—the Moors established medical schools in the 9th century, and the Université Montpellier’s school of medicine was founded in 1220. Once the local docs give you a clean bill of health, explore the cathedral, mansions and opera house. " });
             locations.Add(new Location { CityImage = "Assets/LocationPictures/Limoges.jpg", City = "Limoges", Description = "Limoges is a city and commune, the capital of the Haute-Vienne department and the administrative capital of the Limousin région in west-central France." });
             locations.Add(new Location { CityImage = "Assets/LocationPictures/Metz.jpg", City = "Metz", Description = "" });
-            locations.Add(new Location { CityImage = "Assets/LocationPictures/.jpg", City = "", Description = "" });
-            locations.Add(new Location { CityImage = "Assets/LocationPictures/.jpg", City = "", Description = "" });
-            locations.Add(new Location { CityImage = "Assets/LocationPictures/.jpg", City = "", Description = "" });
-            locations.Add(new Location { CityImage = "Assets/LocationPictures/.jpg", City = "", Description = "" });
-            locations.Add(new Location { CityImage = "Assets/LocationPictures/.jpg", City = "", Description = "" });
-            locations.Add(new Location { CityImage = "Assets/LocationPictures/.jpg", City = "", Description = "" });
-            locations.Add(new Location { CityImage = "Assets/LocationPictures/.jpg", City = "", Description = "" });
-            locations.Add(new Location { CityImage = "Assets/LocationPictures/.jpg", City = "", Description = "" });
-            locations.Add(new Location { CityImage = "Assets/LocationPictures/.jpg", City = "", Description = "" });
-            locations.Add(new Location { CityImage = "Assets/LocationPictures/.jpg", City = "", Description = "" });
+            locations.Add(new Location { CityImage = "Assets/LocationPictures/Caen.jpg", City = "Caen", Description = "" });
+            locations.Add(new Location { CityImage = "Assets/LocationPictures/Tolouse.jpg", City = "Tolouse", Description = "" });
+            locations.Add(new Location { CityImage = "Assets/LocationPictures/Lille.jpg", City = "Lille", Description = "" });
+            locations.Add(new Location { CityImage = "Assets/LocationPictures/Nantes.jpg", City = "Nantes", Description = "" });
+           locations.Add(new Location { CityImage = "Assets/LocationPictures/Amiens.jpg", City = "Amiens", Description = "" });
+            locations.Add(new Location { CityImage = "Assets/LocationPictures/Poitiers.jpg", City = "Poitiers", Description = "" });
+            locations.Add(new Location { CityImage = "Assets/LocationPictures/Marseille.jpg", City = "Marseille", Description = "" });
+            locations.Add(new Location { CityImage = "Assets/LocationPictures/Lyon.jpg", City = "Lyon", Description = "" });
+            locations.Add(new Location { CityImage = "Assets/LocationPictures/Rouen.jpg", City = "Rouen", Description = "" });
 
 
             return locations;
