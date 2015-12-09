@@ -164,6 +164,11 @@ namespace Hamburger_Heaven_Challenge.Models
             }
         }
 
+        public Apartment()
+        {
+            
+        }
+
         public Apartment(string apartmentId, RegionCategory apartmentRegion, CityCategory apartmentCity,
             RoomCategory apartmentRoomNumber, double apartmentRating, bool isApartmentAvailable, double apartmentPriceByNight)
         {
