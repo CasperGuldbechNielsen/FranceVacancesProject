@@ -10,21 +10,21 @@
 
     <Page.Resources>
         <DataTemplate x:Key="LocationsDataTemplate" x:DataType="data:Location">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Image Source="{x:Bind CityImage}" HorizontalAlignment="Center" Width="150" />
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                <Image Source="{x:Bind CityImage}" HorizontalAlignment="Center" Width="200" Height="200" />
                 <StackPanel Margin="20,20,0,0">
                     <TextBlock Text="{x:Bind City}" HorizontalAlignment="Left" FontSize="16" />
-                    <TextBlock Text="{x:Bind Description}" HorizontalAlignment="Left" FontSize="10" TextWrapping="Wrap" />
+                    <TextBlock Text="{x:Bind Description}" HorizontalAlignment="Left" FontSize="10" TextWrapping="Wrap" Width="200" Height="200"/>
                 </StackPanel>
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
     
     <Grid>
-        <ListView ItemsSource="{x:Bind Cities}"
+        <GridView ItemsSource="{x:Bind Cities}"
                   ItemClick="City_OnClick"
                   IsItemClickEnabled="True"
                   ItemTemplate="{StaticResource LocationsDataTemplate}">
-            </ListView>
+            </GridView>
     </Grid>
 </Page>
