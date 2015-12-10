@@ -25,7 +25,7 @@
         <DataTemplate x:DataType="data:Apartment" x:Key="ApartmentDataTemplate">
             <local:MostPopularUserControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         </DataTemplate>
-       
+
     </Page.Resources>
     <VisualStateManager.VisualStateGroups>
         <VisualStateGroup>
@@ -108,8 +108,8 @@
             <RowDefinition Height="3*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        
-       
+
+
         <Grid Name="FilteringButtons">
             <StackPanel Orientation="Horizontal">
                 <Button Margin="2,0,2,0" Content="Select Region: ">
@@ -170,33 +170,83 @@
         </StackPanel>
 
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden" VerticalScrollMode="Enabled" >
-        <GridView 
+            <GridView 
                   ItemsSource="{x:Bind Apartments}" 
                   IsItemClickEnabled="True"
                   ItemClick="GridView_ItemClick"
                   ItemTemplate="{StaticResource ApartmentDataTemplate}">
-            
-        </GridView>
+
+                <Popup VerticalOffset="10" 
+                       HorizontalOffset="200" 
+                       x:Name="StandardPopup">
+                    <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
+                            Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                            BorderThickness="2" 
+                            Width="600" 
+                            Height="300">
+                        <RelativePanel HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center" 
+                                       Height="300" 
+                                       Width="600">
+
+                            <Image x:Name="ApartmentImage"
+                                   Height="100"
+                                   Width="100"
+                                   Margin="0,10,10,0"
+                                   Source="Assets/ApartmentImages/CoverImages/001/FrontView.jpg"
+                                   RelativePanel.AlignTopWithPanel="True"
+                                   RelativePanel.AlignRightWithPanel="True"/>
+                            <Image x:Name="ApartmentInside"
+                                   Height="100"
+                                   Width="100"
+                                   Margin="0,10,10,0"
+                                   Source="Assets/ApartmentImages/InsideImages/001/InsideView.jpg"
+                                   RelativePanel.AlignRightWithPanel="True"
+                                   RelativePanel.Below="ApartmentImage"/>
+
+                            <TextBlock Name="ApartmentResultTextBlock"
+                                       FontSize="24"
+                                       Margin="0,20,0,0"/>
+
+                            <Button Content="Close" 
+                                    Click="ClosePopupClicked" 
+                                    Margin="10,0,0,10" 
+                                    Height="50" 
+                                    Width="250"
+                                    Background="MediumSeaGreen"
+                                    Foreground="AliceBlue"
+                                    RelativePanel.AlignBottomWithPanel="True"
+                                    RelativePanel.AlignLeftWithPanel="True"/>
+
+                            <Button Content="Book now"
+                                    Margin="0,0,10,10"
+                                    Height="50" 
+                                    Width="250"
+                                    Background="MediumSeaGreen"
+                                    Foreground="AliceBlue"
+                                    RelativePanel.AlignBottomWithPanel="True"
+                                    RelativePanel.AlignRightWithPanel="True"/>
+                        </RelativePanel>
+                    </Border>
+                </Popup>
+
+            </GridView>
         </ScrollViewer>
-            
-       <StackPanel Orientation="Horizontal" Grid.Row="3"> 
-        <TextBlock Text="You've selected:"/>
-        <TextBlock  
-                   Name="ApartmentResultTextBlock"
-                   FontSize="24"
-                   Margin="0,20,0,0"/>
-        
-        <TextBlock  
+
+        <StackPanel Orientation="Horizontal" Grid.Row="3">
+            <TextBlock Text="You've selected:"/>
+
+            <TextBlock  
                    Name="RegionResultTextBlock"
                    FontSize="24"
                    Margin="0,20,0,0"/>
-        
-        <TextBlock  
+
+            <TextBlock  
                    Name="CityResultTextBlock"
                    FontSize="24"
                    Margin="0,20,0,0"/>
 
-        <TextBlock  
+            <TextBlock  
                    Name="RoomResultTextBlock"
                    FontSize="24"
                    Margin="0,20,0,0"/>

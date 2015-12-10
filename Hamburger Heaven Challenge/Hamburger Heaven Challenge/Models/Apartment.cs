@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace Hamburger_Heaven_Challenge.Models
 {
@@ -189,6 +191,16 @@ namespace Hamburger_Heaven_Challenge.Models
             NumberOfNightSpent = numberOfNightSpent;
             ApartmentPriceTotal = ApartmentPriceByNight*numberOfNightSpent;
             return ApartmentPriceTotal;
+        }
+
+        public string GetCoverImage()
+        {
+            return ApartmentCoverImage;
+        }
+
+        public string GetInsideImage()
+        {
+            return ApartmentInsideImage;
         }
 
     }
