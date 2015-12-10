@@ -9,6 +9,15 @@ namespace UnitTestFranceVacances
     public class ApartmentClassTests
     {
         public Apartment TestApartment = new Apartment();
+
+        private double MinRating = 0;
+        private double MaxRating = 5;
+
+        private double MinPrice = 0;
+        private double MaxPrice = 500;
+
+        private double MinTotalPrice = 0;
+
         
 
         [TestMethod]
@@ -44,102 +53,7 @@ namespace UnitTestFranceVacances
             }
             Assert.IsNotNull(caughtException);
         }
-
-        [TestMethod]
-        public void ApartmentRegionIsNull()
-        {
-            Exception caughtException = null;
-            try
-            {
-                TestApartment.ApartmentId = null;
-            }
-            catch (Exception exceptionThrown)
-            {
-                caughtException = exceptionThrown;
-            }
-            Assert.IsNotNull(caughtException);
-        }
-
-        [TestMethod]
-
-        public void ApartmentRegionIsEmpty()
-        {
-            Exception caughtException = null;
-            try
-            {
-                TestApartment.ApartmentId = "";
-            }
-            catch (Exception exceptionThrown)
-            {
-                caughtException = exceptionThrown;
-            }
-            Assert.IsNotNull(caughtException);
-        }
-
-        [TestMethod]
-
-        public void ApartmentCityIsNull()
-        {
-            Exception caughtException = null;
-            try
-            {
-                TestApartment.ApartmentId = null;
-            }
-            catch (Exception exceptionThrown)
-            {
-                caughtException = exceptionThrown;
-            }
-            Assert.IsNotNull(caughtException);
-        }
-
-        [TestMethod]
-
-        public void ApartmentCityIsEmpty()
-        {
-            Exception caughtException = null;
-            try
-            {
-                TestApartment.ApartmentId = "";
-            }
-            catch (Exception exceptionThrown)
-            {
-                caughtException = exceptionThrown;
-            }
-            Assert.IsNotNull(caughtException);
-        }
-
-        [TestMethod]
-
-        public void ApartmentRoomNumberIsNull()
-        {
-            Exception caughtException = null;
-            try
-            {
-                TestApartment.ApartmentId = null;
-            }
-            catch (Exception exceptionThrown)
-            {
-                caughtException = exceptionThrown;
-            }
-            Assert.IsNotNull(caughtException);
-        }
-
-        [TestMethod]
-
-        public void ApartmentRoomNumberIsEmpty()
-        {
-            Exception caughtException = null;
-            try
-            {
-                TestApartment.ApartmentId = "";
-            }
-            catch (Exception exceptionThrown)
-            {
-                caughtException = exceptionThrown;
-            }
-            Assert.IsNotNull(caughtException);
-        }
-
+        
         [TestMethod]
 
         public void ApartmentCoverImageIsNull()
@@ -206,12 +120,69 @@ namespace UnitTestFranceVacances
 
         [TestMethod]
 
-        public void ApartmentRatingIsNull()
+        public void TestMinRating()
+        {
+            TestApartment.ApartmentRating = MinRating;
+            Assert.AreEqual(MinRating, TestApartment.ApartmentRating);
+        }
+
+        [TestMethod]
+        
+        public void TestLessMinRating()
         {
             Exception caughtException = null;
             try
             {
-                TestApartment.ApartmentCoverImage = null;
+                TestApartment.ApartmentRating = MinRating - 1;
+            }
+            catch (Exception exceptionThrown)
+            {
+                caughtException = exceptionThrown;
+            }
+            Assert.IsNotNull(caughtException);
+        }
+
+
+        [TestMethod]
+
+        public void TestMaxRating()
+        {
+            TestApartment.ApartmentRating = MaxRating;
+            Assert.AreEqual(MaxRating, TestApartment.ApartmentRating);
+        }
+
+        [TestMethod]
+
+        public void TestMoreMaxRating()
+        {
+            Exception caughtException = null;
+            try
+            {
+                TestApartment.ApartmentRating = MaxRating + 1;
+            }
+            catch (Exception exceptionThrown)
+            {
+                caughtException = exceptionThrown;
+            }
+            Assert.IsNotNull(caughtException);
+        }
+
+        
+        [TestMethod]
+
+        public void TestMinPrice()
+        {
+            TestApartment.ApartmentPriceByNight = MinPrice;
+            Assert.AreEqual(MinPrice, TestApartment.ApartmentPriceByNight);
+        }
+
+        [TestMethod]
+        public void TestLessMinPrice()
+        {
+            Exception caughtException = null;
+            try
+            {
+                TestApartment.ApartmentPriceByNight = MinPrice - 1;
             }
             catch (Exception exceptionThrown)
             {
@@ -221,13 +192,19 @@ namespace UnitTestFranceVacances
         }
 
         [TestMethod]
+        public void TestMaxPrice()
+        {
+            TestApartment.ApartmentPriceByNight = MaxPrice;
+            Assert.AreEqual(MaxPrice, TestApartment.ApartmentPriceByNight);
+        }
 
-        public void ApartmentRatingIsEmpty()
+        [TestMethod]
+        public void TestMoreMaxPrice()
         {
             Exception caughtException = null;
             try
             {
-                TestApartment.ApartmentId = "";
+                TestApartment.ApartmentPriceByNight = MaxPrice + 1;
             }
             catch (Exception exceptionThrown)
             {
@@ -237,118 +214,19 @@ namespace UnitTestFranceVacances
         }
 
         [TestMethod]
-        public void IsApartmentAvailableIsNull()
+        public void TestTotalPriceMin()
         {
-            Exception caughtException = null;
-            try
-            {
-                TestApartment.ApartmentId = null;
-            }
-            catch (Exception exceptionThrown)
-            {
-                caughtException = exceptionThrown;
-            }
-            Assert.IsNotNull(caughtException);
+            TestApartment.ApartmentPriceTotal = MinTotalPrice;
+            Assert.AreEqual(MinTotalPrice, TestApartment.ApartmentPriceTotal);
         }
 
         [TestMethod]
-        public void IsApartmentAvailableIsEmpty()
+        public void TestTotalPriceLessMin()
         {
             Exception caughtException = null;
             try
             {
-                TestApartment.ApartmentId = "";
-            }
-            catch (Exception exceptionThrown)
-            {
-                caughtException = exceptionThrown;
-            }
-            Assert.IsNotNull(caughtException);
-        }
-
-        [TestMethod]
-
-        public void ApartmentPriceByNightIsNull()
-        {
-            Exception caughtException = null;
-            try
-            {
-                TestApartment.ApartmentCoverImage = null;
-            }
-            catch (Exception exceptionThrown)
-            {
-                caughtException = exceptionThrown;
-            }
-            Assert.IsNotNull(caughtException);
-        }
-
-        [TestMethod]
-        public void ApartmentPriceByNightIsEmpty()
-        {
-            Exception caughtException = null;
-            try
-            {
-                TestApartment.ApartmentId = "";
-            }
-            catch (Exception exceptionThrown)
-            {
-                caughtException = exceptionThrown;
-            }
-            Assert.IsNotNull(caughtException);
-        }
-
-        [TestMethod]
-        public void NumberOfNightSpentIsNull()
-        {
-            Exception caughtException = null;
-            try
-            {
-                TestApartment.ApartmentCoverImage = null;
-            }
-            catch (Exception exceptionThrown)
-            {
-                caughtException = exceptionThrown;
-            }
-            Assert.IsNotNull(caughtException);
-        }
-
-        [TestMethod]
-        public void NumberOfNightSpentIsEmpty()
-        {
-            Exception caughtException = null;
-            try
-            {
-                TestApartment.ApartmentId = "";
-            }
-            catch (Exception exceptionThrown)
-            {
-                caughtException = exceptionThrown;
-            }
-            Assert.IsNotNull(caughtException);
-        }
-
-        [TestMethod]
-        public void ApartmentPriceTotalIsNull()
-        {
-            Exception caughtException = null;
-            try
-            {
-                TestApartment.ApartmentCoverImage = null;
-            }
-            catch (Exception exceptionThrown)
-            {
-                caughtException = exceptionThrown;
-            }
-            Assert.IsNotNull(caughtException);
-        }
-
-        [TestMethod]
-        public void ApartmentPriceTotalIsEmpty()
-        {
-            Exception caughtException = null;
-            try
-            {
-                TestApartment.ApartmentId = "";
+                TestApartment.ApartmentPriceTotal = MinTotalPrice - 1;
             }
             catch (Exception exceptionThrown)
             {
