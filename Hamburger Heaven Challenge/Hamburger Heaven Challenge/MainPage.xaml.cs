@@ -60,7 +60,7 @@ namespace Hamburger_Heaven_Challenge
             {
              //   MySplitView.IsPaneOpen = false;
                 if (MySplitView.Content != null)
-                    ((Frame)MySplitView.Content).Navigate(typeof(Food));
+                    ((Frame)MySplitView.Content).Navigate(typeof(Locations));
                 Title.Text = "Locations";
                 BackButton.Visibility = Visibility.Visible;
                 Title.Margin = new Thickness(0, 0, 0, 0);
@@ -188,7 +188,7 @@ namespace Hamburger_Heaven_Challenge
                             Title.Margin = new Thickness(68, 0, 0, 0);
                         }
                     }
-                    else if (MyFrame.CurrentSourcePageType == typeof (Food))
+                    else if (MyFrame.CurrentSourcePageType == typeof (Locations))
                     {
                         Title.Text = "Locations";
                         LocationsListBoxItem.IsSelected = true;
