@@ -85,7 +85,7 @@ namespace Hamburger_Heaven_Challenge.Models
             get { return _apartmentRating; }
             set
             {
-                if (value < 0 || 5 > value)
+                if (value < 0 || 5 < value)
                 {
                     throw new ArgumentOutOfRangeException(nameof(ApartmentRating));
                 }
@@ -104,7 +104,7 @@ namespace Hamburger_Heaven_Challenge.Models
             get { return _apartmentPriceByNight; }
             set
             {
-                if (value < 0 || value > 500)
+                if (value < 0 || 500 < value)
                 {
                     throw new ArgumentOutOfRangeException(nameof(ApartmentPriceByNight));
                 }
