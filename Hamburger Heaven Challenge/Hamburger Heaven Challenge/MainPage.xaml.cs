@@ -271,10 +271,10 @@ namespace Hamburger_Heaven_Challenge
                 b.OnNavigateLogin += OnLogin;
         }
 
-        public void OnLogin(object sender, RoutedEventArgs e)
+        public void OnLogin(object sender, RoutedEventArgs e, string email)
         {
             if (MySplitView.Content != null)
-                ((Frame) MySplitView.Content).Navigate(typeof (MyProfile));
+                ((Frame) MySplitView.Content).Navigate(typeof(MyProfile), email);
             Title.Text = "My Profile";
             BackButton.Visibility = Visibility.Visible;
             Title.Margin = new Thickness(0, 0, 0, 0);

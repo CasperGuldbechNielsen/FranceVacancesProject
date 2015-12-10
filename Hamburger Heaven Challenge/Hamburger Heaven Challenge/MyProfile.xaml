@@ -67,7 +67,8 @@
                         Height="50" 
                         Width="300"
                         Background="MediumSeaGreen"
-                        Foreground="AliceBlue"/>
+                        Foreground="AliceBlue" 
+                        Click="Save_Click"/>
                 
                 <TextBlock x:Name="MyBookingsText"
                            Text="My Bookings"
