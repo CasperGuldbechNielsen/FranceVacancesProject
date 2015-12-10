@@ -8,10 +8,10 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400" 
-    xmlns:data="using:Hamburger_Heaven_Challenge.Models">
+    xmlns:data="using:Hamburger_Heaven_Challenge.Models"
+    xmlns:interop="using:Windows.UI.Xaml.Interop">
 
     
-
     <!--this manager controls the adaptive layout, the bigger is the app window, the bigger are our objects-->
 
     
@@ -89,10 +89,6 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-
-
-
-
     <StackPanel Margin="10,10,10,10" Orientation="Vertical" Width="250" Height="500" HorizontalAlignment="Left"  >
         
         <Image Name="ShowHeaderImage" 
@@ -151,21 +147,35 @@
             <TextBlock Name="ShowAverageRatingTextblock" 
                        Text="{x:Bind Apartment.ApartmentRating}"/>
             <TextBlock Margin="5,0,5,0" Text=")" />
-            <TextBlock Name="1stStarVlock"  
-                       FontFamily="Segoe MDL2 Assets" Text="&#xE735;"/>
-            <TextBlock Name="2ndStarBlock"  
-                       FontFamily="Segoe MDL2 Assets" Text="&#xE735;"/>
-            <TextBlock Name="3rdStarBlock"  
-                       FontFamily="Segoe MDL2 Assets" Text="&#xE735;"/>
-            <TextBlock Name="4thStarBlock"  
-                       FontFamily="Segoe MDL2 Assets" Text="&#xE735;"/>
-            <TextBlock Name="5thStarBlock"  
-                       FontFamily="Segoe MDL2 Assets" Text="&#xE735;"/>
-            <!--<TextBlock Name="HalfStar"  
-                       FontFamily="Segoe MDL2 Assets" Text="&#xE7C6;"/>-->
+           
+        <!--Rating stars shown according to averagerating-->
+            
+            <!--<TextBlock Name="OneStarBlock"  
+                       FontFamily="Segoe MDL2 Assets" Text="&#xE735;"
+                       Visibility="Collapsed">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Visibility" Value="Visible" />
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>    
+            <TextBlock Name="TwoStarBlock"  
+                       FontFamily="Segoe MDL2 Assets" Text="&#xE735;"  Visibility="Collapsed">
+            </TextBlock>
+            <TextBlock Name="ThreeStarBlock"  
+                       FontFamily="Segoe MDL2 Assets" Text="&#xE735;"  Visibility="Collapsed">
+            </TextBlock>
+            <TextBlock Name="FourStarBlock"  
+                       FontFamily="Segoe MDL2 Assets" Text="&#xE735;"  Visibility="Collapsed">
+            </TextBlock>
+            <TextBlock Name="FiveStarBlock"  
+                       FontFamily="Segoe MDL2 Assets" Text="&#xE735;"  Visibility="Collapsed">
+            </TextBlock>
+            <TextBlock Name="HalfStar"  
+                       FontFamily="Segoe MDL2 Assets" Text="&#xE7C6;"  Visibility="Collapsed"/>-->
+            
         </StackPanel>
     </StackPanel>
-        
-        
+
    
 </UserControl>
