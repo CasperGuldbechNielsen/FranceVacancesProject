@@ -147,6 +147,11 @@
             <TextBlock Name="ShowAverageRatingTextblock" 
                        Text="{x:Bind Apartment.ApartmentRating}"/>
             <TextBlock Margin="5,0,5,0" Text=")" />
+            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE735;"/>
+            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE735;"/>
+            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE735;"/>
+            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE735;"/>
+            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE7C6;"/>
            
         <!--Rating stars shown according to averagerating-->
             
@@ -155,7 +160,12 @@
                        Visibility="Collapsed">
                 <TextBlock.Style>
                     <Style TargetType="TextBlock">
-                        <Setter Property="Visibility" Value="Visible" />
+                        <Style.Triggers>
+                            <DataTrigger>
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                        
                     </Style>
                 </TextBlock.Style>
             </TextBlock>    
