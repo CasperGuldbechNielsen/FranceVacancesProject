@@ -30,7 +30,7 @@ namespace Hamburger_Heaven_Challenge.Models
             {
                 if (String.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException(nameof(ApartmentId));
+                    throw new ArgumentNullException(nameof(ApartmentId));
                 }
                 _apartmentId = value;
             }
@@ -39,40 +39,19 @@ namespace Hamburger_Heaven_Challenge.Models
         public RegionCategory ApartmentRegion
         {
             get { return _apartmentRegion; }
-            set
-            {
-                if ((String.IsNullOrEmpty(value.ToString())))
-                {
-                   throw new ArgumentNullException(nameof(ApartmentRegion));
-                }
-                _apartmentRegion = value;
-            }
+            set {_apartmentRegion = value; }
         }
 
         public CityCategory ApartmentCity
         {
             get { return _apartmentCity; }
-            set
-            {
-                if ((String.IsNullOrEmpty(value.ToString())))
-                {
-                    throw new ArgumentNullException(nameof(ApartmentCity));
-                }
-                _apartmentCity = value;
-            }
+            set { _apartmentCity = value;}
         }
 
         public RoomCategory ApartmentRoomNumber
         {
             get { return _apartmentRoomNumber; }
-            set
-            {
-                if (String.IsNullOrEmpty(value.ToString()))
-                {
-                    throw new ArgumentNullException(nameof(ApartmentRoomNumber));
-                }
-                _apartmentRoomNumber = value;
-            }
+            set { _apartmentRoomNumber = value; }
         }
 
         public string ApartmentCoverImage
@@ -106,9 +85,9 @@ namespace Hamburger_Heaven_Challenge.Models
             get { return _apartmentRating; }
             set
             {
-                if (String.IsNullOrEmpty(value.ToString()))
+                if (value < 0 || 5 > value)
                 {
-                    throw new ArgumentNullException(nameof(ApartmentRating));
+                    throw new ArgumentOutOfRangeException(nameof(ApartmentRating));
                 }
                 _apartmentRating = value;
             }
@@ -117,14 +96,7 @@ namespace Hamburger_Heaven_Challenge.Models
         public bool IsApartmentAvailable
         {
             get { return _isApartmentAvailable; }
-            set
-            {
-                if (String.IsNullOrEmpty(value.ToString()))
-                {
-                    throw new ArgumentNullException(nameof(IsApartmentAvailable));
-                }
-                _isApartmentAvailable = value;
-            }
+            set{ _isApartmentAvailable = value; }
         }
 
         public double ApartmentPriceByNight
@@ -132,9 +104,9 @@ namespace Hamburger_Heaven_Challenge.Models
             get { return _apartmentPriceByNight; }
             set
             {
-                if (String.IsNullOrEmpty(value.ToString()))
+                if (value < 0 || value > 500)
                 {
-                    throw new ArgumentNullException(nameof(ApartmentPriceByNight));
+                    throw new ArgumentOutOfRangeException(nameof(ApartmentPriceByNight));
                 }
                 _apartmentPriceByNight = value;
             }
@@ -145,7 +117,7 @@ namespace Hamburger_Heaven_Challenge.Models
             get { return _numberOfNightSpent; }
             set
             {
-                if (String.IsNullOrEmpty(value.ToString()))
+                if (value < 0)
                 {
                     throw new ArgumentNullException(nameof(NumberOfNightSpent));
                 }
@@ -158,7 +130,7 @@ namespace Hamburger_Heaven_Challenge.Models
             get { return _apartmentPriceTotal; }
             set
             {
-                if (String.IsNullOrEmpty(value.ToString()))
+                if (value < 0)
                 {
                     throw new ArgumentNullException(nameof(ApartmentPriceTotal));
                 }
