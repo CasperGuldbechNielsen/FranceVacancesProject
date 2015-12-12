@@ -234,38 +234,39 @@
             </GridView>
         </ScrollViewer>
 
-        <StackPanel Orientation="Vertical" Grid.Row="1" HorizontalAlignment="Center">
-            <TextBlock Text="Search made in the following categories:"/>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+        <StackPanel Orientation="Vertical" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <!--<TextBlock Text="Search made in the following categories:" Margin="25,5,5,5"/>-->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                
                 <TextBlock 
                                 Text="Rooms in total:"
-                                FontSize="12"  
-                                Margin="0,0,5,0"/>
+                                FontSize="18"  
+                                Margin="0,0,0,0"/>
                 <TextBlock  
                                 Name="RoomResultTextBlock"
-                                FontSize="12"
-                                Margin="5,0,5,0"
+                                FontSize="18"
+                                Margin="5,0,25,0"
                                 FontWeight="Bold"/>
                 <TextBlock 
                                 Text="Region:"
-                                FontSize="12"  
-                                Margin="0,0,5,0"/>
+                                FontSize="18"  
+                                Margin="10,0,5,0"/>
                 <TextBlock  
                                 Name="RegionResultTextBlock"
-                                FontSize="12"
+                                FontSize="18"
                                 FontWeight="Bold"
                                 Margin="5,0,5,0"/>
                 <TextBlock 
                                 Text="City:" 
-                                FontSize="12" 
-                                Margin="0,0,5,0"/>
+                                FontSize="18" 
+                                Margin="20,0,5,0"/>
                 <TextBlock  
                                 Name="CityResultTextBlock"
-                                FontSize="12"
+                                FontSize="18"
                                 Margin="5,0,5,0"
                                 FontWeight="Bold"/>
-                
-            </StackPanel>
+                </StackPanel>
+            
         </StackPanel>
     </Grid>
 </Page>
