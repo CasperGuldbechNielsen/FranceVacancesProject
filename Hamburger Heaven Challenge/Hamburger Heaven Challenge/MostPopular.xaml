@@ -114,6 +114,11 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Margin="0,0,2,0" Content="Rooms:" FlowDirection="LeftToRight" BorderBrush="DarkSlateGray" BorderThickness="1">
                     <Button.Flyout>
+          
+                        <!--Closing back the dropdown list after clicking on it, unfortunately doesn't work since 
+                            changing the <MenuFlyout/> to simple <Flyout/>. Binding data to <MenuFlyouItem/> is a pain in the arse -->
+                        
+                        
                         <Flyout Placement="Bottom">
                             <ListView Name="RoomSelectorListView" 
                                       IsItemClickEnabled="True" 
@@ -129,7 +134,7 @@
                     </Button.Flyout>
                 </Button>
                 <Button Margin="2,0,2,0" Content="Select Region: " FlowDirection="LeftToRight" BorderBrush="DarkSlateGray" BorderThickness="1">
-                    <Button.Flyout>
+                    <Button.Flyout >
                         <Flyout Placement="Bottom" >
                             <ListView Name="RegionSelectorListView" 
                                       IsItemClickEnabled="True" 
