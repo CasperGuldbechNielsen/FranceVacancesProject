@@ -88,6 +88,8 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+    
+    
 
     <StackPanel Margin="10,10,10,10" Orientation="Vertical" Width="250" Height="500" HorizontalAlignment="Left"  >
         
@@ -152,40 +154,21 @@
             <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE735;"/>
             <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE735;"/>
             <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE7C6;"/>
-           
-        <!--Rating stars shown according to averagerating-->
-            
-            <!--<TextBlock Name="OneStarBlock"  
-                       FontFamily="Segoe MDL2 Assets" Text="&#xE735;"
-                       Visibility="Collapsed">
-                <TextBlock.Style>
-                    <Style TargetType="TextBlock">
-                        <Style.Triggers>
-                            <DataTrigger>
-                                <Setter Property="Visibility" Value="Visible" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                        
-                    </Style>
-                </TextBlock.Style>
-            </TextBlock>    
-            <TextBlock Name="TwoStarBlock"  
-                       FontFamily="Segoe MDL2 Assets" Text="&#xE735;"  Visibility="Collapsed">
-            </TextBlock>
-            <TextBlock Name="ThreeStarBlock"  
-                       FontFamily="Segoe MDL2 Assets" Text="&#xE735;"  Visibility="Collapsed">
-            </TextBlock>
-            <TextBlock Name="FourStarBlock"  
-                       FontFamily="Segoe MDL2 Assets" Text="&#xE735;"  Visibility="Collapsed">
-            </TextBlock>
-            <TextBlock Name="FiveStarBlock"  
-                       FontFamily="Segoe MDL2 Assets" Text="&#xE735;"  Visibility="Collapsed">
-            </TextBlock>
-            <TextBlock Name="HalfStar"  
-                       FontFamily="Segoe MDL2 Assets" Text="&#xE7C6;"  Visibility="Collapsed"/>-->
-            
         </StackPanel>
     </StackPanel>
+   
+    <!--
+            // About the stars appearing: 
+              
+                Would be nice to be shown according to averageRating. Unfortunately the same XAML code's behaviour is 
+                identicaly different in UserControl. :) I was trying to use data triggers onto "hide" property, or extend the Apartment.class
+                with a string "&#xE735;" it could be possible with a shitload of manual typing... (less typing: create an enum StarCategory but
+                no special charaters are to be used in enum)
+          
+       -->
+         
+            
+      
 
    
 </UserControl>
