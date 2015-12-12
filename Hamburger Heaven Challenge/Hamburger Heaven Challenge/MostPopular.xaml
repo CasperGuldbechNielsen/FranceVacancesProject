@@ -106,15 +106,15 @@
             <RowDefinition Height="70"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="3*"/>
-            <RowDefinition Height="1*"/>
+            
         </Grid.RowDefinitions>
 
 
         <Grid Name="FilteringButtons">
-            <StackPanel Orientation="Horizontal">
-                <Button Margin="2,0,2,0" Content="Select Region: ">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Margin="10,0,2,0" Content="Select Region: " FlowDirection="LeftToRight" BorderBrush="DarkSlateGray" BorderThickness="1">
                     <Button.Flyout>
-                        <Flyout Placement="Bottom">
+                        <Flyout Placement="Bottom" >
                             <ListView Name="RegionSelectorListView" 
                                       IsItemClickEnabled="True" 
                                       ItemsSource="{x:Bind ApartmentRegionSelector}" 
@@ -128,7 +128,7 @@
                         </Flyout>
                     </Button.Flyout>
                 </Button>
-                <Button Margin="2,0,2,0" Content="Select City: ">
+                <Button Margin="2,0,2,0" Content="Select City: " FlowDirection="LeftToRight" BorderBrush="DarkSlateGray" BorderThickness="1">
                     <Button.Flyout>
                         <Flyout Placement="Bottom">
                             <ListView Name="CitySelectorListView" 
@@ -144,7 +144,7 @@
                         </Flyout>
                     </Button.Flyout>
                 </Button>
-                <Button Margin="2,0,2,0" Content="Specify number of rooms:">
+                <Button Margin="2,0,2,0" Content="Number of rooms:" FlowDirection="LeftToRight" BorderBrush="DarkSlateGray" BorderThickness="1">
                     <Button.Flyout>
                         <Flyout Placement="Bottom">
                             <ListView Name="RoomSelectorListView" 
@@ -164,10 +164,10 @@
         </Grid>
 
 
-        <StackPanel Style="{StaticResource StackPanelStyle}" Grid.Row="1" Grid.Column="0">
+        <!--<StackPanel Style="{StaticResource StackPanelStyle}" Grid.Row="1" Grid.Column="0">
             <TextBlock Text="Selected categories: " Style="{StaticResource TextBlockStyle}" />
             <TextBlock Name="ResultTextBlock" Style="{StaticResource TextBlockStyle}"  />
-        </StackPanel>
+        </StackPanel>-->
 
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden" VerticalScrollMode="Enabled" >
             <GridView 
@@ -233,23 +233,37 @@
             </GridView>
         </ScrollViewer>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="3">
-            <TextBlock Text="You've selected:"/>
-
-            <TextBlock  
-                   Name="RegionResultTextBlock"
-                   FontSize="24"
-                   Margin="0,20,0,0"/>
-
-            <TextBlock  
-                   Name="CityResultTextBlock"
-                   FontSize="24"
-                   Margin="0,20,0,0"/>
-
-            <TextBlock  
-                   Name="RoomResultTextBlock"
-                   FontSize="24"
-                   Margin="0,20,0,0"/>
+        <StackPanel Orientation="Vertical" Grid.Row="1" HorizontalAlignment="Center">
+            <TextBlock Text="Search made in the following categories:"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                    <TextBlock 
+                                Text="Region:"
+                                FontSize="12"  
+                                Margin="0,0,5,0"/>
+                    <TextBlock  
+                                Name="RegionResultTextBlock"
+                                FontSize="12"
+                                FontWeight="Bold"
+                                Margin="5,0,5,0"/>
+                <TextBlock 
+                                Text="City:" 
+                                FontSize="12" 
+                                Margin="0,0,5,0"/>
+                <TextBlock  
+                                Name="CityResultTextBlock"
+                                FontSize="12"
+                                Margin="5,0,5,0"
+                                FontWeight="Bold"/>
+                <TextBlock 
+                                Text="Rooms in total:"
+                                FontSize="12"  
+                                Margin="0,0,5,0"/>
+                <TextBlock  
+                                Name="RoomResultTextBlock"
+                                FontSize="12"
+                                Margin="5,0,5,0"
+                                FontWeight="Bold"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
