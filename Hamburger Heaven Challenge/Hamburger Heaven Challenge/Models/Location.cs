@@ -45,7 +45,7 @@ namespace Hamburger_Heaven_Challenge.Models
                                                         " by the spirited university population. Unless you've been wine-tasting all day... then you'll" +
                                                         " probably sleep quite well. " });
 
-            locations.Add(new Location { CityImage = "Assets/LocationPictures/ClermontFerrand.jpg", City = "ClermontFerrand",
+            locations.Add(new Location { CityImage = "Assets/LocationPictures/ClermontFerrand.jpg", City = "Clermont-Ferrand",
                                         Description = "Clermont-Ferrand was the home of mathematician and philosopher Blaise Pascal who tested Evangelista " +
                                                         "Torricelli's hypothesis concerning the influence of gas pressure on liquid equilibrium. " +
                                                         "This is the experiment where a vacuum is created in a mercury tube: Pascal's experiment" +
@@ -82,7 +82,7 @@ namespace Hamburger_Heaven_Challenge.Models
                                                     " an event celebrated with an annual festival. A re-creation of the house where she stayed during " +
                                                       "the battle features multimedia exhibits on her life." });
 
-            locations.Add(new Location { CityImage = "Assets/LocationPictures/ChâlonsEnChampagne.jpg", City = "ChâlonsEnChampagne",
+            locations.Add(new Location { CityImage = "Assets/LocationPictures/ChâlonsEnChampagne.jpg", City = "Châlons-en-Champagne",
                                         Description = "Châlons-en-Champagne is a city in France. It is the capital of both the department of Marne and " +
                                                       "the region of Champagne-Ardenne, despite being only a quarter " +
                                                         "the size of the city of Reims. Capital of the Marne department and the Champagne-Ardenne region " +
