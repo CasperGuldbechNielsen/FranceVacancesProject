@@ -188,8 +188,8 @@
                     <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
                             Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
                             BorderThickness="2" 
-                            Width="600" 
-                            Height="300">
+                            Width="800" 
+                            Height="600">
                         <RelativePanel HorizontalAlignment="Center" 
                                        VerticalAlignment="Center" 
                                        Height="300" 
@@ -210,10 +210,20 @@
                                    RelativePanel.AlignRightWithPanel="True"
                                    RelativePanel.Below="ApartmentImage"/>
 
+                            <StackPanel Orientation="Vertical">
                             <TextBlock Name="ApartmentResultTextBlock"
                                        FontSize="24"
                                        Margin="0,20,0,0"/>
-
+                            <TextBlock Name="RoomResultTextBlock1"
+                                       FontSize="24"
+                                       Margin="0,20,0,0"/>
+                            <TextBlock Name="RegionResultTextBlock1"
+                                       FontSize="24"
+                                       Margin="0,20,0,0"/>
+                            <TextBlock Name="CityResultTextBlock1"
+                                       FontSize="24"
+                                       Margin="0,20,0,0"/>
+                            </StackPanel>
                             <Button Content="Close" 
                                     Click="ClosePopupClicked" 
                                     Margin="10,0,0,10" 
@@ -234,6 +244,7 @@
                                     RelativePanel.AlignBottomWithPanel="True"
                                     RelativePanel.AlignRightWithPanel="True" 
                                     Click="BookNow_Click" />
+                            
                         </RelativePanel>
                     </Border>
                 </Popup>

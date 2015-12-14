@@ -78,10 +78,6 @@ namespace Hamburger_Heaven_Challenge
                 BackButton.Visibility = Visibility.Visible;
                 Title.Margin = new Thickness(0, 0, 0, 0);
 
-                var a = (MostPopular)MyFrame.Content;
-                if (a != null)
-                    a.OnBookNowNavigate += OnBookNow;
-
             }
             else if (MapListBoxItem.IsSelected)
             {
@@ -161,16 +157,6 @@ namespace Hamburger_Heaven_Challenge
                     var b = (Profile)MyFrame.Content;
                     if (b != null)
                         b.OnNavigateLogin += OnLogin;
-                }
-                else if (MyFrame.CurrentSourcePageType == typeof(BookNow))
-                {
-                    MyFrame.GoBack();
-                    Title.Text = "Most Popular";
-                    MostPopularListBoxItem.IsSelected = true;
-
-                    var a = (MostPopular)MyFrame.Content;
-                    if (a != null)
-                        a.OnBookNowNavigate += OnBookNow;
 
                 }
                 else
@@ -202,10 +188,6 @@ namespace Hamburger_Heaven_Challenge
                         MostPopularListBoxItem.IsSelected = true;
                         if (MyFrame.CanGoBack)
                             MyFrame.GoBack();
-
-                        var a = (MostPopular)MyFrame.Content;
-                        if (a != null)
-                            a.OnBookNowNavigate += OnBookNow;
 
                     }
                     else if (MyFrame.CurrentSourcePageType == typeof (Map))
@@ -286,14 +268,6 @@ namespace Hamburger_Heaven_Challenge
             Title.Margin = new Thickness(0, 0, 0, 0);
         }
 
-        public void OnBookNow(object sender, RoutedEventArgs e, string apartmentId)
-        {
-            if (MySplitView.Content != null)
-                ((Frame) MySplitView.Content).Navigate(typeof (BookNow), apartmentId);
-            Title.Text = "Book Now";
-            BackButton.Visibility = Visibility.Visible;
-            Title.Margin = new Thickness(0, 0, 0, 0);
-        }
 
         private void MyAutoSuggestBox_OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {

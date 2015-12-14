@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -32,10 +33,6 @@ namespace Hamburger_Heaven_Challenge
         private List<ApartmentRegionSelector> ApartmentRegionSelector;
         private List<ApartmentCitySelector> ApartmentCitySelector;
         private List<ApartmentRoomSelector> ApartmentRoomSelector;
-
-        public delegate void MyEventHandler(object source, RoutedEventArgs e, string apartmentId);
-
-        public event MyEventHandler OnBookNowNavigate;
 
         ApartmentManager myApartmentManager = new ApartmentManager();
 
@@ -113,13 +110,16 @@ namespace Hamburger_Heaven_Challenge
         {
             var apartments = (Apartment)e.ClickedItem;
             ApartmentResultTextBlock.Text = apartments.ApartmentId;
+            CityResultTextBlock1.Text = apartments.ApartmentCity.ToString();
+            RegionResultTextBlock1.Text = apartments.ApartmentRegion.ToString();
+            RoomResultTextBlock1.Text = apartments.ApartmentRoomNumber.ToString();
 
             if (!StandardPopup.IsOpen)
             {
                 StandardPopup.IsOpen = true;
             }
 
-            StandardPopup.VerticalOffset = 200;
+            StandardPopup.VerticalOffset = 100;
 
             Apartment apartment = new Apartment(apartments.ApartmentId, apartments.ApartmentRegion, apartments.ApartmentCity, apartments.ApartmentRoomNumber, apartments.ApartmentRating, apartments.IsApartmentAvailable, apartments.ApartmentPriceTotal);
 
@@ -176,20 +176,13 @@ namespace Hamburger_Heaven_Challenge
             myApartmentManager.GetApartmentsByRoomCategory(Apartments, selectedRoom.ApartmentRoomNumber);
         }
 
-        private void PopUpGridView_ItemClick(object sender, ItemClickEventArgs e)
+
+        private async void BookNow_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void BookNow_Click(object sender, RoutedEventArgs e)
-        {
-            string apartmentId = ApartmentResultTextBlock.Text;
-            if (OnBookNowNavigate != null)
-            {
-                OnBookNowNavigate(sender, e, apartmentId);
-            }
-
             StandardPopup.IsOpen = false;
+
+            var dialog = new MessageDialog("You have successfully booked the apartment!");
+            await dialog.ShowAsync();
         }
     }
 }
