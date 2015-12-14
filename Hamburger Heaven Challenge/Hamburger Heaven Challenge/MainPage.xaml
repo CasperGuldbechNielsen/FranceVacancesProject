@@ -24,8 +24,9 @@
 
         <!--Split View-->
         <SplitView Name="MySplitView" 
-                   Grid.Row="1" 
+                   Grid.Row="1"               
                    DisplayMode="CompactOverlay" 
+                   IsPaneOpen="False"
                    OpenPaneLength="200" 
                    CompactPaneLength="48" >
 
@@ -85,7 +86,7 @@
                     <VisualState.Setters>
                         <!-- Widest possible layout moves some elements around to optimize for more available width 
                         and keeps SplitView pane always showing inline -->
-                        <Setter Target="MySplitView.DisplayMode" Value="CompactInline" />
+                        <Setter Target="MySplitView.DisplayMode" Value="CompactOverlay" />
                         <Setter Target="MySplitView.IsPaneOpen" Value="false" />
                         
                     </VisualState.Setters>
@@ -98,7 +99,7 @@
                     <VisualState.Setters>
                         <!-- For intermediate window widths as well as most phones on landscape orientation, 
                         this state keeps primary layout narrow while showing the splitview pane to take advantage of more available width than narrow layout -->
-                        <Setter Target="MySplitView.DisplayMode" Value="CompactInline" />
+                        <Setter Target="MySplitView.DisplayMode" Value="CompactOverlay" />
                         <Setter Target="MySplitView.IsPaneOpen" Value="false" />
                     
                     </VisualState.Setters>
