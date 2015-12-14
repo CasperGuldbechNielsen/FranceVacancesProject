@@ -4,48 +4,175 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace Hamburger_Heaven_Challenge.Models
 {
     public class Apartment
     {
-        
-        public string ApartmentId { get; set; }
+        private string _apartmentId;
+        private RegionCategory _apartmentRegion;
+        private CityCategory _apartmentCity;
+        private RoomCategory _apartmentRoomNumber;
+        private string _apartmentCoverImage;
+        private string _apartmentInsideImage;
+        private double _apartmentRating;
+        private bool _isApartmentAvailable;
+        private double _apartmentPriceByNight;
+        private int _numberOfNightSpent;
+        private double _apartmentPriceTotal;
 
-        // aggregation starts here
-        public RegionCategory ApartmentRegion { get; set; }
-        public CityCategory ApartmentCity { get; set; }
-        public RoomCategory ApartmentRoomNumber { get; set; }
-        //aggregation ended
-
-        public string ApartmentCoverImage { get; set; }
-        public string ApartmentInsideImage { get; set; }
-        public double ApartmentRating { get; set; }
-        public bool IsApartmentAvailable { get; set; }
-        public double ApartmentPriceByNight { get; set; }
-        public int NumberOfNightSpent { get; set; }
-        public double ApartmentPriceTotal { get; set; }
-        
-        public Apartment(string _apartmentId, RegionCategory _apartmentRegion, CityCategory _apartmentCity,
-            RoomCategory _apartmentRoomNumber, double _apartmentRating, bool _isApartmentAvailable, double _apartmentPriceByNight )
+        public string ApartmentId
         {
-            ApartmentId = _apartmentId;
-            ApartmentRegion = _apartmentRegion;
-            ApartmentCity = _apartmentCity;
-            ApartmentRoomNumber = _apartmentRoomNumber;
-            ApartmentCoverImage = String.Format("Assets/ApartmentImages/CoverImages/{0}/FrontView.jpg", _apartmentId);
-            ApartmentInsideImage = String.Format("Assets/ApartmentImages/InsideImages/{0}/InsideView.jpg", _apartmentId);
-            ApartmentRating = _apartmentRating;
-            IsApartmentAvailable = _isApartmentAvailable;
-            ApartmentPriceByNight = _apartmentPriceByNight;
+            get { return _apartmentId; }
+            set
+            {
+                if (String.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException(nameof(ApartmentId));
+                }
+                _apartmentId = value;
+            }
+        }
+
+        public RegionCategory ApartmentRegion
+        {
+            get { return _apartmentRegion; }
+            set {_apartmentRegion = value; }
+        }
+
+        public CityCategory ApartmentCity
+        {
+            get { return _apartmentCity; }
+            set { _apartmentCity = value;}
+        }
+
+        public RoomCategory ApartmentRoomNumber
+        {
+            get { return _apartmentRoomNumber; }
+            set { _apartmentRoomNumber = value; }
+        }
+
+        public string ApartmentCoverImage
+        {
+            get { return _apartmentCoverImage; }
+            set
+            {
+                if (String.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException(nameof(ApartmentCoverImage));
+                }
+                _apartmentCoverImage = value;
+            }
+        }
+
+        public string ApartmentInsideImage
+        {
+            get { return _apartmentInsideImage; }
+            set
+            {
+                if (String.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException(nameof(ApartmentInsideImage));
+                }
+                _apartmentInsideImage = value;
+            }
+        }
+
+        public double ApartmentRating
+        {
+            get { return _apartmentRating; }
+            set
+            {
+                if (value < 0 || 5 < value)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(ApartmentRating));
+                }
+                _apartmentRating = value;
+            }
+        }
+
+        public bool IsApartmentAvailable
+        {
+            get { return _isApartmentAvailable; }
+            set{ _isApartmentAvailable = value; }
+        }
+
+        public double ApartmentPriceByNight
+        {
+            get { return _apartmentPriceByNight; }
+            set
+            {
+                if (value < 0 || 500 < value)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(ApartmentPriceByNight));
+                }
+                _apartmentPriceByNight = value;
+            }
+        }
+
+        public int NumberOfNightSpent
+        {
+            get { return _numberOfNightSpent; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentNullException(nameof(NumberOfNightSpent));
+                }
+                _numberOfNightSpent = value;
+            }
+        }
+
+        public double ApartmentPriceTotal
+        {
+            get { return _apartmentPriceTotal; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentNullException(nameof(ApartmentPriceTotal));
+                }
+                _apartmentPriceTotal = value;
+            }
+        }
+
+        public Apartment()
+        {
+            
+        }
+
+        public Apartment(string apartmentId, RegionCategory apartmentRegion, CityCategory apartmentCity,
+            RoomCategory apartmentRoomNumber, double apartmentRating, bool isApartmentAvailable, double apartmentPriceByNight)
+        {
+            ApartmentId = apartmentId;
+            ApartmentRegion = apartmentRegion;
+            ApartmentCity = apartmentCity;
+            ApartmentRoomNumber = apartmentRoomNumber;
+            ApartmentCoverImage = String.Format("Assets/ApartmentImages/CoverImages/{0}/FrontView.jpg", apartmentId);
+            ApartmentInsideImage = String.Format("Assets/ApartmentImages/InsideImages/{0}/InsideView.jpg", apartmentId);
+            ApartmentRating = apartmentRating;
+            IsApartmentAvailable = isApartmentAvailable;
+            ApartmentPriceByNight = apartmentPriceByNight;
 
         }
 
-        public double GetBookingPriceTotal(int _numberOfNightSpent)
+        public double GetBookingPriceTotal(int numberOfNightSpent)
         {
-            NumberOfNightSpent = _numberOfNightSpent;
-            ApartmentPriceTotal = ApartmentPriceByNight*_numberOfNightSpent;
+            NumberOfNightSpent = numberOfNightSpent;
+            ApartmentPriceTotal = ApartmentPriceByNight*numberOfNightSpent;
             return ApartmentPriceTotal;
+        }
+
+        public string GetCoverImage()
+        {
+            return ApartmentCoverImage;
+        }
+
+        public string GetInsideImage()
+        {
+            return ApartmentInsideImage;
         }
 
     }

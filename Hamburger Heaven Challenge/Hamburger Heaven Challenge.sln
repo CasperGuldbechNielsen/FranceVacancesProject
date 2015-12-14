@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hamburger Heaven Challenge", "Hamburger Heaven Challenge\Hamburger Heaven Challenge.csproj", "{9A5220AD-2A63-41DA-8B06-F75952892AB6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestFranceVacances", "UnitTestFranceVacances\UnitTestFranceVacances.csproj", "{DE004485-5528-4388-A58A-23E89C94CED6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -33,6 +35,24 @@ Global
 		{9A5220AD-2A63-41DA-8B06-F75952892AB6}.Release|x86.ActiveCfg = Release|x86
 		{9A5220AD-2A63-41DA-8B06-F75952892AB6}.Release|x86.Build.0 = Release|x86
 		{9A5220AD-2A63-41DA-8B06-F75952892AB6}.Release|x86.Deploy.0 = Release|x86
+		{DE004485-5528-4388-A58A-23E89C94CED6}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DE004485-5528-4388-A58A-23E89C94CED6}.Debug|ARM.Build.0 = Debug|ARM
+		{DE004485-5528-4388-A58A-23E89C94CED6}.Debug|ARM.Deploy.0 = Debug|ARM
+		{DE004485-5528-4388-A58A-23E89C94CED6}.Debug|x64.ActiveCfg = Debug|x64
+		{DE004485-5528-4388-A58A-23E89C94CED6}.Debug|x64.Build.0 = Debug|x64
+		{DE004485-5528-4388-A58A-23E89C94CED6}.Debug|x64.Deploy.0 = Debug|x64
+		{DE004485-5528-4388-A58A-23E89C94CED6}.Debug|x86.ActiveCfg = Debug|x86
+		{DE004485-5528-4388-A58A-23E89C94CED6}.Debug|x86.Build.0 = Debug|x86
+		{DE004485-5528-4388-A58A-23E89C94CED6}.Debug|x86.Deploy.0 = Debug|x86
+		{DE004485-5528-4388-A58A-23E89C94CED6}.Release|ARM.ActiveCfg = Release|ARM
+		{DE004485-5528-4388-A58A-23E89C94CED6}.Release|ARM.Build.0 = Release|ARM
+		{DE004485-5528-4388-A58A-23E89C94CED6}.Release|ARM.Deploy.0 = Release|ARM
+		{DE004485-5528-4388-A58A-23E89C94CED6}.Release|x64.ActiveCfg = Release|x64
+		{DE004485-5528-4388-A58A-23E89C94CED6}.Release|x64.Build.0 = Release|x64
+		{DE004485-5528-4388-A58A-23E89C94CED6}.Release|x64.Deploy.0 = Release|x64
+		{DE004485-5528-4388-A58A-23E89C94CED6}.Release|x86.ActiveCfg = Release|x86
+		{DE004485-5528-4388-A58A-23E89C94CED6}.Release|x86.Build.0 = Release|x86
+		{DE004485-5528-4388-A58A-23E89C94CED6}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,9 +5,26 @@
     xmlns:local="using:Hamburger_Heaven_Challenge"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:Hamburger_Heaven_Challenge.Models"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Page.Resources>
+        <DataTemplate x:Key="LocationsDataTemplate" x:DataType="data:Location">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                <Image Source="{x:Bind CityImage}" HorizontalAlignment="Center" Width="400" Height="300" Stretch="UniformToFill"/>
+                <StackPanel Margin="20,20,0,0">
+                    <TextBlock Text="{x:Bind City}" HorizontalAlignment="Left" FontSize="22" />
+                    <TextBlock Text="{x:Bind Description}" HorizontalAlignment="Left" FontSize="14" TextWrapping="Wrap" Width="400" Height="200"/>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    
+    <Grid>
+        <GridView ItemsSource="{x:Bind Cities}"
+                  ItemClick="City_OnClick"
+                  IsItemClickEnabled="True"
+                  ItemTemplate="{StaticResource LocationsDataTemplate}">
+            </GridView>
     </Grid>
 </Page>

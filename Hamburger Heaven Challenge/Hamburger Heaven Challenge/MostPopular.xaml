@@ -25,23 +25,117 @@
         <DataTemplate x:DataType="data:Apartment" x:Key="ApartmentDataTemplate">
             <local:MostPopularUserControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         </DataTemplate>
-       
+
     </Page.Resources>
-    
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup>
+            <VisualState x:Name="MinimumLayout">
+                <VisualState.StateTriggers>
+                    <AdaptiveTrigger MinWindowWidth="0"/>
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    <Setter Target="ShowHeaderImage.Width" Value="50" />
+                    <!--<Setter Target="ShowHeaderImage.Height" Value="50" />-->
+                    <Setter Target="ShowThumbnailImage.Width" Value="10" />
+                    <!--<Setter Target="ShowThumbnailImage.Height" Value="10" />-->
+
+                    <Setter Target="ShowRegionText.FontSize" Value="12" />
+                    <Setter Target="ShowRegionTextBlock.Fontsize" Value="12" />
+
+                    <Setter Target="ShowCityText.FontSize" Value="12" />
+                    <Setter Target="ShowCityTextBlock.FontSize" Value="12" />
+
+                    <Setter Target="ShowRoomNumbersText.FontSize" Value="12" />
+                    <Setter Target="ShowRoomNumbersTextBlock.FontSize" Value="12" />
+
+                    <Setter Target="ShowAverageRatingText.FontSize" Value="12" />
+                    <Setter Target="ShowAverageRatingTextblock.FontSize" Value="12" />
+                </VisualState.Setters>
+            </VisualState>
+            <VisualState x:Name="MediumLayout">
+                <VisualState.StateTriggers>
+                    <AdaptiveTrigger MinWindowWidth="320"/>
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    <Setter Target="ShowHeaderImage.Width" Value="150" />
+                    <!--<Setter Target="ShowHeaderImage.Height" Value="150" />-->
+                    <Setter Target="ShowThumbnailImage.Width" Value="40" />
+                    <!--<Setter Target="ShowThumbnailImage.Height" Value="40" />-->
+
+                    <Setter Target="ShowRegionText.FontSize" Value="24" />
+                    <Setter Target="ShowRegionTextBlock.Fontsize" Value="24" />
+
+                    <Setter Target="ShowCityText.FontSize" Value="24" />
+                    <Setter Target="ShowCityTextBlock.FontSize" Value="24" />
+
+                    <Setter Target="ShowRoomNumbersText.FontSize" Value="24" />
+                    <Setter Target="ShowRoomNumbersTextBlock.FontSize" Value="24" />
+
+                    <Setter Target="ShowAverageRatingText.FontSize" Value="24" />
+                    <Setter Target="ShowAverageRatingTextblock.FontSize" Value="24" />
+                </VisualState.Setters>
+            </VisualState>
+            <VisualState x:Name="LargeLayout">
+                <VisualState.StateTriggers>
+                    <AdaptiveTrigger MinWindowWidth="720"/>
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    <Setter Target="ShowHeaderImage.Width" Value="300" />
+                    <!--<Setter Target="ShowHeaderImage.Height" Value="300" />-->
+                    <Setter Target="ShowThumbnailImage.Width" Value="80" />
+                    <!--<Setter Target="ShowThumbnailImage.Height" Value="80" />-->
+
+                    <Setter Target="ShowRegionText.FontSize" Value="24" />
+                    <Setter Target="ShowRegionTextBlock.Fontsize" Value="24" />
+
+                    <Setter Target="ShowCityText.FontSize" Value="24" />
+                    <Setter Target="ShowCityTextBlock.FontSize" Value="24" />
+
+                    <Setter Target="ShowRoomNumbersText.FontSize" Value="24" />
+                    <Setter Target="ShowRoomNumbersTextBlock.FontSize" Value="24" />
+
+                    <Setter Target="ShowAverageRatingText.FontSize" Value="24" />
+                    <Setter Target="ShowAverageRatingTextblock.FontSize" Value="24" />
+                </VisualState.Setters>
+            </VisualState>
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="3*"/>
-            <RowDefinition Height="1*"/>
+            
         </Grid.RowDefinitions>
-        
-       
+
+
         <Grid Name="FilteringButtons">
-            <StackPanel Orientation="Horizontal">
-                <Button Margin="2,0,2,0" Content="Select Region: ">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Margin="0,0,2,0" Content="Rooms:" FlowDirection="LeftToRight" BorderBrush="DarkSlateGray" BorderThickness="1">
                     <Button.Flyout>
+          
+                        <!--Closing back the dropdown list after clicking on it, unfortunately doesn't work since 
+                            changing the <MenuFlyout/> to simple <Flyout/>. Binding data to <MenuFlyouItem/> is a pain in the arse -->
+                        
+                        
                         <Flyout Placement="Bottom">
+                            <ListView Name="RoomSelectorListView" 
+                                      IsItemClickEnabled="True" 
+                                      ItemsSource="{x:Bind ApartmentRoomSelector}" 
+                                      ItemClick="RoomSelectorListView_OnItemClick">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ApartmentRoomNumber}"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
+                <Button Margin="2,0,2,0" Content="Select Region: " FlowDirection="LeftToRight" BorderBrush="DarkSlateGray" BorderThickness="1">
+                    <Button.Flyout >
+                        <Flyout Placement="Bottom" >
                             <ListView Name="RegionSelectorListView" 
                                       IsItemClickEnabled="True" 
                                       ItemsSource="{x:Bind ApartmentRegionSelector}" 
@@ -55,7 +149,7 @@
                         </Flyout>
                     </Button.Flyout>
                 </Button>
-                <Button Margin="2,0,2,0" Content="Select City: ">
+                <Button Margin="2,0,2,0" Content="Select City: " FlowDirection="LeftToRight" BorderBrush="DarkSlateGray" BorderThickness="1">
                     <Button.Flyout>
                         <Flyout Placement="Bottom">
                             <ListView Name="CitySelectorListView" 
@@ -71,62 +165,113 @@
                         </Flyout>
                     </Button.Flyout>
                 </Button>
-                <Button Margin="2,0,2,0" Content="Specify number of rooms:">
-                    <Button.Flyout>
-                        <Flyout Placement="Bottom">
-                            <ListView Name="RoomSelectorListView" 
-                                      IsItemClickEnabled="True" 
-                                      ItemsSource="{x:Bind ApartmentRoomSelector}" 
-                                      ItemClick="RoomSelectorListView_OnItemClick">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding ApartmentRoomNumber}"/>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
-                        </Flyout>
-                    </Button.Flyout>
-                </Button>
+                
             </StackPanel>
         </Grid>
 
 
-        <StackPanel Style="{StaticResource StackPanelStyle}" Grid.Row="1" Grid.Column="0">
+        <!--<StackPanel Style="{StaticResource StackPanelStyle}" Grid.Row="1" Grid.Column="0">
             <TextBlock Text="Selected categories: " Style="{StaticResource TextBlockStyle}" />
             <TextBlock Name="ResultTextBlock" Style="{StaticResource TextBlockStyle}"  />
-        </StackPanel>
+        </StackPanel>-->
 
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden" VerticalScrollMode="Enabled" >
-        <GridView 
+            <GridView 
                   ItemsSource="{x:Bind Apartments}" 
                   IsItemClickEnabled="True"
                   ItemClick="GridView_ItemClick"
                   ItemTemplate="{StaticResource ApartmentDataTemplate}">
-            
-        </GridView>
-        </ScrollViewer>
-            
-       <StackPanel Orientation="Horizontal" Grid.Row="3"> 
-        <TextBlock Text="You've selected:"/>
-        <TextBlock  
-                   Name="ApartmentResultTextBlock"
-                   FontSize="24"
-                   Margin="0,20,0,0"/>
-        
-        <TextBlock  
-                   Name="RegionResultTextBlock"
-                   FontSize="24"
-                   Margin="0,20,0,0"/>
-        
-        <TextBlock  
-                   Name="CityResultTextBlock"
-                   FontSize="24"
-                   Margin="0,20,0,0"/>
 
-        <TextBlock  
-                   Name="RoomResultTextBlock"
-                   FontSize="24"
-                   Margin="0,20,0,0"/>
+                <Popup VerticalOffset="10" 
+                       HorizontalOffset="200" 
+                       x:Name="StandardPopup">
+                    <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
+                            Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                            BorderThickness="2" 
+                            Width="600" 
+                            Height="300">
+                        <RelativePanel HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center" 
+                                       Height="300" 
+                                       Width="600">
+
+                            <Image x:Name="ApartmentImage"
+                                   Height="100"
+                                   Width="100"
+                                   Margin="0,10,10,0"
+                                   Source="Assets/ApartmentImages/CoverImages/001/FrontView.jpg"
+                                   RelativePanel.AlignTopWithPanel="True"
+                                   RelativePanel.AlignRightWithPanel="True"/>
+                            <Image x:Name="ApartmentInside"
+                                   Height="100"
+                                   Width="100"
+                                   Margin="0,10,10,0"
+                                   Source="Assets/ApartmentImages/InsideImages/001/InsideView.jpg"
+                                   RelativePanel.AlignRightWithPanel="True"
+                                   RelativePanel.Below="ApartmentImage"/>
+
+                            <TextBlock Name="ApartmentResultTextBlock"
+                                       FontSize="24"
+                                       Margin="0,20,0,0"/>
+
+                            <Button Content="Close" 
+                                    Click="ClosePopupClicked" 
+                                    Margin="10,0,0,10" 
+                                    Height="50" 
+                                    Width="250"
+                                    Background="MediumSeaGreen"
+                                    Foreground="AliceBlue"
+                                    RelativePanel.AlignBottomWithPanel="True"
+                                    RelativePanel.AlignLeftWithPanel="True"/>
+
+                            <Button Content="Book now"
+                                    Margin="0,0,10,10"
+                                    Height="50" 
+                                    Width="250"
+                                    Background="MediumSeaGreen"
+                                    Foreground="AliceBlue"
+                                    RelativePanel.AlignBottomWithPanel="True"
+                                    RelativePanel.AlignRightWithPanel="True"/>
+                        </RelativePanel>
+                    </Border>
+                </Popup>
+
+            </GridView>
+        </ScrollViewer>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <!--<TextBlock Text="Search made in the following categories:" Margin="25,5,5,5"/>-->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                
+                <TextBlock 
+                                Text="Rooms in total:"
+                                FontSize="18"  
+                                Margin="0,0,0,0"/>
+                <TextBlock  
+                                Name="RoomResultTextBlock"
+                                FontSize="18"
+                                Margin="5,0,25,0"
+                                FontWeight="Bold"/>
+                <TextBlock 
+                                Text="Region:"
+                                FontSize="18"  
+                                Margin="10,0,5,0"/>
+                <TextBlock  
+                                Name="RegionResultTextBlock"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Margin="5,0,5,0"/>
+                <TextBlock 
+                                Text="City:" 
+                                FontSize="18" 
+                                Margin="20,0,5,0"/>
+                <TextBlock  
+                                Name="CityResultTextBlock"
+                                FontSize="18"
+                                Margin="5,0,5,0"
+                                FontWeight="Bold"/>
+                </StackPanel>
+            
         </StackPanel>
     </Grid>
 </Page>

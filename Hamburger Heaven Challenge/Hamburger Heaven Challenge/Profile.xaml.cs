@@ -26,9 +26,10 @@ namespace Hamburger_Heaven_Challenge
     {
 
         public delegate void MyEventHandler(object source, RoutedEventArgs e);
+        public delegate void MyEventHandlerTwo(object source, RoutedEventArgs e, string email);
 
         public event MyEventHandler OnNavigateParentReady;
-        public event MyEventHandler OnNavigateLogin;
+        public event MyEventHandlerTwo OnNavigateLogin;
 
         private string _profileName;
         private string _password;
@@ -80,7 +81,7 @@ namespace Hamburger_Heaven_Challenge
                             {
                                 if (OnNavigateLogin != null)
                                 {
-                                    OnNavigateLogin(sender, e);
+                                    OnNavigateLogin(sender, e, _profileName);
                                     break;
                                 }
                             }

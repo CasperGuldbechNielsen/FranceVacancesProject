@@ -8,10 +8,10 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400" 
-    xmlns:data="using:Hamburger_Heaven_Challenge.Models">
+    xmlns:data="using:Hamburger_Heaven_Challenge.Models"
+    xmlns:interop="using:Windows.UI.Xaml.Interop">
 
     
-
     <!--this manager controls the adaptive layout, the bigger is the app window, the bigger are our objects-->
 
     
@@ -88,32 +88,87 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        
-        
-        
-        
+    
+    
 
-      <StackPanel Margin="10,10,10,10" Orientation="Vertical">
-            <Image Name="ShowHeaderImage" Width="150"  Source="{x:Bind Apartment.ApartmentCoverImage}" />
-            <Image Name="ShowThumbnailImage" Width="150" Source="{x:Bind Apartment.ApartmentInsideImage}" />
-            <StackPanel Orientation="Horizontal">
-            <TextBlock Margin="10,0,10,0" Name="ShowRegionText" Text="Region: "/>
-            <TextBlock Margin="10,0,10,0" Name="ShowRegionTextBlock"  Text="{x:Bind Apartment.ApartmentRegion}" />
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Margin="10,0,10,0" Name="ShowCityText" Text="City: "/>
-            <TextBlock Margin="10,0,10,0" Name="ShowCityTextBlock" Text="{x:Bind Apartment.ApartmentCity}" />
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Margin="10,0,10,0" Name="ShowRoomNumbersText" Text="Room numbers: "/>
-            <TextBlock Margin="10,0,10,0" Name="ShowRoomNumbersTextBlock" Text="{x:Bind Apartment.ApartmentRoomNumber}" />
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Margin="10,0,10,0" Name="ShowAverageRatingText" Text="Average rating:"/>
-            <TextBlock Margin="10,0,10,0" Name="ShowAverageRatingTextblock" Text="{x:Bind Apartment.ApartmentRating}" />
-        </StackPanel>
-      </StackPanel>
+    <StackPanel Margin="10,10,10,10" Orientation="Vertical" Width="250" Height="500" HorizontalAlignment="Left"  >
         
+        <Image Name="ShowHeaderImage" 
+                        Width="250" Height="200" 
+                        Source="{x:Bind Apartment.ApartmentCoverImage}" 
+                        Stretch="UniformToFill" HorizontalAlignment="Left"/>
+           
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Name="ShowRegionText" 
+                       Text="Region: "
+                       FontWeight="Bold" 
+                       HorizontalAlignment="Left" FontStretch="Condensed"
+                       Margin="0,0,10,0" />
+            <TextBlock Name="ShowRegionTextBlock" 
+                       Text="{x:Bind Apartment.ApartmentRegion}"
+                       HorizontalAlignment="Right" FontStyle="Italic"
+                       Margin="0,0,10,0"/>
+        </StackPanel>
         
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Name="ShowCityText" 
+                       Text="City: "
+                       FontWeight="Bold" HorizontalAlignment="Left" FontStretch="Condensed"
+                       Margin="0,0,10,0"/>
+            <TextBlock Name="ShowCityTextBlock" 
+                       Text="{x:Bind Apartment.ApartmentCity}" 
+                       HorizontalAlignment="Right" FontStyle="Italic"
+                       Margin="0,0,10,0"/>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Price" 
+                       FontStyle="Oblique" FontWeight="Bold"
+                       Margin="0,0,10,0"/>
+            <TextBlock Text="{x:Bind Apartment.ApartmentPriceByNight}"/>
+            <TextBlock Margin="5,0,0,0" Text="$/day"/>
+        </StackPanel>
+        <Image Name="ShowThumbnailImage"
+               Width="250" Height="200"
+               Source="{x:Bind Apartment.ApartmentInsideImage}"
+               Stretch="UniformToFill"/>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Name="ShowRoomNumbersText" 
+                       Text="Rooms: "
+                       FontWeight="Bold"
+                       Margin="0,0,10,0"/>
+            <TextBlock Name="ShowRoomNumbersTextBlock" 
+                       Text="{x:Bind Apartment.ApartmentRoomNumber}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Name="ShowAverageRatingText"
+                       Text="Average rating:"
+                       HorizontalAlignment="Left"
+                       FontStyle="Oblique" FontWeight="Bold"/>
+            <TextBlock Margin="5,0,5,0" Text="(" />
+            <TextBlock Name="ShowAverageRatingTextblock" 
+                       Text="{x:Bind Apartment.ApartmentRating}"/>
+            <TextBlock Margin="5,0,5,0" Text=")" />
+            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE735;"/>
+            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE735;"/>
+            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE735;"/>
+            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE735;"/>
+            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE7C6;"/>
+        </StackPanel>
+    </StackPanel>
+   
+    <!--
+            // About the stars appearing: 
+              
+                Would be nice to be shown according to averageRating. Unfortunately the same XAML code's behaviour is 
+                identicaly different in UserControl. :) I was trying to use data triggers onto "hide" property, or extend the Apartment.class
+                with a string "&#xE735;" it could be possible with a shitload of manual typing... (less typing: create an enum StarCategory but
+                no special charaters are to be used in enum)
+          
+       -->
+         
+            
+      
+
    
 </UserControl>

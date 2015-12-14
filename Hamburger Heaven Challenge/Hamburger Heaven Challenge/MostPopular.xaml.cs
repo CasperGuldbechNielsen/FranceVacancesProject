@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using Hamburger_Heaven_Challenge.Models;
 
@@ -106,6 +107,29 @@ namespace Hamburger_Heaven_Challenge
         {
             var apartments = (Apartment)e.ClickedItem;
             ApartmentResultTextBlock.Text = "You have selected apartment # " + apartments.ApartmentId;
+
+            if (!StandardPopup.IsOpen)
+            {
+                StandardPopup.IsOpen = true;
+            }
+
+            StandardPopup.VerticalOffset = 200;
+
+            Models.Apartment apartment = new Apartment(apartments.ApartmentId, apartments.ApartmentRegion, apartments.ApartmentCity, apartments.ApartmentRoomNumber, apartments.ApartmentRating, apartments.IsApartmentAvailable, apartments.ApartmentPriceTotal);
+
+            ApartmentImage.Source = new BitmapImage(new Uri("ms-appx:///" + apartment.GetCoverImage(), UriKind.Absolute));
+            ApartmentInside.Source = new BitmapImage(new Uri("ms-appx:///" + apartment.GetInsideImage(), UriKind.Absolute));
+
+
+        }
+
+        private void ClosePopupClicked(object sender, RoutedEventArgs e)
+        {
+            // if the Popup is open, then close it 
+            if (StandardPopup.IsOpen)
+            {
+                StandardPopup.IsOpen = false;
+            }
         }
 
 
@@ -146,6 +170,10 @@ namespace Hamburger_Heaven_Challenge
             ApartmentManager.GetApartmentsByRoomCategory(Apartments, selectedRoom.ApartmentRoomNumber);
         }
 
-      }
+        private void PopUpGridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+    }
 }
 
