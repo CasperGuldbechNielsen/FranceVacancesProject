@@ -32,13 +32,19 @@ namespace Hamburger_Heaven_Challenge
         private List<ApartmentRegionSelector> ApartmentRegionSelector;
         private List<ApartmentCitySelector> ApartmentCitySelector;
         private List<ApartmentRoomSelector> ApartmentRoomSelector;
-        
-        
+
+        public delegate void MyEventHandler(object source, RoutedEventArgs e, string apartmentId);
+
+        public event MyEventHandler OnBookNowNavigate;
+
+        ApartmentManager myApartmentManager = new ApartmentManager();
+
+
         public MostPopular()
         {
           this.InitializeComponent();
           Apartments = new ObservableCollection<Apartment>();
-          ApartmentManager.GetAllApartments(Apartments);
+            myApartmentManager.GetAllApartments(Apartments);
 
             ApartmentRegionSelector = new List<ApartmentRegionSelector>();
             ApartmentRegionSelector.Add(new ApartmentRegionSelector { ApartmentRegion = RegionCategory.Alsace });
@@ -106,7 +112,7 @@ namespace Hamburger_Heaven_Challenge
         private void GridView_ItemClick(object sender, ItemClickEventArgs e)
         {
             var apartments = (Apartment)e.ClickedItem;
-            ApartmentResultTextBlock.Text = "You have selected apartment # " + apartments.ApartmentId;
+            ApartmentResultTextBlock.Text = apartments.ApartmentId;
 
             if (!StandardPopup.IsOpen)
             {
@@ -115,7 +121,7 @@ namespace Hamburger_Heaven_Challenge
 
             StandardPopup.VerticalOffset = 200;
 
-            Models.Apartment apartment = new Apartment(apartments.ApartmentId, apartments.ApartmentRegion, apartments.ApartmentCity, apartments.ApartmentRoomNumber, apartments.ApartmentRating, apartments.IsApartmentAvailable, apartments.ApartmentPriceTotal);
+            Apartment apartment = new Apartment(apartments.ApartmentId, apartments.ApartmentRegion, apartments.ApartmentCity, apartments.ApartmentRoomNumber, apartments.ApartmentRating, apartments.IsApartmentAvailable, apartments.ApartmentPriceTotal);
 
             ApartmentImage.Source = new BitmapImage(new Uri("ms-appx:///" + apartment.GetCoverImage(), UriKind.Absolute));
             ApartmentInside.Source = new BitmapImage(new Uri("ms-appx:///" + apartment.GetInsideImage(), UriKind.Absolute));
@@ -146,7 +152,7 @@ namespace Hamburger_Heaven_Challenge
 
             // Filter on category
             RegionResultTextBlock.Text = selectedRegion.ApartmentRegion.ToString();
-            ApartmentManager.GetApartmentsByRegionCategory(Apartments, selectedRegion.ApartmentRegion);
+            myApartmentManager.GetApartmentsByRegionCategory(Apartments, selectedRegion.ApartmentRegion);
 
         }
 
@@ -156,7 +162,7 @@ namespace Hamburger_Heaven_Challenge
 
             // Filter on category
             CityResultTextBlock.Text = selectedCity.ApartmentCity.ToString();
-            ApartmentManager.GetApartmentsByCityCategory(Apartments, selectedCity.ApartmentCity);
+            myApartmentManager.GetApartmentsByCityCategory(Apartments, selectedCity.ApartmentCity);
         }
 
 
@@ -167,12 +173,23 @@ namespace Hamburger_Heaven_Challenge
 
             // Filter on category
             RoomResultTextBlock.Text = selectedRoom.ApartmentRoomNumber.ToString();
-            ApartmentManager.GetApartmentsByRoomCategory(Apartments, selectedRoom.ApartmentRoomNumber);
+            myApartmentManager.GetApartmentsByRoomCategory(Apartments, selectedRoom.ApartmentRoomNumber);
         }
 
         private void PopUpGridView_ItemClick(object sender, ItemClickEventArgs e)
         {
 
+        }
+
+        private void BookNow_Click(object sender, RoutedEventArgs e)
+        {
+            string apartmentId = ApartmentResultTextBlock.Text;
+            if (OnBookNowNavigate != null)
+            {
+                OnBookNowNavigate(sender, e, apartmentId);
+            }
+
+            StandardPopup.IsOpen = false;
         }
     }
 }

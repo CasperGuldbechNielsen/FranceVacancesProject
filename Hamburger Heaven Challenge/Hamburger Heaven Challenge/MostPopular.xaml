@@ -224,14 +224,16 @@
                                     RelativePanel.AlignBottomWithPanel="True"
                                     RelativePanel.AlignLeftWithPanel="True"/>
 
-                            <Button Content="Book now"
+                            <Button x:Name="BookNow"
+                                    Content="Book now"
                                     Margin="0,0,10,10"
                                     Height="50" 
                                     Width="250"
                                     Background="MediumSeaGreen"
                                     Foreground="AliceBlue"
                                     RelativePanel.AlignBottomWithPanel="True"
-                                    RelativePanel.AlignRightWithPanel="True"/>
+                                    RelativePanel.AlignRightWithPanel="True" 
+                                    Click="BookNow_Click" />
                         </RelativePanel>
                     </Border>
                 </Popup>

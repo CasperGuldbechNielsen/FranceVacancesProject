@@ -22,6 +22,8 @@ namespace Hamburger_Heaven_Challenge
         private ObservableCollection<Apartment> apartments;
         private List<String> Suggestions;
 
+        ApartmentManager myApartmentManager = new ApartmentManager();
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -31,7 +33,7 @@ namespace Hamburger_Heaven_Challenge
 
             // Populates the observable collection 'Apartment'
             apartments = new ObservableCollection<Apartment>();
-            ApartmentManager.GetAllApartments(apartments);
+            myApartmentManager.GetAllApartments(apartments);
         }
 
         private void IconsLIstBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -76,7 +78,10 @@ namespace Hamburger_Heaven_Challenge
                 BackButton.Visibility = Visibility.Visible;
                 Title.Margin = new Thickness(0, 0, 0, 0);
 
-                
+                var a = (MostPopular)MyFrame.Content;
+                if (a != null)
+                    a.OnBookNowNavigate += OnBookNow;
+
             }
             else if (MapListBoxItem.IsSelected)
             {
@@ -157,6 +162,17 @@ namespace Hamburger_Heaven_Challenge
                     if (b != null)
                         b.OnNavigateLogin += OnLogin;
                 }
+                else if (MyFrame.CurrentSourcePageType == typeof(BookNow))
+                {
+                    MyFrame.GoBack();
+                    Title.Text = "Most Popular";
+                    MostPopularListBoxItem.IsSelected = true;
+
+                    var a = (MostPopular)MyFrame.Content;
+                    if (a != null)
+                        a.OnBookNowNavigate += OnBookNow;
+
+                }
                 else
                 {
                     MyFrame.GoBack();
@@ -186,6 +202,11 @@ namespace Hamburger_Heaven_Challenge
                         MostPopularListBoxItem.IsSelected = true;
                         if (MyFrame.CanGoBack)
                             MyFrame.GoBack();
+
+                        var a = (MostPopular)MyFrame.Content;
+                        if (a != null)
+                            a.OnBookNowNavigate += OnBookNow;
+
                     }
                     else if (MyFrame.CurrentSourcePageType == typeof (Map))
                     {
@@ -265,9 +286,18 @@ namespace Hamburger_Heaven_Challenge
             Title.Margin = new Thickness(0, 0, 0, 0);
         }
 
+        public void OnBookNow(object sender, RoutedEventArgs e, string apartmentId)
+        {
+            if (MySplitView.Content != null)
+                ((Frame) MySplitView.Content).Navigate(typeof (BookNow), apartmentId);
+            Title.Text = "Book Now";
+            BackButton.Visibility = Visibility.Visible;
+            Title.Margin = new Thickness(0, 0, 0, 0);
+        }
+
         private void MyAutoSuggestBox_OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
-            ApartmentManager.GetAllApartments(apartments);
+            myApartmentManager.GetAllApartments(apartments);
             // we gonna write the code and clikcEvent to navigate the new page called "searches" looks alike "MostPopular"
 
         }
@@ -275,7 +305,7 @@ namespace Hamburger_Heaven_Challenge
         private void MyAutoSuggestBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
 
-            ApartmentManager.GetAllApartments(apartments);
+            myApartmentManager.GetAllApartments(apartments);
             Suggestions = apartments
                 .Where(p => p.ApartmentCity.ToString().ToLower().StartsWith(sender.Text))
                 .Select(p => p.ApartmentCity.ToString()).Distinct()
