@@ -30,9 +30,6 @@ namespace Hamburger_Heaven_Challenge
             Cities = LocationManager.GetLocations();
         }
 
-        private void City_OnClick(object sender, ItemClickEventArgs e)
-        {
-            //navigate to the city in the searchview
-        }
+
     }
 }

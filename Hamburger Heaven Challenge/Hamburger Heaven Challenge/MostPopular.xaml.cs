@@ -110,6 +110,9 @@ namespace Hamburger_Heaven_Challenge
         {
             var apartments = (Apartment)e.ClickedItem;
             ApartmentResultTextBlock.Text = apartments.ApartmentId;
+            CityResultTextBlock1.Text = apartments.ApartmentCity.ToString();
+            RegionResultTextBlock1.Text = apartments.ApartmentRegion.ToString();
+            RoomResultTextBlock1.Text = apartments.ApartmentRoomNumber.ToString();
 
             if (!StandardPopup.IsOpen)
             {
