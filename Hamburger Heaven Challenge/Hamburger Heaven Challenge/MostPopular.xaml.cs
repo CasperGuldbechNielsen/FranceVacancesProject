@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -115,7 +116,7 @@ namespace Hamburger_Heaven_Challenge
                 StandardPopup.IsOpen = true;
             }
 
-            StandardPopup.VerticalOffset = 200;
+            StandardPopup.VerticalOffset = 100;
 
             Apartment apartment = new Apartment(apartments.ApartmentId, apartments.ApartmentRegion, apartments.ApartmentCity, apartments.ApartmentRoomNumber, apartments.ApartmentRating, apartments.IsApartmentAvailable, apartments.ApartmentPriceTotal);
 
@@ -172,14 +173,13 @@ namespace Hamburger_Heaven_Challenge
             myApartmentManager.GetApartmentsByRoomCategory(Apartments, selectedRoom.ApartmentRoomNumber);
         }
 
-        private void PopUpGridView_ItemClick(object sender, ItemClickEventArgs e)
+
+        private async void BookNow_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void BookNow_Click(object sender, RoutedEventArgs e)
-        { 
             StandardPopup.IsOpen = false;
+
+            var dialog = new MessageDialog("You have successfully booked the apartment!");
+            await dialog.ShowAsync();
         }
     }
 }
