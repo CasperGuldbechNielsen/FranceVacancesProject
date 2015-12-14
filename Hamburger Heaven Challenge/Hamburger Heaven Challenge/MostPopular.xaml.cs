@@ -33,10 +33,6 @@ namespace Hamburger_Heaven_Challenge
         private List<ApartmentCitySelector> ApartmentCitySelector;
         private List<ApartmentRoomSelector> ApartmentRoomSelector;
 
-        public delegate void MyEventHandler(object source, RoutedEventArgs e, string apartmentId);
-
-        public event MyEventHandler OnBookNowNavigate;
-
         ApartmentManager myApartmentManager = new ApartmentManager();
 
 
@@ -185,13 +181,7 @@ namespace Hamburger_Heaven_Challenge
         }
 
         private void BookNow_Click(object sender, RoutedEventArgs e)
-        {
-            string apartmentId = ApartmentResultTextBlock.Text;
-            if (OnBookNowNavigate != null)
-            {
-                OnBookNowNavigate(sender, e, apartmentId);
-            }
-
+        { 
             StandardPopup.IsOpen = false;
         }
     }
