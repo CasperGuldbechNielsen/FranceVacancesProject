@@ -22,7 +22,6 @@
     
     <Grid>
         <GridView ItemsSource="{x:Bind Cities}"
-                  ItemClick="City_OnClick"
                   IsItemClickEnabled="False"
                   ItemTemplate="{StaticResource LocationsDataTemplate}">
             </GridView>
