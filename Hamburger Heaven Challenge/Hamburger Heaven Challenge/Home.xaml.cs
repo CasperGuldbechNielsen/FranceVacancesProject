@@ -28,18 +28,20 @@ namespace Hamburger_Heaven_Challenge
         private ObservableCollection<Apartment> apartments;
         private List<String> Suggestions;
 
+        ApartmentManager myManaApartmentManger = new ApartmentManager();
+
         public Home()
         {
             this.InitializeComponent();
             //MyMap.Center = new Geopoint(new BasicGeoposition() { Latitude = 46.8442643, Longitude = 2.5992004 });
             //MyMap.ZoomLevel = 6;
             apartments = new ObservableCollection<Apartment>();
-            ApartmentManager.GetAllApartments(apartments);
+            myManaApartmentManger.GetAllApartments(apartments);
         }
 
         private void AutoSuggestBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-            ApartmentManager.GetAllApartments(apartments);
+            myManaApartmentManger.GetAllApartments(apartments);
             Suggestions = apartments
                 .Where(p => p.ApartmentCity.ToString().ToLower().StartsWith(sender.Text))
                 .Select(p => p.ApartmentCity.ToString()).Distinct()

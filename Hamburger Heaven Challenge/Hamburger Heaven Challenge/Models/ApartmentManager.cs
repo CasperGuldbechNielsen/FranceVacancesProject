@@ -10,14 +10,17 @@ namespace Hamburger_Heaven_Challenge.Models
     
         public class ApartmentManager
         {
-            public static void GetAllApartments(ObservableCollection<Apartment> apartments )
+
+            List<Apartment> apartments = new List<Apartment>();
+
+            public void GetAllApartments(ObservableCollection<Apartment> apartments )
             {
                 var allApartments = getApartments();
                 apartments.Clear();
                 allApartments.ForEach(p => apartments.Add(p));
             }
 
-            public static void GetApartmentsByRegionCategory(ObservableCollection<Apartment> apartments,
+            public void GetApartmentsByRegionCategory(ObservableCollection<Apartment> apartments,
                 RegionCategory apartmentRegionCategory)
             {
                 var allApartments = getApartments();
@@ -26,7 +29,7 @@ namespace Hamburger_Heaven_Challenge.Models
                 filteredApartments.ForEach(p => apartments.Add(p));
             }
 
-            public static void GetApartmentsByCityCategory(ObservableCollection<Apartment> apartments,
+            public void GetApartmentsByCityCategory(ObservableCollection<Apartment> apartments,
                 CityCategory apartmentCityCategory)
             {
                 var allApartments = getApartments();
@@ -35,7 +38,7 @@ namespace Hamburger_Heaven_Challenge.Models
                 filteredApartments.ForEach(p => apartments.Add(p));
             }
 
-            public static void GetApartmentsByRoomCategory(ObservableCollection<Apartment> apartments,
+            public void GetApartmentsByRoomCategory(ObservableCollection<Apartment> apartments,
                 RoomCategory apartmentRoomCategory)
             {
                 var allApartments = getApartments();
@@ -45,10 +48,9 @@ namespace Hamburger_Heaven_Challenge.Models
             }
 
         
-            private static List<Apartment> getApartments()
+            private List<Apartment> getApartments()
             {
-                var apartments = new List<Apartment>();
-
+                
                 apartments.Add(new Apartment("001", RegionCategory.Alsace, CityCategory.Ajaccio, RoomCategory.One, 1.3, true, 150.50));
                 apartments.Add(new Apartment("002", RegionCategory.Alsace, CityCategory.Amiens, RoomCategory.Two, 4.5, true, 200.50));
                 apartments.Add(new Apartment("003", RegionCategory.Aquitaine, CityCategory.ClermontFerrand, RoomCategory.Three, 3.8, true, 120.20));
@@ -162,6 +164,11 @@ namespace Hamburger_Heaven_Challenge.Models
                 return apartments;
 
             }
-        
+
+            public List<Apartment> GetAllApartmentsList()
+            {
+                return apartments;
+            }
+
     }
 }
