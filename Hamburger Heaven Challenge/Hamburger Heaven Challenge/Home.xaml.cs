@@ -25,12 +25,15 @@ namespace Hamburger_Heaven_Challenge
     /// </summary>
     public sealed partial class Home : Page
     {
-        public delegate void MyEventHandler(object source, RoutedEventArgs e);
+        public delegate void MyEventHandler(object source, RoutedEventArgs e, string city);
 
         public event MyEventHandler NavigateToResults;
         
         private ObservableCollection<Apartment> apartments;
         private List<String> Suggestions;
+
+        private string city;
+        private int rooms;
 
         ApartmentManager myManaApartmentManger = new ApartmentManager();
 
@@ -57,9 +60,11 @@ namespace Hamburger_Heaven_Challenge
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
+            city = AutoSuggestBox.Text;
+
             if (NavigateToResults != null)
             {
-                NavigateToResults(sender, e);
+                NavigateToResults(sender, e, city);
             }
         }
     }

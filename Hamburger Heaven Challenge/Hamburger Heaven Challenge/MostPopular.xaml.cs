@@ -36,6 +36,8 @@ namespace Hamburger_Heaven_Challenge
 
         ApartmentManager myApartmentManager = new ApartmentManager();
 
+        private string _city;
+
 
         public MostPopular()
         {
@@ -104,15 +106,33 @@ namespace Hamburger_Heaven_Challenge
 
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            //this.DataContext = e.Parameter;
+            _city = (string)e.Parameter;
+
+            var myApartmentCitySelector = new ApartmentCitySelector();
+
+            var test = myApartmentCitySelector.ApartmentCity;
+
+            // Filter on category
+            CityResultTextBlock.Text = _city;
+            myApartmentManager.GetApartmentsByCityCategory(Apartments, test);
+
+        }
+
 
 
         private void GridView_ItemClick(object sender, ItemClickEventArgs e)
         {
             var apartments = (Apartment)e.ClickedItem;
-            ApartmentResultTextBlock.Text = apartments.ApartmentId;
-            CityResultTextBlock1.Text = apartments.ApartmentCity.ToString();
-            RegionResultTextBlock1.Text = apartments.ApartmentRegion.ToString();
-            RoomResultTextBlock1.Text = apartments.ApartmentRoomNumber.ToString();
+            ApartmentResultTextBlock.Text = "Appartment ID: " + apartments.ApartmentId;
+            CityResultTextBlock1.Text = "City: " + apartments.ApartmentCity.ToString();
+            RegionResultTextBlock1.Text = "Region: " + apartments.ApartmentRegion.ToString();
+            RoomResultTextBlock1.Text = "Rooms: " + apartments.ApartmentRoomNumber.ToString();
+
+            Description.Text =
+                "If you choose to book this apartment you will recieve\r\na confirmation email with all the information you will need.";
 
             if (!StandardPopup.IsOpen)
             {
@@ -183,6 +203,11 @@ namespace Hamburger_Heaven_Challenge
 
             var dialog = new MessageDialog("You have successfully booked the apartment!");
             await dialog.ShowAsync();
+        }
+
+        private void CitySelectorListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

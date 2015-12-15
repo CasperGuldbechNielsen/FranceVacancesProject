@@ -34,6 +34,10 @@ namespace Hamburger_Heaven_Challenge
             // Populates the observable collection 'Apartment'
             apartments = new ObservableCollection<Apartment>();
             myApartmentManager.GetAllApartments(apartments);
+
+            var a = (Home)MyFrame.Content;
+            if (a != null)
+                a.NavigateToResults += OnSearch;
         }
 
         private void IconsLIstBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -51,6 +55,10 @@ namespace Hamburger_Heaven_Challenge
                     BackButton.Visibility = Visibility.Collapsed;
                     Title.Margin = new Thickness(68, 0, 0, 0);
                 }
+
+                var a = (Home)MyFrame.Content;
+                if (a != null)
+                    a.NavigateToResults += OnSearch;
 
                 //if (stategroup.CurrentState == NoUI || stategroup.CurrentState == compact)
                 //{
@@ -174,6 +182,11 @@ namespace Hamburger_Heaven_Challenge
                             BackButton.Visibility = Visibility.Collapsed;
                             Title.Margin = new Thickness(68, 0, 0, 0);
                         }
+
+                        var a = (Home)MyFrame.Content;
+                        if (a != null)
+                            a.NavigateToResults += OnSearch;
+
                     }
                     else if (MyFrame.CurrentSourcePageType == typeof (Locations))
                     {
@@ -264,6 +277,15 @@ namespace Hamburger_Heaven_Challenge
             if (MySplitView.Content != null)
                 ((Frame) MySplitView.Content).Navigate(typeof(MyProfile), email);
             Title.Text = "My Profile";
+            BackButton.Visibility = Visibility.Visible;
+            Title.Margin = new Thickness(0, 0, 0, 0);
+        }
+
+        public void OnSearch(object sender, RoutedEventArgs e, string city)
+        {
+            if (MySplitView.Content != null)
+                ((Frame) MySplitView.Content).Navigate(typeof (MostPopular), city);
+            Title.Text = "Search Result";
             BackButton.Visibility = Visibility.Visible;
             Title.Margin = new Thickness(0, 0, 0, 0);
         }
