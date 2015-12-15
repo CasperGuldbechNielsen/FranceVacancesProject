@@ -94,7 +94,7 @@ namespace Hamburger_Heaven_Challenge
                 SecurityNum.Background = new SolidColorBrush(Colors.Red);
             }
 
-            if (SecurityNum.Text != "" && CardNumber.Text != "")
+            if (SecurityNum.Text.Length != 3 && CardNumber.Text.Length != 16)
             {
                 try
                 {
