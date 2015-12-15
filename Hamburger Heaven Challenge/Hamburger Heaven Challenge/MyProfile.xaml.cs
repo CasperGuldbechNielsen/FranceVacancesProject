@@ -94,60 +94,65 @@ namespace Hamburger_Heaven_Challenge
                 SecurityNum.Background = new SolidColorBrush(Colors.Red);
             }
 
-            try
+            if (SecurityNum.Text != "" && CardNumber.Text != "")
             {
-                Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-                Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync(_email, Windows.Storage.CreationCollisionOption.ReplaceExisting);
-
-                StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-
-                var files = await localFolder.GetFilesAsync();
-
-                foreach (StorageFile storageFile in files)
+                try
                 {
-                    if (storageFile.Name == _email)
+                    Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                    Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync(_email, Windows.Storage.CreationCollisionOption.ReplaceExisting);
+
+                    StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+
+                    var files = await localFolder.GetFilesAsync();
+
+                    foreach (StorageFile storageFile in files)
                     {
-                        var newFileContent = "--- Adress: --- \r\n" + _adress + "\r\n" + _city + "\r\n" + _country + "\r\n" + "--- Creditcard Information: ---- \r\n" + _cardNumber + "\r\n" + _expiryDate + "\r\n" + _securityNumber;
-                        File.WriteAllText(storageFile.Path, newFileContent);
+                        if (storageFile.Name == _email)
+                        {
+                            var newFileContent = "--- Adress: --- \r\n" + _adress + "\r\n" + _city + "\r\n" + _country + "\r\n" + "--- Creditcard Information: ---- \r\n" + _cardNumber + "\r\n" + _expiryDate + "\r\n" + _securityNumber;
+                            File.WriteAllText(storageFile.Path, newFileContent);
 
-                        Adress.Text = "";
-                        City.Text = "";
-                        Country.Text = "";
+                            Adress.Text = "";
+                            City.Text = "";
+                            Country.Text = "";
 
-                        CardNumber.Text = "";
-                        SecurityNum.Text = "";
+                            CardNumber.Text = "";
+                            SecurityNum.Text = "";
 
-                        MessageDialog message = new MessageDialog("Your data was saved!");
-                        await message.ShowAsync();
+                            MessageDialog message = new MessageDialog("Your data was saved!");
+                            await message.ShowAsync();
+                        }
                     }
                 }
-            }
-            catch
-            {
-
-                StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-
-                var files = await localFolder.GetFilesAsync();
-
-                foreach (StorageFile storageFile in files)
+                catch
                 {
-                    if (storageFile.Name == "Users.txt")
+
+                    StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+
+                    var files = await localFolder.GetFilesAsync();
+
+                    foreach (StorageFile storageFile in files)
                     {
-                        var newFileContent = "--- Adress: --- \r\n" + _adress + "\r\n" + _city + "\r\n" + _country + "\r\n" + "--- Creditcard Information: ---- \r\n" + _cardNumber + "\r\n" + _expiryDate + "\r\n" + _securityNumber;
-                        File.WriteAllText(storageFile.Path, newFileContent);
+                        if (storageFile.Name == "Users.txt")
+                        {
+                            var newFileContent = "--- Adress: --- \r\n" + _adress + "\r\n" + _city + "\r\n" + _country + "\r\n" + "--- Creditcard Information: ---- \r\n" + _cardNumber + "\r\n" + _expiryDate + "\r\n" + _securityNumber;
+                            File.WriteAllText(storageFile.Path, newFileContent);
 
-                        Adress.Text = "";
-                        City.Text = "";
-                        Country.Text = "";
+                            Adress.Text = "";
+                            City.Text = "";
+                            Country.Text = "";
 
-                        CardNumber.Text = "";
-                        SecurityNum.Text = "";
+                            CardNumber.Text = "";
+                            SecurityNum.Text = "";
 
-                        MessageDialog message = new MessageDialog("Your data was saved!");
-                        await message.ShowAsync();
+                            MessageDialog message = new MessageDialog("Your data was saved!");
+                            await message.ShowAsync();
 
+                        }
                     }
                 }
+
+            
             }
         }
     }

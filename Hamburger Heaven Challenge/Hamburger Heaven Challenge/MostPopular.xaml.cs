@@ -116,7 +116,7 @@ namespace Hamburger_Heaven_Challenge
             var test = myApartmentCitySelector.ApartmentCity;
 
             // Filter on category
-            CityResultTextBlock.Text = _city;
+            CityResultTextBlock.Text = test.ToString();
             myApartmentManager.GetApartmentsByCityCategory(Apartments, test);
 
         }
